@@ -103,5 +103,5 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Ann0208/skill-practice.git
+  repo: git@github.com:Ann0208/skill-practice.git
   branch: gh-pages
