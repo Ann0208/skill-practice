@@ -92,11 +92,21 @@ body {
   position: relative !important;
 }
 
-/* Sub-pages (categories / tags / archives / about / posts) banner height */
-#page-header.not-home-page,
-#page-header.post-bg {
+/* Sub-pages (categories / tags / archives / about) banner height */
+#page-header.not-home-page {
   height: 220px !important;
   min-height: 220px !important;
+}
+
+/* Re-center the page title inside the shorter banner (original: top:200px for 400px height) */
+#page-header.not-home-page #page-site-info {
+  top: 90px !important;
+}
+
+/* Post pages banner height */
+#page-header.post-bg {
+  height: 240px !important;
+  min-height: 240px !important;
 }
 
 #page-header::after {
