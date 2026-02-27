@@ -1,0 +1,446 @@
+/* ============================================
+   Coze-inspired Theme Override for Butterfly
+   ============================================ */
+
+/* ---- Override Butterfly CSS Variables ---- */
+html, [data-theme='light'], [data-theme='dark'] {
+  --global-bg: #0d0e14;
+  --card-bg: #16171f;
+  --font-color: rgba(255, 255, 255, 0.88);
+  --hr-border: rgba(255, 255, 255, 0.10);
+  --search-bg: #16171f;
+  --search-input-color: rgba(255, 255, 255, 0.8);
+  --search-a-color: rgba(255, 255, 255, 0.8);
+  --sidebar-bg: #16171f;
+  --sidebar-menu-bg: #1a1b24;
+  --text-highlight-color: rgba(255, 255, 255, 0.9);
+  --blockquote-color: rgba(255, 255, 255, 0.6);
+  --blockquote-bg: #1a1b24;
+  --toc-link-color: rgba(255, 255, 255, 0.55);
+  --scrollbar-color: #7c3aed;
+  --btn-color: #fff;
+  --btn-bg: #1e1f2a;
+  --btn-hover-color: #a855f7;
+  --light-grey: rgba(255, 255, 255, 0.6);
+  --dark-grey: rgba(255, 255, 255, 0.18);
+  --white: rgba(255, 255, 255, 0.88);
+  --timeline-bg: #1a1b24;
+  --tab-border-color: rgba(255, 255, 255, 0.08);
+  --tab-button-bg: #1a1b24;
+  --tab-button-color: rgba(255, 255, 255, 0.7);
+  --tab-button-hover-bg: #23242f;
+  --tab-button-active-bg: #16171f;
+  --zoom-bg: #0d0e14;
+  --mark-bg: rgba(124, 58, 237, 0.25);
+}
+
+/* ---- Body & Page Background ---- */
+body {
+  background: #0d0e14 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+#body-wrap {
+  background: #0d0e14 !important;
+}
+
+/* ---- Navigation Bar ---- */
+#nav {
+  background: rgba(13, 14, 20, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: none !important;
+}
+
+#nav.nav-fixed, #nav.show {
+  background: rgba(13, 14, 20, 0.95) !important;
+}
+
+.nav-site-title .site-name,
+#nav .site-name {
+  color: #fff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+}
+
+#nav .menus_items .site-page,
+#nav .menus_items a {
+  color: rgba(255, 255, 255, 0.65) !important;
+  transition: color 0.2s ease !important;
+}
+
+#nav .menus_items .site-page:hover,
+#nav .menus_items a:hover {
+  color: #a855f7 !important;
+}
+
+#toggle-menu .site-page {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ---- Hero Header ---- */
+#page-header {
+  background: linear-gradient(160deg, #0d0e14 0%, #1b0d35 45%, #0d0e14 100%) !important;
+  position: relative !important;
+}
+
+#page-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 25%, rgba(124, 58, 237, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 25% at 75% 65%, rgba(168, 85, 247, 0.1) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+#site-info {
+  position: relative;
+  z-index: 2;
+}
+
+#site-title {
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 50px rgba(124, 58, 237, 0.5) !important;
+}
+
+#subtitle,
+#site-subtitle span {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+#site_social_icons .social-icon i {
+  color: rgba(255, 255, 255, 0.55) !important;
+  transition: color 0.2s ease !important;
+}
+
+#site_social_icons .social-icon:hover i {
+  color: #a855f7 !important;
+}
+
+#scroll-down i {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* ---- Post Cards ---- */
+.recent-post-item {
+  background: #16171f !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 14px !important;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease !important;
+}
+
+.recent-post-item:hover {
+  background: #1a1b26 !important;
+  border-color: rgba(124, 58, 237, 0.45) !important;
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.18), 0 8px 32px rgba(0, 0, 0, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+.recent-post-info {
+  background: transparent !important;
+}
+
+.article-title {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease !important;
+}
+
+.article-title:hover {
+  color: #a855f7 !important;
+}
+
+.content {
+  color: rgba(255, 255, 255, 0.52) !important;
+}
+
+/* Article meta */
+.post-meta-date,
+.article-meta-wrap,
+.article-meta,
+.article-meta-label {
+  color: rgba(255, 255, 255, 0.42) !important;
+}
+
+.post-meta-date i,
+.article-meta-wrap i {
+  color: rgba(124, 58, 237, 0.75) !important;
+}
+
+.article-meta__categories,
+.article-meta__categories a {
+  color: #a855f7 !important;
+}
+
+.article-meta-separator {
+  color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ---- Aside / Sidebar Widgets ---- */
+.card-widget {
+  background: #16171f !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+.item-headline {
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 12px !important;
+}
+
+.item-headline i {
+  color: #7c3aed !important;
+}
+
+/* Author / Info Card */
+.author-info-name {
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+.author-info-description {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.site-data a .headline {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.site-data a .length-num {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 700 !important;
+}
+
+#card-info-btn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+}
+
+#card-info-btn:hover {
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+.card-info-social-icons .social-icon i {
+  transition: color 0.2s ease !important;
+}
+
+.card-info-social-icons .social-icon:hover i {
+  color: #a855f7 !important;
+}
+
+/* Announcement */
+.announcement_content {
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+
+/* Recent post list */
+.aside-list-item .content a.title {
+  color: rgba(255, 255, 255, 0.82) !important;
+  transition: color 0.2s ease !important;
+}
+
+.aside-list-item .content a.title:hover {
+  color: #a855f7 !important;
+}
+
+.aside-list-item .content time {
+  color: rgba(255, 255, 255, 0.32) !important;
+}
+
+/* Category list */
+.card-category-list-link {
+  color: rgba(255, 255, 255, 0.68) !important;
+  transition: color 0.2s ease !important;
+}
+
+.card-category-list-link:hover {
+  color: #a855f7 !important;
+}
+
+.card-category-list-count {
+  background: rgba(124, 58, 237, 0.18) !important;
+  color: #a855f7 !important;
+  border-radius: 20px !important;
+}
+
+/* Tag cloud */
+.card-tag-cloud a {
+  color: rgba(255, 255, 255, 0.55) !important;
+  transition: color 0.2s ease !important;
+}
+
+.card-tag-cloud a:hover {
+  color: #a855f7 !important;
+}
+
+/* Archives */
+.card-archive-list-link {
+  color: rgba(255, 255, 255, 0.68) !important;
+  transition: color 0.2s ease !important;
+}
+
+.card-archive-list-link:hover {
+  color: #a855f7 !important;
+}
+
+.card-archive-list-date {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.card-archive-list-count {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.card-more-btn {
+  color: rgba(255, 255, 255, 0.35) !important;
+  transition: color 0.2s ease !important;
+}
+
+.card-more-btn:hover {
+  color: #a855f7 !important;
+}
+
+/* Web info */
+.webinfo-item .item-name {
+  color: rgba(255, 255, 255, 0.42) !important;
+}
+
+.webinfo-item .item-count {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 600 !important;
+}
+
+/* ---- Pagination ---- */
+.pagination .page-number,
+.pagination .extend {
+  background: #16171f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  border-radius: 8px !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
+}
+
+.pagination .page-number.current {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+.pagination .page-number:hover,
+.pagination .extend:hover {
+  border-color: rgba(124, 58, 237, 0.55) !important;
+  color: #a855f7 !important;
+}
+
+/* ---- Footer ---- */
+#footer {
+  background: #0a0b11 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.footer-copyright,
+.footer-copyright a,
+.footer-copyright span,
+.framework-info,
+.framework-info a {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.footer-copyright a:hover,
+.framework-info a:hover {
+  color: rgba(168, 85, 247, 0.8) !important;
+}
+
+/* ---- Sidebar (Mobile Drawer) ---- */
+#sidebar {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+#sidebar-menus {
+  background: #16171f !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+#sidebar-menus .menus_item a {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+#sidebar-menus .menus_item a:hover {
+  color: #a855f7 !important;
+}
+
+.avatar-img img {
+  border: 2px solid rgba(124, 58, 237, 0.4) !important;
+}
+
+/* ---- Right Side Floating Buttons ---- */
+#rightside button {
+  background: #1a1b24 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+#rightside button:hover {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0e14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.45);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.75);
+}
+
+/* ---- Menu Mask ---- */
+#menu-mask {
+  background: rgba(0, 0, 0, 0.65) !important;
+}
+
+/* ---- General Links ---- */
+a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.2s ease !important;
+}
+
+a:hover {
+  color: #a855f7 !important;
+}
+
+/* ---- Selection highlight ---- */
+::selection {
+  background: rgba(124, 58, 237, 0.35) !important;
+  color: #fff !important;
+}
+
+/* ---- Header mask overlay tweak ---- */
+.full_page::before {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
