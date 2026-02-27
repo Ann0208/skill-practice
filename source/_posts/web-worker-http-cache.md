@@ -1,6 +1,6 @@
 ---
 title: Web Worker 实践：多线程通信设计与 HTTP 缓存策略
-date: 2026-02-27 10:00:00
+date: 2025-07-22 21:00:00
 tags:
   - Web Worker
   - 多线程

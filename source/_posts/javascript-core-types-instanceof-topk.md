@@ -1,6 +1,6 @@
 ---
 title: JavaScript 核心：数据类型、instanceof 原理与百万数据 TopK 算法
-date: 2026-02-27 11:30:00
+date: 2024-06-12 21:00:00
 tags:
   - JavaScript
   - 数据类型

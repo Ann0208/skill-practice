@@ -1,6 +1,6 @@
 ---
 title: 实时通信与流式渲染：SSE、Markdown 分块渲染与 requestIdleCallback 实践
-date: 2026-02-27 09:30:00
+date: 2025-11-03 20:00:00
 tags:
   - SSE
   - WebSocket
