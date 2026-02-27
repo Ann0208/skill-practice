@@ -36,12 +36,13 @@ html, [data-theme='light'], [data-theme='dark'] {
 
 /* ---- Body & Page Background ---- */
 body {
-  background: #0d0e14 !important;
+  background: linear-gradient(160deg, #0d0e14 0%, #1b0d35 45%, #0d0e14 100%) !important;
+  background-attachment: fixed !important;
   color: rgba(255, 255, 255, 0.88) !important;
 }
 
 #body-wrap {
-  background: #0d0e14 !important;
+  background: transparent !important;
 }
 
 /* ---- Navigation Bar ---- */
