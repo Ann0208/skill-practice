@@ -98,6 +98,14 @@ body {
   min-height: 220px !important;
 }
 
+/* Vertically & horizontally center the page title inside the banner */
+#page-header.not-home-page #page-site-info {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
 /* Post pages banner height */
 #page-header.post-bg {
   height: 240px !important;
