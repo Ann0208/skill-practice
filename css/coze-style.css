@@ -92,6 +92,13 @@ body {
   position: relative !important;
 }
 
+/* Sub-pages (categories / tags / archives / about / posts) banner height */
+#page-header.not-home-page,
+#page-header.post-bg {
+  height: 220px !important;
+  min-height: 220px !important;
+}
+
 #page-header::after {
   content: '';
   position: absolute;
