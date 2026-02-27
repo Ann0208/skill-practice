@@ -79,6 +79,13 @@ body {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
+/* ---- Remove focus outline on header ---- */
+#page-header,
+#page-header:focus,
+#page-header *:focus {
+  outline: none !important;
+}
+
 /* ---- Hero Header ---- */
 #page-header {
   background: linear-gradient(160deg, #0d0e14 0%, #1b0d35 45%, #0d0e14 100%) !important;
