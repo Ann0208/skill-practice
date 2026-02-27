@@ -94,13 +94,13 @@ body {
 
 /* Sub-pages (categories / tags / archives / about) banner height */
 #page-header.not-home-page {
-  height: 220px !important;
-  min-height: 220px !important;
+  height: 160px !important;
+  min-height: 160px !important;
 }
 
-/* Vertically & horizontally center the page title inside the banner */
+/* Center title in the visible gradient area below the nav (nav=60px, so offset by 30px) */
 #page-header.not-home-page #page-site-info {
-  top: 50% !important;
+  top: calc(50% + 30px) !important;
   transform: translateY(-50%) !important;
   text-align: center !important;
   width: 100% !important;
@@ -108,8 +108,8 @@ body {
 
 /* Post pages banner height */
 #page-header.post-bg {
-  height: 240px !important;
-  min-height: 240px !important;
+  height: 200px !important;
+  min-height: 200px !important;
 }
 
 #page-header::after {
