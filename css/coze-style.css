@@ -97,6 +97,7 @@ body {
 #page-header.not-home-page {
   height: 160px !important;
   min-height: 160px !important;
+  background: linear-gradient(160deg, #0d0e14 0%, #1b0d35 45%, #0d0e14 100%) !important;
 }
 
 /* Center title in the visible gradient area below the nav (nav=60px, so offset by 30px) */
