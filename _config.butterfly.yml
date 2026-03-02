@@ -56,7 +56,7 @@ social:
 favicon: /img/favicon.png
 
 avatar:
-  img: /img/butterfly-icon.png
+  img: /img/avatar.jpg
   effect: false
 
 # Disable all banner images
@@ -143,9 +143,9 @@ post_meta:
 # The top_img settings of home page
 # default: top img - full screen, site info - middle
 # The position of site info, eg: 300px/300em/300rem/10%
-index_site_info_top:
+index_site_info_top: 35%
 # The height of top_img, eg: 300px/300em/300rem
-index_top_img_height:
+index_top_img_height: 420px
 
 # The subtitle on homepage
 subtitle:
@@ -1053,9 +1053,10 @@ css_prefix: true
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/skill-practice/css/coze-style.css">
   bottom:
-    # - <script src="xxxx"></script>
+    - <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    - <script>new CozeWebSDK.WebChatClient({config:{bot_id:'7611465130148151336'},componentProps:{title:'Ann 的博客助手'},auth:{type:'token',token:'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO',onRefreshToken:function(){return 'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO'}}});</script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
