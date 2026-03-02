@@ -185,13 +185,11 @@ a:hover { color: #ca8a04 !important; }
 }
 .cath-owners { display: flex; gap: 12px; flex-wrap: wrap; }
 .cath-owner {
-  display: flex; align-items: center; gap: 8px;
-  background: #fff; border: 1px solid rgba(0,0,0,0.07);
-  border-radius: 24px; padding: 6px 14px 6px 6px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  display: flex; align-items: center;
 }
 .cath-owner img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block; }
 .cath-owner span { font-size: 12px; font-weight: 600; color: #44403c !important; }
+.cath-duration { font-size: 12px; font-weight: 600; color: #a16207 !important; align-self: center; }
 
 /* ---- Grid ---- */
 .cath-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
@@ -373,6 +371,7 @@ a:hover { color: #ca8a04 !important; }
         <div class="cath-owner">
           <img src="/skill-practice/img/cat/owner-yan.png" alt="小严大人" />
         </div>
+        <span class="cath-duration" id="cat-duration-text"></span>
       </div>
     </div>
   </div>
@@ -813,6 +812,12 @@ a:hover { color: #ca8a04 !important; }
   };
 
   document.addEventListener('DOMContentLoaded', function () {
+    var start = new Date(2024, 10, 4);
+    var now = new Date();
+    var months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+    var durEl = document.getElementById('cat-duration-text');
+    if (durEl) durEl.textContent = '| 已陪伴 ' + months + ' 个月';
+
     var unlocked = false;
     try { unlocked = sessionStorage.getItem('cat_unlocked') === '1'; } catch (e) {}
     if (unlocked) {
