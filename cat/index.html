@@ -1,0 +1,972 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CAT | Ann 的技能练习小站</title><meta name="author" content="Ann"><meta name="copyright" content="Ann"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;    CAT PAGE — Macaroon Lemon Yellow Fresh Style    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;  &#x2F;* Page-level over">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CAT">
+<meta property="og:url" content="https://ann0208.github.io/skill-practice/cat/index.html">
+<meta property="og:site_name" content="Ann 的技能练习小站">
+<meta property="og:description" content="&#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;    CAT PAGE — Macaroon Lemon Yellow Fresh Style    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;  &#x2F;* Page-level over">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg">
+<meta property="article:published_time" content="2026-03-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-02T09:30:51.666Z">
+<meta property="article:author" content="Ann">
+<meta property="article:tag" content="技术博客,学习笔记,前端开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/skill-practice/img/favicon.png"><link rel="canonical" href="https://ann0208.github.io/skill-practice/cat/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/skill-practice/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/skill-practice/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CAT',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/skill-practice/css/coze-style.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/skill-practice/img/avatar.jpg" onerror="this.onerror=null;this.src='/skill-practice/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/skill-practice/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/skill-practice/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/skill-practice/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/skill-practice/"><span class="site-name">Ann 的技能练习小站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">CAT</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container">
+<style>
+/* ============================================================
+   CAT PAGE — Macaroon Lemon Yellow Fresh Style
+   ============================================================ */
+
+/* Page-level override */
+body, #body-wrap {
+  background: #fffef2 !important;
+}
+#page-header { background: #fffef2 !important; }
+#nav {
+  background: rgba(255, 254, 240, 0.94) !important;
+  border-bottom: 1px solid rgba(250, 204, 21, 0.2) !important;
+  box-shadow: 0 1px 12px rgba(250, 204, 21, 0.08) !important;
+}
+#nav.nav-fixed, #nav.show {
+  background: rgba(255, 254, 240, 0.98) !important;
+}
+.nav-site-title .site-name, #nav .site-name { color: #1c1917 !important; }
+#nav .menus_items .site-page, #nav .menus_items a { color: #44403c !important; }
+#nav .menus_items .site-page:hover, #nav .menus_items a:hover { color: #ca8a04 !important; }
+#toggle-menu .site-page { color: #44403c !important; }
+#sidebar-menus { background: #fffef2 !important; border-right: 1px solid rgba(250,204,21,0.15) !important; }
+#sidebar-menus .menus_item a { color: #44403c !important; }
+#sidebar-menus .menus_item a:hover { color: #ca8a04 !important; }
+#footer {
+  background: #fef9c3 !important;
+  border-top: 1px solid rgba(250, 204, 21, 0.2) !important;
+}
+.footer-copyright, .footer-copyright a, .footer-copyright span,
+.framework-info, .framework-info a { color: rgba(0,0,0,0.35) !important; }
+.footer-copyright a:hover, .framework-info a:hover { color: #ca8a04 !important; }
+#rightside button {
+  background: #fff !important;
+  border: 1px solid rgba(250,204,21,0.35) !important;
+  color: #44403c !important;
+  box-shadow: 0 2px 8px rgba(250,204,21,0.12) !important;
+}
+#rightside button:hover {
+  background: #fde047 !important;
+  border-color: transparent !important;
+  color: #1c1917 !important;
+  box-shadow: 0 4px 16px rgba(250,204,21,0.3) !important;
+}
+a { color: #92400e !important; }
+a:hover { color: #ca8a04 !important; }
+#menu-mask { background: rgba(255,254,240,0.7) !important; }
+
+/* ---- Password Gate ---- */
+#cat-lock {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 254, 242, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cath-lock-card {
+  background: #fff;
+  border: 1.5px solid rgba(250, 204, 21, 0.4);
+  border-radius: 24px;
+  padding: 48px 40px 40px;
+  text-align: center;
+  width: 380px;
+  max-width: 92vw;
+  box-shadow: 0 8px 48px rgba(250, 204, 21, 0.15), 0 2px 16px rgba(0,0,0,0.06);
+}
+.cath-lock-paw {
+  font-size: 54px;
+  margin-bottom: 16px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(250,204,21,0.3));
+}
+.cath-lock-title {
+  color: #1c1917 !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  margin: 0 0 8px !important;
+  border: none !important;
+  letter-spacing: 0.02em;
+}
+.cath-lock-desc {
+  color: #78716c !important;
+  font-size: 14px !important;
+  margin: 0 0 28px !important;
+  line-height: 1.6;
+}
+#cat-pwd-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fffef5;
+  border: 1.5px solid rgba(250,204,21,0.35);
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: #1c1917 !important;
+  font-size: 22px;
+  letter-spacing: 10px;
+  text-align: center;
+  outline: none;
+  margin-bottom: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#cat-pwd-input:focus {
+  border-color: #fde047;
+  box-shadow: 0 0 0 3px rgba(253,224,71,0.25);
+}
+.cath-lock-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #fde047, #facc15) !important;
+  color: #1c1917 !important;
+  border: none !important;
+  border-radius: 12px;
+  padding: 13px 0;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 16px rgba(250,204,21,0.35) !important;
+}
+.cath-lock-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(250,204,21,0.45) !important;
+}
+.cath-pwd-err { color: #dc2626 !important; font-size: 13px; margin-top: 12px; display: none; }
+
+/* ---- Dashboard Base ---- */
+#cat-dashboard { padding: 4px 0 24px; }
+* { box-sizing: border-box; }
+
+/* ---- Hero ---- */
+.cath-hero {
+  background: linear-gradient(135deg, #fffde7 0%, #fef9c3 40%, #fff9f0 100%);
+  border: 1.5px solid rgba(250, 204, 21, 0.25);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.cath-hero::before {
+  content: '';
+  position: absolute;
+  right: -40px; top: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(253,224,71,0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cath-avatar-img {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 20px rgba(250,204,21,0.3), 0 2px 8px rgba(0,0,0,0.1);
+  display: block;
+  flex-shrink: 0;
+}
+.cath-hero-info { flex: 1; min-width: 0; }
+.cath-name {
+  font-size: 32px; font-weight: 900; color: #1c1917 !important;
+  margin: 0 0 4px; letter-spacing: 0.1em;
+}
+.cath-subtitle { color: #a16207 !important; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.cath-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+.cath-chip {
+  background: rgba(253,224,71,0.28);
+  border: 1px solid rgba(250,204,21,0.4);
+  color: #78350f !important;
+  border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 500;
+}
+.cath-owners { display: flex; gap: 12px; flex-wrap: wrap; }
+.cath-owner {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 24px; padding: 6px 14px 6px 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.cath-owner img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block; }
+.cath-owner span { font-size: 12px; font-weight: 600; color: #44403c !important; }
+
+/* ---- Grid ---- */
+.cath-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+
+/* ---- Card ---- */
+.cath-card {
+  background: #fff; border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 18px; padding: 22px; margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.cath-card:last-child { margin-bottom: 0; }
+.cath-card-title {
+  font-size: 11px; font-weight: 700; color: #a16207 !important;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 16px; display: flex; align-items: center; gap: 7px;
+}
+
+/* Profile */
+.cath-profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+.cath-pl { font-size: 10px; color: #a8a29e !important; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 3px; }
+.cath-pv { font-size: 13px; color: #1c1917 !important; font-weight: 600; line-height: 1.45; }
+
+/* Weight stats */
+.cath-weight-stats {
+  display: flex; border: 1px solid rgba(250,204,21,0.25);
+  border-radius: 12px; overflow: hidden; margin-bottom: 16px; background: #fffde7;
+}
+.cath-ws { flex: 1; text-align: center; padding: 10px 4px; border-right: 1px solid rgba(250,204,21,0.2); }
+.cath-ws:last-child { border-right: none; }
+.cath-ws-val { font-size: 20px; font-weight: 800; color: #ca8a04 !important; line-height: 1; }
+.cath-ws-label { font-size: 10px; color: #a16207 !important; margin-top: 4px; text-transform: uppercase; }
+.cath-chart-wrap { position: relative; height: 170px; }
+
+/* Gallery */
+.cath-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.cath-gallery-item { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.cath-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.cath-gallery-item:hover img { transform: scale(1.04); }
+.cath-gallery-caption { font-size: 11px; color: #78716c !important; text-align: center; margin-top: 5px; }
+
+/* Timeline */
+.cath-timeline { position: relative; padding-left: 28px; }
+.cath-timeline::before {
+  content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px;
+  width: 2px; background: linear-gradient(to bottom, #fde047 0%, rgba(253,224,71,0.1) 100%); border-radius: 2px;
+}
+.cath-tl-item { position: relative; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; }
+.cath-tl-item:last-child { margin-bottom: 0; }
+.cath-tl-dot { position: absolute; left: -24px; top: 4px; width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid; flex-shrink: 0; }
+.cath-tl-dot-y  { background: #fde047; border-color: #facc15; box-shadow: 0 0 0 3px rgba(253,224,71,0.25); }
+.cath-tl-dot-m  { background: #4ade80; border-color: #22c55e; box-shadow: 0 0 0 3px rgba(74,222,128,0.2); }
+.cath-tl-dot-pk { background: #f472b6; border-color: #ec4899; box-shadow: 0 0 0 3px rgba(244,114,182,0.2); }
+.cath-tl-dot-lv { background: #a78bfa; border-color: #8b5cf6; box-shadow: 0 0 0 3px rgba(167,139,250,0.2); }
+.cath-tl-date { font-size: 12px; color: #a16207 !important; font-weight: 700; white-space: nowrap; min-width: 76px; padding-top: 1px; }
+.cath-tl-title { font-size: 14px; font-weight: 700; color: #1c1917 !important; margin-bottom: 3px; }
+.cath-tl-desc { font-size: 12px; color: #78716c !important; line-height: 1.55; }
+.cath-tl-img { width: 80px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+/* Routine */
+.cath-routine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cath-routine-section {
+  font-size: 12px; font-weight: 700; color: #a16207 !important;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+}
+.cath-ri {
+  font-size: 13px; color: #44403c !important;
+  padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+}
+.cath-ri:last-child { border-bottom: none; }
+.cath-ri::before { content: '▸'; color: #fbbf24; flex-shrink: 0; font-size: 10px; margin-top: 2px; }
+
+/* Medical */
+.cath-med-sub { font-size: 11px; font-weight: 700; color: #a16207 !important; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.cath-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cath-table th {
+  text-align: left; color: #a8a29e !important; font-weight: 700;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 6px 12px; border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.cath-table td { padding: 10px 12px; color: #1c1917 !important; border-bottom: 1px solid rgba(0,0,0,0.05); vertical-align: middle; }
+.cath-table tr:last-child td { border-bottom: none; }
+.cath-badge { display: inline-block; border-radius: 6px; padding: 2px 9px; font-size: 11px; font-weight: 700; }
+.cath-badge-green { background: #dcfce7; color: #16a34a !important; }
+.cath-badge-yellow { background: #fef9c3; color: #a16207 !important; }
+.cath-badge-pink { background: #fce7f3; color: #be185d !important; }
+
+/* ---- 养猫小助手 Accordion ---- */
+.cath-guide-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.cath-guide-title { font-size: 16px; font-weight: 800; color: #1c1917 !important; }
+.cath-guide-desc { font-size: 13px; color: #78716c !important; margin-bottom: 16px; line-height: 1.6; }
+.cath-acc-item {
+  border: 1px solid rgba(0,0,0,0.07); border-radius: 14px;
+  margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s;
+}
+.cath-acc-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.cath-acc-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; cursor: pointer; user-select: none; transition: background 0.15s;
+}
+.cath-acc-header:hover { background: #fffbdd; }
+.cath-acc-icon { font-size: 18px; flex-shrink: 0; }
+.cath-acc-title { font-size: 14px; font-weight: 700; color: #1c1917 !important; flex: 1; }
+.cath-acc-chevron { color: #a8a29e; font-size: 12px; transition: transform 0.25s ease; flex-shrink: 0; }
+.cath-acc-body { padding: 0 18px 18px; border-top: 1px solid rgba(0,0,0,0.06); display: none; }
+.cath-acc-body.open { display: block; }
+.cath-guide-p { font-size: 13px; color: #44403c !important; line-height: 1.7; margin-bottom: 10px; }
+.cath-guide-list { list-style: none; padding: 0; margin: 0 0 10px; }
+.cath-guide-list li {
+  font-size: 13px; color: #44403c !important;
+  padding: 5px 0 5px 16px; border-bottom: 1px solid rgba(0,0,0,0.04);
+  position: relative; line-height: 1.55;
+}
+.cath-guide-list li:last-child { border-bottom: none; }
+.cath-guide-list li::before { content: '✦'; position: absolute; left: 0; top: 5px; color: #fbbf24; font-size: 9px; }
+.cath-guide-stat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
+.cath-guide-stat { background: #fffde7; border: 1px solid rgba(250,204,21,0.2); border-radius: 10px; padding: 10px 8px; text-align: center; }
+.cath-guide-stat-val { font-size: 16px; font-weight: 800; color: #ca8a04 !important; }
+.cath-guide-stat-label { font-size: 10px; color: #a16207 !important; margin-top: 2px; }
+.cath-guide-sub { font-size: 12px; font-weight: 700; color: #ca8a04 !important; text-transform: uppercase; letter-spacing: 0.08em; margin: 14px 0 8px; }
+.cath-guide-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 10px; }
+.cath-guide-table th {
+  background: #fef9c3; color: #a16207 !important; font-weight: 700;
+  font-size: 10px; text-transform: uppercase; padding: 7px 10px; text-align: left;
+  border-bottom: 1px solid rgba(250,204,21,0.2);
+}
+.cath-guide-table td { padding: 8px 10px; color: #44403c !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.cath-guide-table tr:last-child td { border-bottom: none; }
+.cath-alert { border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; font-size: 13px; line-height: 1.55; }
+.cath-alert-y  { background: #fef9c3; color: #a16207 !important; border-left: 3px solid #fde047; }
+.cath-alert-m  { background: #dcfce7; color: #166534 !important; border-left: 3px solid #4ade80; }
+.cath-alert-pk { background: #fce7f3; color: #9d174d !important; border-left: 3px solid #f472b6; }
+.cath-alert-lv { background: #ede9fe; color: #5b21b6 !important; border-left: 3px solid #a78bfa; }
+.cath-alert-r  { background: #fee2e2; color: #991b1b !important; border-left: 3px solid #f87171; }
+.cath-alert strong { font-weight: 700; }
+
+/* Responsive */
+@media (max-width: 680px) {
+  .cath-hero { flex-direction: column; text-align: center; }
+  .cath-chips, .cath-owners { justify-content: center; }
+  .cath-grid-2 { grid-template-columns: 1fr; }
+  .cath-routine-grid { grid-template-columns: 1fr; }
+  .cath-gallery { grid-template-columns: 1fr 1fr; }
+  .cath-guide-stat-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<!-- ===== Password Gate ===== -->
+<div id="cat-lock">
+  <div class="cath-lock-card">
+    <span class="cath-lock-paw">🐾</span>
+    <h3 class="cath-lock-title">私密空间</h3>
+    <p class="cath-lock-desc">这是敬礼的专属档案<br>需要密码才能进入</p>
+    <input type="password" id="cat-pwd-input" placeholder="· · · ·" autocomplete="off" maxlength="10" />
+    <button class="cath-lock-btn" onclick="catCheckPwd()">进 入 🐱</button>
+    <p class="cath-pwd-err" id="cat-pwd-err">✕ &nbsp;密码错误，请重试</p>
+  </div>
+</div>
+
+<!-- ===== Cat Dashboard ===== -->
+<div id="cat-dashboard" style="display:none">
+
+  <!-- Hero -->
+  <div class="cath-hero">
+    <img class="cath-avatar-img" src="/skill-practice/img/cat/cat-avatar.jpg" alt="敬礼" />
+    <div class="cath-hero-info">
+      <div class="cath-name">敬 礼</div>
+      <div class="cath-subtitle">蓝金渐层 · 小女猫 · ♌ 狮子座</div>
+      <div class="cath-chips">
+        <span class="cath-chip">🎂 2024.08.12 生日</span>
+        <span class="cath-chip">🏠 2024.11.04 回家</span>
+        <span class="cath-chip">3.20 kg 🐾</span>
+      </div>
+      <div class="cath-owners">
+        <div class="cath-owner">
+          <img src="/skill-practice/img/cat/owner-chen.jpg" alt="小陈工程师" />
+          <span>小陈工程师</span>
+        </div>
+        <div class="cath-owner">
+          <img src="/skill-practice/img/cat/owner-yan.png" alt="小严大人" />
+          <span>小严大人</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile + Weight Chart -->
+  <div class="cath-grid-2">
+    <div class="cath-card">
+      <div class="cath-card-title"><i class="fas fa-id-card"></i> 猫咪档案</div>
+      <div class="cath-profile-grid">
+        <div><div class="cath-pl">昵称</div><div class="cath-pv">敬礼</div></div>
+        <div><div class="cath-pl">品种</div><div class="cath-pv">蓝金渐层</div></div>
+        <div><div class="cath-pl">生日</div><div class="cath-pv">2024.08.12</div></div>
+        <div><div class="cath-pl">星座</div><div class="cath-pv">♌ 狮子座</div></div>
+        <div><div class="cath-pl">性别</div><div class="cath-pv">♀ 小女猫</div></div>
+        <div><div class="cath-pl">回家日</div><div class="cath-pv">2024.11.04</div></div>
+        <div><div class="cath-pl">主人</div><div class="cath-pv">小陈工程师<br>小严大人</div></div>
+        <div><div class="cath-pl">联系方式</div><div class="cath-pv">13257003236</div></div>
+      </div>
+    </div>
+    <div class="cath-card">
+      <div class="cath-card-title"><i class="fas fa-chart-line"></i> 体重成长</div>
+      <div class="cath-weight-stats">
+        <div class="cath-ws"><div class="cath-ws-val">1.78</div><div class="cath-ws-label">初始 kg</div></div>
+        <div class="cath-ws"><div class="cath-ws-val">3.20</div><div class="cath-ws-label">最新 kg</div></div>
+        <div class="cath-ws"><div class="cath-ws-val">+1.42</div><div class="cath-ws-label">增长 kg</div></div>
+      </div>
+      <div class="cath-chart-wrap">
+        <canvas id="cat-weight-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Gallery -->
+  <div class="cath-gallery">
+    <div>
+      <div class="cath-gallery-item">
+        <img src="/skill-practice/img/cat/cat-day1.jpg" alt="回家第一天" />
+      </div>
+      <div class="cath-gallery-caption">🏠 回家第一天</div>
+    </div>
+    <div>
+      <div class="cath-gallery-item">
+        <img src="/skill-practice/img/cat/cat-daily.jpg" alt="日常" />
+      </div>
+      <div class="cath-gallery-caption">📷 日常照片</div>
+    </div>
+    <div>
+      <div class="cath-gallery-item">
+        <img src="/skill-practice/img/cat/cat-vet.jpg" alt="绝育体检" />
+      </div>
+      <div class="cath-gallery-caption">🏥 绝育体检</div>
+    </div>
+  </div>
+
+  <!-- Growth Milestones -->
+  <div class="cath-card">
+    <div class="cath-card-title"><i class="fas fa-star"></i> 成长里程碑</div>
+    <div class="cath-timeline">
+      <div class="cath-tl-item">
+        <div class="cath-tl-dot cath-tl-dot-y"></div>
+        <div class="cath-tl-date">2025.02.23</div>
+        <div style="flex:1">
+          <div class="cath-tl-title">第一次拍 X 光 🩻</div>
+          <div class="cath-tl-desc">因怀疑误吞玩具拍片检查，意外发现肠胃炎，及时治疗已康复</div>
+        </div>
+      </div>
+      <div class="cath-tl-item">
+        <div class="cath-tl-dot cath-tl-dot-pk"></div>
+        <div class="cath-tl-date">2025.04.12</div>
+        <div style="flex:1">
+          <div class="cath-tl-title">绝育手术 ✓</div>
+          <div class="cath-tl-desc">顺利完成绝育，勇敢的敬礼！</div>
+        </div>
+        <img class="cath-tl-img" src="/skill-practice/img/cat/cat-vet.jpg" alt="绝育体检" />
+      </div>
+      <div class="cath-tl-item">
+        <div class="cath-tl-dot cath-tl-dot-m"></div>
+        <div class="cath-tl-date">2025.08.12</div>
+        <div style="flex:1">
+          <div class="cath-tl-title">🎂 一岁生日快乐！</div>
+          <div class="cath-tl-desc">敬礼满一岁啦，生日快乐小朋友～</div>
+        </div>
+      </div>
+      <div class="cath-tl-item">
+        <div class="cath-tl-dot cath-tl-dot-lv"></div>
+        <div class="cath-tl-date">2025.12.01</div>
+        <div style="flex:1">
+          <div class="cath-tl-title">疫苗第三针（妙三多）💉</div>
+          <div class="cath-tl-desc">完成妙三多第三针接种，免疫保护更完善</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Routine -->
+  <div class="cath-card">
+    <div class="cath-card-title"><i class="fas fa-clock"></i> 日常记录</div>
+    <div class="cath-routine-grid">
+      <div>
+        <div class="cath-routine-section"><i class="fas fa-utensils"></i> 饮食习惯</div>
+        <div class="cath-ri">每天 6 顿，自动喂食机投放</div>
+        <div class="cath-ri">每顿 60g 猫粮 + 10g 冻干</div>
+        <div class="cath-ri">每周两次罐头（周三 &amp; 周日）</div>
+        <div class="cath-ri">每周补充剂：辅酶Q10 · 鱼油 · 化毛食材 · 维生素B · 乳铁蛋白</div>
+      </div>
+      <div>
+        <div class="cath-routine-section"><i class="fas fa-toilet"></i> 排泄习惯</div>
+        <div class="cath-ri">每日嘘嘘 4 次</div>
+        <div class="cath-ri">每日坨坨 2 次</div>
+        <div class="cath-routine-section" style="margin-top:18px"><i class="fas fa-shield-alt"></i> 驱虫计划</div>
+        <div class="cath-ri">体内驱虫：每 3 个月一次</div>
+        <div class="cath-ri">体外驱虫：每 3 个月一次</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Medical Records -->
+  <div class="cath-card">
+    <div class="cath-card-title"><i class="fas fa-syringe"></i> 医疗记录</div>
+    <div class="cath-med-sub">疫苗记录 · 妙三多</div>
+    <table class="cath-table">
+      <thead><tr><th>疫苗名称</th><th>第一针</th><th>第二针</th><th>第三针</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>妙三多</td><td>09.03</td><td>10.30</td><td>2025.12.01</td><td><span class="cath-badge cath-badge-green">已完成</span></td></tr>
+      </tbody>
+    </table>
+    <div class="cath-med-sub" style="margin-top:22px">就诊记录</div>
+    <table class="cath-table">
+      <thead><tr><th>日期</th><th>就诊原因</th><th>诊断结果</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>2025.02.18</td><td>怀疑误吞玩具</td><td>意外发现肠胃炎，已治疗</td><td><span class="cath-badge cath-badge-green">已康复</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- =========== 养猫小助手 =========== -->
+  <div class="cath-card">
+    <div class="cath-guide-header">
+      <span style="font-size:24px">🐾</span>
+      <div class="cath-guide-title">养猫小助手</div>
+    </div>
+    <p class="cath-guide-desc">集合一切关于猫猫的喂养知识与健康指南，遇到问题可随时查阅。祝所有毛孩子健健康康！</p>
+
+    <!-- 1. 干粮 -->
+    <div class="cath-acc-item" id="acc-dry">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-dry')">
+        <span class="cath-acc-icon">🌾</span>
+        <span class="cath-acc-title">干粮喂养指南</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <div class="cath-guide-sub">每日采食量参考</div>
+        <div class="cath-guide-stat-grid">
+          <div class="cath-guide-stat"><div class="cath-guide-stat-val">1.5–2%</div><div class="cath-guide-stat-label">成猫/体重</div></div>
+          <div class="cath-guide-stat"><div class="cath-guide-stat-val">2–2.5%</div><div class="cath-guide-stat-label">幼猫/体重</div></div>
+          <div class="cath-guide-stat"><div class="cath-guide-stat-val">5.5g/kg</div><div class="cath-guide-stat-label">蛋白摄入</div></div>
+        </div>
+        <div class="cath-alert cath-alert-y">💡 举例：3kg 幼猫一天约 60–75g，1g ≈ 10 粒猫粮</div>
+        <div class="cath-guide-sub">分龄喂食频率</div>
+        <table class="cath-guide-table">
+          <thead><tr><th>月龄</th><th>食物</th><th>次数/天</th></tr></thead>
+          <tbody>
+            <tr><td>0–1 月</td><td>羊奶</td><td>6–8 次</td></tr>
+            <tr><td>1–2 月</td><td>奶泡粮</td><td>4–5 次</td></tr>
+            <tr><td>2–6 月</td><td>幼猫粮</td><td>3–4 次</td></tr>
+            <tr><td>6–9 月</td><td>幼猫粮</td><td>2–3 次</td></tr>
+            <tr><td>9–12 月</td><td>幼猫粮</td><td>2 次</td></tr>
+          </tbody>
+        </table>
+        <div class="cath-guide-sub">判断猫粮好坏</div>
+        <ul class="cath-guide-list">
+          <li>粗蛋白消化吸收率是关键指标，蛋白低的一定不好</li>
+          <li>好猫粮：猫吃的少、拉的少、还活泼</li>
+          <li>磷酸氢钙、磷酸二氢钙、无机盐过多均不好</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. 湿粮 -->
+    <div class="cath-acc-item" id="acc-wet">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-wet')">
+        <span class="cath-acc-icon">🥫</span>
+        <span class="cath-acc-title">湿粮 / 罐头指南</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <ul class="cath-guide-list">
+          <li>与干粮间隔 <strong>4–6 小时</strong>喂，建议一周 3 次</li>
+          <li>主食罐喂食量为体重的 <strong>5%</strong></li>
+          <li>零食罐：一周 2–3 次，约 80g，开封后 1 小时内喂完</li>
+          <li>开封未吃完：罐头盖 + 保鲜膜冷藏，<strong>不超过三天</strong></li>
+          <li>湿粮粗蛋白 ≥ 12% 为佳，尽量选全价湿粮</li>
+          <li>喂养量约为干粮的 2.5 倍</li>
+        </ul>
+        <div class="cath-alert cath-alert-m">✅ 湿粮含猫咪自身无法合成的四种关键营养元素，尽量选全价产品</div>
+      </div>
+    </div>
+
+    <!-- 3. 放饭法 -->
+    <div class="cath-acc-item" id="acc-schedule">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-schedule')">
+        <span class="cath-acc-icon">⏰</span>
+        <span class="cath-acc-title">放饭法参考（以每日 50g 为例）</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <table class="cath-guide-table">
+          <thead><tr><th>时间</th><th>份量</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>早起</td><td>10g</td><td>起床后立即喂</td></tr>
+            <tr><td>出门前</td><td>10g</td><td>留饭，保证下班时粮碗空</td></tr>
+            <tr><td>下班回家</td><td>10g 干 / 40g 湿</td><td>可给湿粮/冻干，让猫咪最期待这顿</td></tr>
+            <tr><td>睡前 30 分钟</td><td>10g</td><td>吃完→舔毛→睡觉，同步生物钟</td></tr>
+            <tr><td>日出前留饭</td><td>10g</td><td>防止猫咪 5 点叫你起床"打猎"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4. 保健品 -->
+    <div class="cath-acc-item" id="acc-supps">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-supps')">
+        <span class="cath-acc-icon">💊</span>
+        <span class="cath-acc-title">保健品喂食频率</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <table class="cath-guide-table">
+          <thead><tr><th>保健品</th><th>频率 / 剂量</th><th>品牌参考</th></tr></thead>
+          <tbody>
+            <tr><td>猫草片</td><td>冬 1–2 片/周，夏 1 片/天</td><td>绿十字</td></tr>
+            <tr><td>维生素</td><td>2 粒/周</td><td>B2 / 贝幸 / 猫生13种</td></tr>
+            <tr><td>车前子壳粉</td><td>1–2 天一次，拌湿粮</td><td>淘宝搜索即可</td></tr>
+            <tr><td>鱼油</td><td>20–50mg/kg 体重，一周两次</td><td>Viva / Now / MAG</td></tr>
+            <tr><td>VE</td><td>幼猫 1.5–2 周/粒；成猫 1 周/粒</td><td>-</td></tr>
+            <tr><td>乳铁蛋白</td><td>50–250mg，一周两次</td><td>Abighug / 天赐力 / AINIO</td></tr>
+            <tr><td>熟蛋黄</td><td>1/4 个，一周两次（补卵磷脂）</td><td>-</td></tr>
+            <tr><td>益生菌</td><td>一周两次，日常调理</td><td>布拉迪 / 妈咪爱 / 卫仕</td></tr>
+          </tbody>
+        </table>
+        <div class="cath-alert cath-alert-y">⚠️ 鱼油建议 6 个月后再喂；无 VE 的鱼油需额外补充维生素 E</div>
+      </div>
+    </div>
+
+    <!-- 5. 生骨肉 -->
+    <div class="cath-acc-item" id="acc-raw">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-raw')">
+        <span class="cath-acc-icon">🥩</span>
+        <span class="cath-acc-title">生骨肉喂养</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <div class="cath-guide-sub">每日食量参考</div>
+        <table class="cath-guide-table">
+          <thead><tr><th>阶段</th><th>食量</th><th>次数/天</th></tr></thead>
+          <tbody>
+            <tr><td>幼猫 4 月内</td><td>体重的 10–12%</td><td>3–5 次</td></tr>
+            <tr><td>幼猫 11 月内</td><td>体重的 6–10%</td><td>3–5 次</td></tr>
+            <tr><td>成猫 11 月+</td><td>体重的 3–4%</td><td>2–3 次</td></tr>
+            <tr><td>肥猫</td><td>体重的 2–2.5%</td><td>2–3 次</td></tr>
+          </tbody>
+        </table>
+        <div class="cath-guide-sub">推荐搭配比例（带骨）</div>
+        <div class="cath-alert cath-alert-lv">白肉 40% ＋ 红肉 30% ＋ 骨骼 10% ＋ 心脏 10% ＋ 肝脏 5% ＋ 内脏 5%</div>
+        <div class="cath-guide-sub">肉类选择</div>
+        <ul class="cath-guide-list">
+          <li><strong>白肉：</strong>鸡/鸭/火鸡/兔肉/鹌鹑/鸵鸟肉</li>
+          <li><strong>红肉：</strong>牛肉/鹿肉/猪里脊/羊腿肉</li>
+          <li><strong>心脏/肝脏：</strong>鸡心、鸭肝、牛心、兔肝等</li>
+          <li><strong>鱼类：</strong>三文鱼、秋刀鱼、青占鱼（均需熟吃去刺）</li>
+        </ul>
+        <div class="cath-guide-sub">必须添加的预拌粉</div>
+        <ul class="cath-guide-list">
+          <li>钙：无骨时必须添加，100g 肉加 0.6g 碳酸钙</li>
+          <li>牛磺酸：1000g 肉加 0.5g（心脏可替代）</li>
+          <li>碘化钾：700g 肉加一片，幼猫加倍</li>
+        </ul>
+        <div class="cath-alert cath-alert-y">⚠️ 每次喂食间隔 4–5 小时以上；与猫粮搭配需间隔 6 小时以上</div>
+      </div>
+    </div>
+
+    <!-- 6. 生病自查 -->
+    <div class="cath-acc-item" id="acc-sick">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-sick')">
+        <span class="cath-acc-icon">🏥</span>
+        <span class="cath-acc-title">猫咪生病自查手册</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <div class="cath-alert cath-alert-r"><strong>⚠️ 立即就医信号：</strong>食欲突然减少、鼻头/爪垫/牙龈发白、没有精神</div>
+        <div class="cath-guide-sub">腹泻 / 拉稀处理</div>
+        <ul class="cath-guide-list">
+          <li>禁食 6–12 小时</li>
+          <li>温水喂蒙脱石散，一天两次，每次 1/3，1g 兑 3g 水（稠状）</li>
+          <li>一个半小时后喂带汁水的鸡胸肉 + 少量益生菌</li>
+          <li>与其他药物隔开，吃后多补水，过量会便秘</li>
+        </ul>
+        <div class="cath-guide-sub">便便状态自查</div>
+        <div class="cath-alert cath-alert-y">白色偏硬 → 骨头吃太多</div>
+        <div class="cath-alert cath-alert-lv">黑色偏软 → 内脏吃太多</div>
+        <div class="cath-alert cath-alert-pk">软便 / 溏便 → 单次喂食过多且骨头太少</div>
+        <div class="cath-alert cath-alert-r">不成形且臭 → 饮食太腻，加益生菌调理，注意喂食间隔</div>
+      </div>
+    </div>
+
+    <!-- 7. 日常小问题 -->
+    <div class="cath-acc-item" id="acc-misc">
+      <div class="cath-acc-header" onclick="catToggleAcc('acc-misc')">
+        <span class="cath-acc-icon">🔍</span>
+        <span class="cath-acc-title">日常小问题自查</span>
+        <i class="fas fa-chevron-down cath-acc-chevron"></i>
+      </div>
+      <div class="cath-acc-body">
+        <div class="cath-guide-sub">驱虫推荐</div>
+        <div class="cath-alert cath-alert-m">体内：海乐妙 &nbsp;|&nbsp; 体外：拜乐清 / 大宠爱 &nbsp;|&nbsp; 第四代：贝卫多 / 可立奥</div>
+        <table class="cath-guide-table">
+          <thead><tr><th>猫龄</th><th>频率</th></tr></thead>
+          <tbody>
+            <tr><td>3–6 个月</td><td>每月一次</td></tr>
+            <tr><td>6–12 个月</td><td>每三个月一次</td></tr>
+            <tr><td>一岁+ 不吃生肉</td><td>每半年一次</td></tr>
+            <tr><td>一岁+ 常外出/吃生肉</td><td>每月一次</td></tr>
+          </tbody>
+        </table>
+        <div class="cath-alert cath-alert-y">⚠️ 洗澡/疫苗后 4–5 天再驱虫；内外驱之间间隔 2–3 天</div>
+        <div class="cath-guide-sub">其他常见问题</div>
+        <ul class="cath-guide-list">
+          <li><strong>洁齿：</strong>吃干粮 / 含 L-抗坏血酸的洁齿冻干</li>
+          <li><strong>耳螨/马拉色菌：</strong>复方制霉菌素类，推荐伊尔舒 + 贝卫多</li>
+          <li><strong>便臭：</strong>改喂含酶解鲜肉的猫粮</li>
+          <li><strong>防跳蚤：</strong>少放地垫 + 勤梳毛，发现立刻驱虫</li>
+          <li><strong>判断跳蚤：</strong>猫常挠身体；窝里有死跳蚤；身上小黑点湿巾搓后泛红</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- end 养猫小助手 card -->
+</div><!-- end cat-dashboard -->
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+(function () {
+  var catChartInited = false;
+
+  function catInitChart() {
+    var canvas = document.getElementById('cat-weight-chart');
+    if (!canvas || typeof Chart === 'undefined') return;
+    var ctx = canvas.getContext('2d');
+    var grad = ctx.createLinearGradient(0, 0, 0, 170);
+    grad.addColorStop(0, 'rgba(253,224,71,0.45)');
+    grad.addColorStop(1, 'rgba(253,224,71,0)');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2024.11.04', '2025.04.12', '2025.08.23'],
+        datasets: [{
+          label: '体重',
+          data: [1.78, 2.75, 3.20],
+          borderColor: '#facc15',
+          backgroundColor: grad,
+          borderWidth: 2.5,
+          pointBackgroundColor: '#facc15',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          tension: 0.38,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#fff',
+            titleColor: '#78716c',
+            bodyColor: '#ca8a04',
+            borderColor: 'rgba(250,204,21,0.4)',
+            borderWidth: 1,
+            padding: 10,
+            callbacks: { label: function (c) { return '  ' + c.raw + ' kg'; } }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.04)' },
+            ticks: { color: '#a8a29e', font: { size: 11 } },
+            border: { color: 'rgba(0,0,0,0.07)' }
+          },
+          y: {
+            min: 1.4, max: 3.6,
+            grid: { color: 'rgba(0,0,0,0.04)' },
+            ticks: { color: '#a8a29e', font: { size: 11 }, callback: function (v) { return v + 'kg'; } },
+            border: { color: 'rgba(0,0,0,0.07)' }
+          }
+        }
+      }
+    });
+    catChartInited = true;
+  }
+
+  function catShowDashboard() {
+    var lock = document.getElementById('cat-lock');
+    var dash = document.getElementById('cat-dashboard');
+    if (lock) lock.style.display = 'none';
+    if (dash) dash.style.display = '';
+    if (!catChartInited) catInitChart();
+  }
+
+  window.catCheckPwd = function () {
+    var input = document.getElementById('cat-pwd-input');
+    var err = document.getElementById('cat-pwd-err');
+    if (!input) return;
+    if (input.value === '0812') {
+      try { sessionStorage.setItem('cat_unlocked', '1'); } catch (e) {}
+      if (err) err.style.display = 'none';
+      catShowDashboard();
+    } else {
+      if (err) err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  };
+
+  window.catToggleAcc = function (id) {
+    var item = document.getElementById(id);
+    if (!item) return;
+    var body = item.querySelector('.cath-acc-body');
+    var chevron = item.querySelector('.cath-acc-chevron');
+    var isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var unlocked = false;
+    try { unlocked = sessionStorage.getItem('cat_unlocked') === '1'; } catch (e) {}
+    if (unlocked) {
+      catShowDashboard();
+    } else {
+      var input = document.getElementById('cat-pwd-input');
+      if (input) {
+        input.focus();
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') window.catCheckPwd();
+        });
+      }
+    }
+  });
+})();
+</script>
+
+</div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Ann</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/skill-practice/js/utils.js?v=5.5.4"></script><script src="/skill-practice/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script><script>new CozeWebSDK.WebChatClient({config:{bot_id:'7611465130148151336'},componentProps:{title:'Ann 的博客助手'},auth:{type:'token',token:'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO',onRefreshToken:function(){return 'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO'}}});</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
