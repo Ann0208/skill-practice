@@ -100,8 +100,7 @@ body {
 
 /* Sub-pages (categories / tags / archives / about) banner height */
 #page-header.not-home-page {
-  height: 160px !important;
-  min-height: 160px !important;
+  height: 40px !important;
   background: linear-gradient(160deg, #0d0e14 0%, #1b0d35 45%, #0d0e14 100%) !important;
 }
 
