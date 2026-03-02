@@ -83,8 +83,13 @@ body {
 /* ---- Remove focus outline on header ---- */
 #page-header,
 #page-header:focus,
-#page-header *:focus {
+#page-header *,
+#page-header *:focus,
+#page-site-info,
+#page-site-info:focus,
+#page-site-info *:focus {
   outline: none !important;
+  box-shadow: none !important;
 }
 
 /* ---- Hero Header ---- */
