@@ -105,12 +105,9 @@ body {
   background: linear-gradient(160deg, #0d0e14 0%, #1b0d35 45%, #0d0e14 100%) !important;
 }
 
-/* Center title in the visible gradient area below the nav (nav=60px, so offset by 30px) */
+/* Hide page title banner on sub-pages */
 #page-header.not-home-page #page-site-info {
-  top: calc(50% + 30px) !important;
-  transform: translateY(-50%) !important;
-  text-align: center !important;
-  width: 100% !important;
+  display: none !important;
 }
 
 /* Post pages banner height */
