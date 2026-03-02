@@ -387,6 +387,7 @@ a:hover { color: #ca8a04 !important; }
         <div><div class="cath-pl">星座</div><div class="cath-pv">♌ 狮子座</div></div>
         <div><div class="cath-pl">性别</div><div class="cath-pv">♀ 小女猫</div></div>
         <div><div class="cath-pl">回家日</div><div class="cath-pv">2024.11.04</div></div>
+        <div><div class="cath-pl">身份证号</div><div class="cath-pv">350321202408121104</div></div>
         <div><div class="cath-pl">主人</div><div class="cath-pv">小陈工程师<br>小严大人</div></div>
         <div><div class="cath-pl">联系方式</div><div class="cath-pv">13257003236</div><div class="cath-pv">19857104782</div></div>
       </div>
@@ -432,6 +433,14 @@ a:hover { color: #ca8a04 !important; }
     <div class="cath-timeline">
       <div class="cath-tl-item">
         <div class="cath-tl-dot cath-tl-dot-y"></div>
+        <div class="cath-tl-date">2024.12.01</div>
+        <div style="flex:1">
+          <div class="cath-tl-title">疫苗第三针（妙三多）💉</div>
+          <div class="cath-tl-desc">完成妙三多第三针接种，免疫保护更完善</div>
+        </div>
+      </div>
+      <div class="cath-tl-item">
+        <div class="cath-tl-dot cath-tl-dot-lv"></div>
         <div class="cath-tl-date">2025.02.23</div>
         <div style="flex:1">
           <div class="cath-tl-title">第一次拍 X 光 🩻</div>
@@ -456,14 +465,6 @@ a:hover { color: #ca8a04 !important; }
           <div class="cath-tl-desc">敬礼满一岁啦，生日快乐小朋友～</div>
         </div>
         <img class="cath-tl-img" src="/skill-practice/img/cat/first-birthday.jpg" alt="一岁生日" />
-      </div>
-      <div class="cath-tl-item">
-        <div class="cath-tl-dot cath-tl-dot-lv"></div>
-        <div class="cath-tl-date">2025.12.01</div>
-        <div style="flex:1">
-          <div class="cath-tl-title">疫苗第三针（妙三多）💉</div>
-          <div class="cath-tl-desc">完成妙三多第三针接种，免疫保护更完善</div>
-        </div>
       </div>
     </div>
   </div>
@@ -497,7 +498,7 @@ a:hover { color: #ca8a04 !important; }
     <table class="cath-table">
       <thead><tr><th>疫苗名称</th><th>第一针</th><th>第二针</th><th>第三针</th><th>状态</th></tr></thead>
       <tbody>
-        <tr><td>妙三多</td><td>09.03</td><td>10.30</td><td>2025.12.01</td><td><span class="cath-badge cath-badge-green">已完成</span></td></tr>
+        <tr><td>妙三多</td><td>09.03</td><td>10.30</td><td>2024.12.01</td><td><span class="cath-badge cath-badge-green">已完成</span></td></tr>
       </tbody>
     </table>
     <div class="cath-med-sub" style="margin-top:22px">就诊记录</div>
