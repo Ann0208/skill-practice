@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg">
 <meta property="article:published_time" content="2026-03-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-17T10:09:40.420Z">
+<meta property="article:modified_time" content="2026-03-17T10:26:46.359Z">
 <meta property="article:author" content="Ann">
 <meta property="article:tag" content="技术博客,学习笔记,前端开发">
 <meta name="twitter:card" content="summary">
@@ -304,6 +304,7 @@ a:hover { color: #ea580c !important; }
 .tv-c-purple .tv-trip-tag { background: var(--tv-purple-bg); color: var(--tv-purple) !important; }
 .tv-c-yellow .tv-trip-month { color: var(--tv-yellow) !important; }
 .tv-c-yellow .tv-trip-tag { background: var(--tv-yellow-bg); color: var(--tv-yellow) !important; }
+.tv-trip-tag.tv-tag-done { background: #ecfdf5 !important; color: #059669 !important; }
 
 /* Bar colors */
 .tv-bar-blue { background: linear-gradient(90deg, #38bdf8, #0ea5e9); }
@@ -795,12 +796,13 @@ a:hover { color: #ea580c !important; }
 
 <!-- ===== Year Overview ===== -->
 <div class="tv-overview">
-  <div class="tv-section-title"><i class="fas fa-calendar-alt"></i> 2026 全年行程总览（上海出发）</div>
+  <div class="tv-section-title"><i class="fas fa-calendar-alt"></i> 2026 全年行程总览</div>
 
   <!-- Year progress bar with month markers -->
   <div class="tv-year-bar-wrap">
     <div class="tv-year-bar">
-      <div class="tv-bar-seg tv-bar-empty" style="flex:3"></div>
+      <div class="tv-bar-seg tv-bar-pink" style="flex:0.5" title="12月底-1月 首尔🇰🇷"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:2.5"></div>
       <div class="tv-bar-seg tv-bar-blue" style="flex:1" title="4月 泉州"></div>
       <div class="tv-bar-seg tv-bar-green" style="flex:1" title="5月 亚庇+北京"></div>
       <div class="tv-bar-seg tv-bar-empty" style="flex:3"></div>
@@ -816,15 +818,24 @@ a:hover { color: #ea580c !important; }
 
   <!-- Leave summary -->
   <div class="tv-leave-grid">
-    <div class="tv-leave-item"><div class="tv-leave-val">7</div><div class="tv-leave-label">趟旅行</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">9</div><div class="tv-leave-label">天年假</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">1</div><div class="tv-leave-label">天病假</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">35+</div><div class="tv-leave-label">天在路上</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">5</div><div class="tv-leave-label">个国家</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">9</div><div class="tv-leave-label">趟旅行</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">14</div><div class="tv-leave-label">天年假</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">天病假</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">40+</div><div class="tv-leave-label">天在路上</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">6</div><div class="tv-leave-label">个国家</div></div>
   </div>
 
   <!-- Trip cards with cover images -->
   <div class="tv-trips-grid">
+    <div class="tv-trip-card tv-c-pink" onclick="tvToggle('tv-seoul')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1682270239838-165e15f0a284?w=400&h=200&fit=crop" alt="首尔" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">12.31–1.3</div>
+        <div class="tv-trip-name">首尔 🇰🇷</div>
+        <div class="tv-trip-days">4天3晚 · 跨年购物</div>
+        <span class="tv-trip-tag tv-tag-done">已完成 ✓</span>
+      </div>
+    </div>
     <div class="tv-trip-card tv-c-blue" onclick="tvToggle('tv-quanzhou')">
       <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1748180749362-e498105ecc7f?w=400&h=200&fit=crop" alt="泉州" loading="lazy"></div>
       <div class="tv-trip-body">
@@ -907,10 +918,19 @@ a:hover { color: #ea580c !important; }
         <circle class="tv-donut-bg" cx="18" cy="18" r="15.9"/>
         <circle class="tv-donut-fill" id="tv-donut" cx="18" cy="18" r="15.9" stroke-dasharray="100 100" stroke-dashoffset="100"/>
       </svg>
-      <div class="tv-donut-text" id="tv-donut-text">0/7</div>
+      <div class="tv-donut-text" id="tv-donut-text">0/8</div>
     </div>
   </div>
   <div class="tv-tracker-list" id="tv-tracker-list">
+    <div class="tv-tracker-item tv-done" data-trip="seoul" data-emoji="🇰🇷" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🇰🇷</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">首尔 · 跨年购物</div>
+        <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">5天4晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-done">已打卡 ✓</span>
+      <div class="tv-confetti-burst">🎆</div>
+    </div>
     <div class="tv-tracker-item" data-trip="quanzhou" data-emoji="🏛️" onclick="tvToggleCheck(this)">
       <div class="tv-stamp"><span class="tv-stamp-emoji">🏛️</span><span class="tv-stamp-check">✓</span></div>
       <div class="tv-tracker-dest">
@@ -981,6 +1001,57 @@ a:hover { color: #ea580c !important; }
   </div>
 </div>
 
+<!-- ===== 0. 首尔 ===== -->
+<div class="tv-detail" id="tv-seoul">
+  <div class="tv-detail-header" onclick="tvToggle('tv-seoul')">
+    <span class="tv-detail-emoji">🇰🇷</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">首尔 · 4天3晚</div>
+      <div class="tv-detail-meta">2025.12.31–2026.1.3 · 跨年+2天年假 · -5℃ 冬季</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1682270239838-165e15f0a284?w=800&h=300&fit=crop" alt="首尔" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 12.31（二）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">上海→首尔</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">抵达首尔，东大门跨年烟花 🎆</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 1.1（三，元旦）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">明洞逛街购物</div><div class="tv-day-card-meta"><span class="tv-food-pill">脊骨锅</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 1.2（四，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">弘大逛街购物</div><div class="tv-day-card-meta"><span class="tv-food-pill">披萨</span><span class="tv-food-pill">醉蟹</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 1.3（五，年假）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">首尔→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">返程回上海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">✈️</span></div>
 <!-- ===== 1. 泉州 ===== -->
 <div class="tv-detail" id="tv-quanzhou">
   <div class="tv-detail-header" onclick="tvToggle('tv-quanzhou')">
