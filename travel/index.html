@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg">
 <meta property="article:published_time" content="2026-03-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-17T11:59:47.782Z">
+<meta property="article:modified_time" content="2026-03-17T12:10:47.513Z">
 <meta property="article:author" content="Ann">
 <meta property="article:tag" content="技术博客,学习笔记,前端开发">
 <meta name="twitter:card" content="summary">
@@ -807,11 +807,12 @@ a:hover { color: #ea580c !important; }
       <div class="tv-bar-seg tv-bar-green" style="flex:1" title="5月 亚庇+北京"></div>
       <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
       <div class="tv-bar-seg tv-bar-yellow" style="flex:1" title="6.28–7.7 青甘大环线"></div>
-      <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:0.5"></div>
+      <div class="tv-bar-seg tv-bar-orange" style="flex:0.5" title="8月 南京"></div>
       <div class="tv-bar-seg tv-bar-purple" style="flex:1" title="9-10月 欧洲"></div>
-      <div class="tv-bar-seg tv-bar-orange" style="flex:1" title="10月 南京+广州+潮汕"></div>
+      <div class="tv-bar-seg tv-bar-orange" style="flex:1" title="10月 广州+潮汕"></div>
       <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
-      <div class="tv-bar-seg tv-bar-pink" style="flex:0.5" title="12.31–1.3 日本大阪"></div>
+      <div class="tv-bar-seg tv-bar-pink" style="flex:0.5" title="12.31–1.3 日本大阪/北海道+东京"></div>
       <div class="tv-bar-seg tv-bar-empty" style="flex:0.5"></div>
     </div>
     <div class="tv-month-markers">
@@ -822,7 +823,7 @@ a:hover { color: #ea580c !important; }
 
   <!-- Leave summary -->
   <div class="tv-leave-grid">
-    <div class="tv-leave-item"><div class="tv-leave-val">11</div><div class="tv-leave-label">趟旅行</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">趟旅行</div></div>
     <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">天年假</div></div>
     <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">天带薪病假</div></div>
     <div class="tv-leave-item"><div class="tv-leave-val">54+</div><div class="tv-leave-label">天在路上</div></div>
@@ -870,7 +871,7 @@ a:hover { color: #ea580c !important; }
     <div class="tv-trip-card tv-c-orange" onclick="tvToggle('tv-nanjing')">
       <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1599571234909-29ed5d1321d6?w=400&h=200&fit=crop" alt="南京" loading="lazy"></div>
       <div class="tv-trip-body">
-        <div class="tv-trip-month">10月</div>
+        <div class="tv-trip-month">8月</div>
         <div class="tv-trip-name">南京</div>
         <div class="tv-trip-days">2天1晚 · 红山动物园</div>
         <span class="tv-trip-tag">0年假</span>
@@ -921,6 +922,15 @@ a:hover { color: #ea580c !important; }
         <span class="tv-trip-tag">0年假</span>
       </div>
     </div>
+    <div class="tv-trip-card tv-c-teal" onclick="tvToggle('tv-hokkaido')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=400&h=200&fit=crop" alt="北海道+东京" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">12.31–1.3</div>
+        <div class="tv-trip-name">北海道+东京 🇯🇵</div>
+        <div class="tv-trip-days">4天3晚 · 雪国跨年</div>
+        <span class="tv-trip-tag">0年假</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -968,7 +978,7 @@ a:hover { color: #ea580c !important; }
         <div class="tv-tracker-name">亚庇 · 大海落日</div>
         <div class="tv-tracker-date">5.1–5.5 <span class="tv-tracker-days-tag">5天4晚</span></div>
       </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
       <div class="tv-confetti-burst">🌊</div>
     </div>
     <div class="tv-tracker-item" data-trip="beijing" data-emoji="🎸" onclick="tvToggleCheck(this)">
@@ -977,8 +987,26 @@ a:hover { color: #ea580c !important; }
         <div class="tv-tracker-name">北京 · 五月天鸟巢</div>
         <div class="tv-tracker-date">5.16–5.18 <span class="tv-tracker-days-tag">3天2晚</span></div>
       </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
       <div class="tv-confetti-burst">🎶</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="qinggan" data-emoji="🏜️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🏜️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">青甘大环线 · 自驾西北</div>
+        <div class="tv-tracker-date">6.28–7.7 <span class="tv-tracker-days-tag">10天</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🐫</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="nanjing" data-emoji="🐼" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🐼</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">南京 · 红山动物园</div>
+        <div class="tv-tracker-date">8.8–8.9 <span class="tv-tracker-days-tag">2天1晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🐾</div>
     </div>
     <div class="tv-tracker-item" data-trip="europe" data-emoji="🇪🇺" onclick="tvToggleCheck(this)">
       <div class="tv-stamp"><span class="tv-stamp-emoji">🇪🇺</span><span class="tv-stamp-check">✓</span></div>
@@ -986,17 +1014,8 @@ a:hover { color: #ea580c !important; }
         <div class="tv-tracker-name">欧洲 · 西葡法三国</div>
         <div class="tv-tracker-date">9.25–10.7 <span class="tv-tracker-days-tag">13天</span></div>
       </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
       <div class="tv-confetti-burst">🗼</div>
-    </div>
-    <div class="tv-tracker-item" data-trip="nanjing" data-emoji="🐼" onclick="tvToggleCheck(this)">
-      <div class="tv-stamp"><span class="tv-stamp-emoji">🐼</span><span class="tv-stamp-check">✓</span></div>
-      <div class="tv-tracker-dest">
-        <div class="tv-tracker-name">南京 · 红山动物园</div>
-        <div class="tv-tracker-date">10.11–10.12 <span class="tv-tracker-days-tag">2天1晚</span></div>
-      </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
-      <div class="tv-confetti-burst">🐾</div>
     </div>
     <div class="tv-tracker-item" data-trip="guangzhou" data-emoji="🍜" onclick="tvToggleCheck(this)">
       <div class="tv-stamp"><span class="tv-stamp-emoji">🍜</span><span class="tv-stamp-check">✓</span></div>
@@ -1004,7 +1023,7 @@ a:hover { color: #ea580c !important; }
         <div class="tv-tracker-name">广州 · 美食之都</div>
         <div class="tv-tracker-date">10.17–10.20 <span class="tv-tracker-days-tag">4天3晚</span></div>
       </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
       <div class="tv-confetti-burst">🥘</div>
     </div>
     <div class="tv-tracker-item" data-trip="chaoshan" data-emoji="🦐" onclick="tvToggleCheck(this)">
@@ -1013,17 +1032,8 @@ a:hover { color: #ea580c !important; }
         <div class="tv-tracker-name">潮汕 · 海鲜最肥</div>
         <div class="tv-tracker-date">10.24–10.27 <span class="tv-tracker-days-tag">4天3晚</span></div>
       </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
       <div class="tv-confetti-burst">🦀</div>
-    </div>
-    <div class="tv-tracker-item" data-trip="qinggan" data-emoji="🏜️" onclick="tvToggleCheck(this)">
-      <div class="tv-stamp"><span class="tv-stamp-emoji">🏜️</span><span class="tv-stamp-check">✓</span></div>
-      <div class="tv-tracker-dest">
-        <div class="tv-tracker-name">青甘大环线 · 自驾西北</div>
-        <div class="tv-tracker-date">6.28–7.7 <span class="tv-tracker-days-tag">10天</span></div>
-      </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
-      <div class="tv-confetti-burst">🐫</div>
     </div>
     <div class="tv-tracker-item" data-trip="osaka" data-emoji="🇯🇵" onclick="tvToggleCheck(this)">
       <div class="tv-stamp"><span class="tv-stamp-emoji">🇯🇵</span><span class="tv-stamp-check">✓</span></div>
@@ -1031,8 +1041,17 @@ a:hover { color: #ea580c !important; }
         <div class="tv-tracker-name">日本大阪 · 跨年</div>
         <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">4天3晚</span></div>
       </div>
-      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
       <div class="tv-confetti-burst">⛩️</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="hokkaido" data-emoji="❄️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">❄️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">北海道+东京 · 雪国跨年</div>
+        <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🎿</div>
     </div>
   </div>
   <div class="tv-all-done-msg" id="tv-all-done">
@@ -1383,7 +1402,7 @@ a:hover { color: #ea580c !important; }
     <span class="tv-detail-emoji">🐼</span>
     <div class="tv-detail-info">
       <div class="tv-detail-name">南京红山动物园 · 2天1晚</div>
-      <div class="tv-detail-meta">10.11–10.12 · 双休 · 15–23℃ 动物活跃</div>
+      <div class="tv-detail-meta">8.8–8.9 · 双休 · 28–38℃ 夏季</div>
     </div>
     <i class="fas fa-chevron-down tv-detail-chevron"></i>
   </div>
@@ -1397,7 +1416,7 @@ a:hover { color: #ea580c !important; }
 
     <div class="tv-day">
       <div class="tv-day-dot"></div>
-      <div class="tv-day-title">D1 · 10.11（六）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">上海→南京</span></div>
+      <div class="tv-day-title">D1 · 8.8（六）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">上海→南京</span></div>
       <div class="tv-day-cards">
         <div class="tv-day-card">
           <div class="tv-day-card-time">09:00–10:00</div>
@@ -1419,7 +1438,7 @@ a:hover { color: #ea580c !important; }
 
     <div class="tv-day">
       <div class="tv-day-dot"></div>
-      <div class="tv-day-title">D2 · 10.12（日）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">南京→上海</span></div>
+      <div class="tv-day-title">D2 · 8.9（日）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">南京→上海</span></div>
       <div class="tv-day-cards">
         <div class="tv-day-card">
           <div class="tv-day-card-time">09:00–12:00</div>
@@ -1441,7 +1460,8 @@ a:hover { color: #ea580c !important; }
 
     <div class="tv-tips">
       <strong>住宿：</strong>动物园附近酒店（1晚约¥400/人）<br>
-      <strong>提示：</strong>园区面积大，穿舒适运动鞋，可租代步车¥100/h；建议8:30开园就入园
+      <strong>提示：</strong>园区面积大，穿舒适运动鞋，可租代步车¥100/h；建议8:30开园就入园<br>
+      <strong>防暑：</strong>8月南京高温，务必带防晒霜、遮阳帽、便携风扇，多补水
     </div>
     </div>
   </div>
@@ -2274,6 +2294,71 @@ a:hover { color: #ea580c !important; }
       <strong>交通：</strong>建议购买大阪周游卡/关西周游券<br>
       <strong>货币：</strong>提前兑换日元，小店多用现金<br>
       <strong>跨年：</strong>道顿堀/心斋桥跨年氛围好，注意保暖
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 10. 北海道+东京 ===== -->
+<div class="tv-detail" id="tv-hokkaido">
+  <div class="tv-detail-header" onclick="tvToggle('tv-hokkaido')">
+    <span class="tv-detail-emoji">❄️</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">北海道+东京 · 4天3晚</div>
+      <div class="tv-detail-meta">2026.12.31–2027.1.3 · 雪国跨年 · 0年假</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&h=300&fit=crop" alt="北海道" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 12.31（四）<span class="tv-day-badge" style="background:#ecfeff;color:#0891b2">上海→东京</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">上海浦东→东京成田/羽田（约3h）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">涩谷忠犬八公像 → 原宿竹下通 → 表参道</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">涩谷十字路口跨年倒数 🎆 或东京塔跨年灯光秀</div><div class="tv-day-card-meta"><span class="tv-food-pill">拉面</span><span class="tv-food-pill">居酒屋</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 1.1（五，元旦）<span class="tv-day-badge" style="background:#ecfeff;color:#0891b2">东京→札幌</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">明治神宫初诣 ⛩️（新年参拜）→ 新宿逛逛</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">羽田→新千岁机场（约1.5h国内航班）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 国内航班约¥500</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">札幌薄野夜景 🌃 味噌拉面+成吉思汗烤肉</div><div class="tv-day-card-meta"><span class="tv-food-pill">味噌拉面</span><span class="tv-food-pill">成吉思汗烤肉</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 1.2（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">小樽运河散步 ❄️ 八音盒堂 + 北一硝子馆</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> JR札幌→小樽 约30min</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">中午</div><div class="tv-day-card-content">小樽三角市场海鲜丼 🍣</div><div class="tv-day-card-meta"><span class="tv-food-pill">海鲜丼</span><span class="tv-food-pill">烤蟹</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">返回札幌，白色恋人公园 🏰 → 狸小路商店街购物</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">札幌电视塔夜景 🗼 螃蟹料理</div><div class="tv-day-card-meta"><span class="tv-food-pill">帝王蟹</span><span class="tv-food-pill">白色恋人</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 1.3（日）<span class="tv-day-badge" style="background:#ecfeff;color:#0891b2">札幌→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">新千岁机场购物（Royce巧克力工厂、机场温泉）</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">新千岁机场→上海浦东</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>签证：</strong>提前办理日本单次旅游签证（约200元，5个工作日）<br>
+      <strong>机票：</strong>需买 上海→东京 + 东京→札幌（国内段） + 札幌→上海，提前关注特价<br>
+      <strong>交通：</strong>东京用Suica卡，北海道段JR pass或单买票<br>
+      <strong>保暖：</strong>12月底北海道约-5~-10℃，务必带羽绒服、雪地靴、暖宝宝<br>
+      <strong>亮点：</strong>东京跨年+明治神宫初诣 → 北海道雪景+小樽运河+螃蟹大餐
     </div>
     </div>
   </div>
