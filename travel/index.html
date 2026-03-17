@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg">
 <meta property="article:published_time" content="2026-03-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-17T10:26:46.359Z">
+<meta property="article:modified_time" content="2026-03-17T11:32:17.128Z">
 <meta property="article:author" content="Ann">
 <meta property="article:tag" content="技术博客,学习笔记,前端开发">
 <meta name="twitter:card" content="summary">
@@ -805,10 +805,14 @@ a:hover { color: #ea580c !important; }
       <div class="tv-bar-seg tv-bar-empty" style="flex:2.5"></div>
       <div class="tv-bar-seg tv-bar-blue" style="flex:1" title="4月 泉州"></div>
       <div class="tv-bar-seg tv-bar-green" style="flex:1" title="5月 亚庇+北京"></div>
-      <div class="tv-bar-seg tv-bar-empty" style="flex:3"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
+      <div class="tv-bar-seg tv-bar-yellow" style="flex:1" title="6.28–7.7 青甘大环线"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
       <div class="tv-bar-seg tv-bar-purple" style="flex:1" title="9-10月 欧洲"></div>
       <div class="tv-bar-seg tv-bar-orange" style="flex:1" title="10月 南京+广州+潮汕"></div>
-      <div class="tv-bar-seg tv-bar-empty" style="flex:2"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
+      <div class="tv-bar-seg tv-bar-pink" style="flex:0.5" title="12.31–1.3 日本大阪"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:0.5"></div>
     </div>
     <div class="tv-month-markers">
       <span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span>
@@ -818,11 +822,11 @@ a:hover { color: #ea580c !important; }
 
   <!-- Leave summary -->
   <div class="tv-leave-grid">
-    <div class="tv-leave-item"><div class="tv-leave-val">9</div><div class="tv-leave-label">趟旅行</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">14</div><div class="tv-leave-label">天年假</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">11</div><div class="tv-leave-label">趟旅行</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">19</div><div class="tv-leave-label">天年假</div></div>
     <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">天病假</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">40+</div><div class="tv-leave-label">天在路上</div></div>
-    <div class="tv-leave-item"><div class="tv-leave-val">6</div><div class="tv-leave-label">个国家</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">54+</div><div class="tv-leave-label">天在路上</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">7</div><div class="tv-leave-label">个国家</div></div>
   </div>
 
   <!-- Trip cards with cover images -->
@@ -899,6 +903,24 @@ a:hover { color: #ea580c !important; }
         <span class="tv-trip-tag">3天年假</span>
       </div>
     </div>
+    <div class="tv-trip-card tv-c-yellow" onclick="tvToggle('tv-qinggan')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1580309237429-661ea63a1f5c?w=400&h=200&fit=crop" alt="青甘大环线" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">6.28–7.7</div>
+        <div class="tv-trip-name">青甘大环线</div>
+        <div class="tv-trip-days">10天 · 自驾西北</div>
+        <span class="tv-trip-tag">5天年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-pink" onclick="tvToggle('tv-osaka')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=400&h=200&fit=crop" alt="日本大阪" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">12.31–1.3</div>
+        <div class="tv-trip-name">日本大阪 🇯🇵</div>
+        <div class="tv-trip-days">4天3晚 · 跨年</div>
+        <span class="tv-trip-tag">0年假</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -918,7 +940,7 @@ a:hover { color: #ea580c !important; }
         <circle class="tv-donut-bg" cx="18" cy="18" r="15.9"/>
         <circle class="tv-donut-fill" id="tv-donut" cx="18" cy="18" r="15.9" stroke-dasharray="100 100" stroke-dashoffset="100"/>
       </svg>
-      <div class="tv-donut-text" id="tv-donut-text">0/8</div>
+      <div class="tv-donut-text" id="tv-donut-text">0/10</div>
     </div>
   </div>
   <div class="tv-tracker-list" id="tv-tracker-list">
@@ -993,6 +1015,24 @@ a:hover { color: #ea580c !important; }
       </div>
       <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
       <div class="tv-confetti-burst">🦀</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="qinggan" data-emoji="🏜️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🏜️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">青甘大环线 · 自驾西北</div>
+        <div class="tv-tracker-date">6.28–7.7 <span class="tv-tracker-days-tag">10天</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <div class="tv-confetti-burst">🐫</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="osaka" data-emoji="🇯🇵" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🇯🇵</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">日本大阪 · 跨年</div>
+        <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">等我呀 ~</span>
+      <div class="tv-confetti-burst">⛩️</div>
     </div>
   </div>
   <div class="tv-all-done-msg" id="tv-all-done">
@@ -2074,6 +2114,171 @@ a:hover { color: #ea580c !important; }
   </div>
 </div>
 
+<!-- ===== 8. 青甘大环线 ===== -->
+<div class="tv-detail" id="tv-qinggan">
+  <div class="tv-detail-header" onclick="tvToggle('tv-qinggan')">
+    <span class="tv-detail-emoji">🏜️</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">青甘大环线 · 10天自驾</div>
+      <div class="tv-detail-meta">2026.6.28–7.7 · 5天年假 · 西北大环线</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1580309237429-661ea63a1f5c?w=800&h=300&fit=crop" alt="青甘大环线" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 6.28（日）<span class="tv-day-badge" style="background:#fef3c7;color:#d97706">上海→西宁</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">飞抵西宁，塔尔寺参观</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span><span class="tv-food-pill">青海酸奶</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 6.29（一，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">西宁→青海湖→茶卡盐湖（天空之镜）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 6.30（二，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">茶卡→翡翠湖→大柴旦</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 7.1（三，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">大柴旦→315公路→东台吉乃尔湖→水上雅丹</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D5 · 7.2（四，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">水上雅丹→冷湖石油小镇→阿克塞</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D6 · 7.3（五，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">阿克塞→敦煌莫高窟（需提前预约！）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">傍晚</div><div class="tv-day-card-content">鸣沙山月牙泉看日落 🌅</div><div class="tv-day-card-meta"><span class="tv-food-pill">驴肉黄面</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D7 · 7.4（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">敦煌→嘉峪关（天下第一雄关）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D8 · 7.5（日）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">嘉峪关→张掖七彩丹霞（日落最佳）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D9 · 7.6（一）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">张掖→祁连山卓尔山→门源油菜花海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D10 · 7.7（二）<span class="tv-day-badge" style="background:#fef3c7;color:#d97706">西宁→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">门源→西宁，飞回上海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>自驾：</strong>国内驾照即可租车，建议SUV，加满油再出发<br>
+      <strong>高反：</strong>青海湖海拔3200m+，提前服用红景天，慢慢适应<br>
+      <strong>莫高窟：</strong>旺季需提前30天在官网预约，每日限流<br>
+      <strong>衣物：</strong>昼夜温差大，夏天也要带外套和防晒
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 9. 日本大阪 ===== -->
+<div class="tv-detail" id="tv-osaka">
+  <div class="tv-detail-header" onclick="tvToggle('tv-osaka')">
+    <span class="tv-detail-emoji">🇯🇵</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">日本大阪周边 · 4天3晚</div>
+      <div class="tv-detail-meta">2026.12.31–2027.1.3 · 跨年 · 0年假</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=800&h=300&fit=crop" alt="日本大阪" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 12.31（四）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">上海→大阪</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">抵达关西机场，前往难波</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">道顿堀跨年倒数 🎆 章鱼烧+大阪烧</div><div class="tv-day-card-meta"><span class="tv-food-pill">章鱼烧</span><span class="tv-food-pill">大阪烧</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 1.1（五，元旦）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">大阪城天守阁 🏯</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">中午</div><div class="tv-day-card-content">黑门市场吃海鲜</div><div class="tv-day-card-meta"><span class="tv-food-pill">金枪鱼</span><span class="tv-food-pill">烤扇贝</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">心斋桥购物</div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 1.2（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">京都一日游：伏见稻荷大社⛩️ → 清水寺 → 锦市场<br>或 奈良喂鹿 🦌 + 东大寺</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> JR/近铁</span><span class="tv-food-pill">抹茶甜点</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 1.3（日）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">大阪→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">奈良/自由购物，临空奥特莱斯</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">关西机场→上海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>签证：</strong>提前办理日本单次旅游签证（约200元，5个工作日）<br>
+      <strong>交通：</strong>建议购买大阪周游卡/关西周游券<br>
+      <strong>货币：</strong>提前兑换日元，小店多用现金<br>
+      <strong>跨年：</strong>道顿堀/心斋桥跨年氛围好，注意保暖
+    </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== Key Reminders ===== -->
 <div class="tv-reminders">
   <div class="tv-section-title"><i class="fas fa-bell"></i> 关键提醒</div>
@@ -2081,6 +2286,8 @@ a:hover { color: #ea580c !important; }
     <div class="tv-reminder-item"><span class="tv-reminder-icon">🎫</span><div><strong>五月天门票：</strong>5.16–5.18场次，建议提前1–2个月在<a href="https://www.damai.cn" target="_blank">大麦网</a>抢票</div></div>
     <div class="tv-reminder-item"><span class="tv-reminder-icon">🛂</span><div><strong>亚庇免签：</strong>中国护照免签30天，直接入境</div></div>
     <div class="tv-reminder-item"><span class="tv-reminder-icon">🇪🇺</span><div><strong>欧洲申根签：</strong>提前3个月办理，西班牙签出签率高</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🏜️</span><div><strong>青甘自驾：</strong>国内驾照即可，高海拔注意高反，莫高窟需提前30天<a href="https://www.mogaoku.net" target="_blank">官网预约</a></div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🇯🇵</span><div><strong>日本签证：</strong>提前办理单次旅游签，约200元/5个工作日出签</div></div>
     <div class="tv-reminder-item"><span class="tv-reminder-icon">🦀</span><div><strong>美食季：</strong>潮汕/广州10月海鲜最肥，泉州4月刺桐花开</div></div>
     <div class="tv-reminder-item"><span class="tv-reminder-icon">🏛️</span><div><strong>故宫预约：</strong>提前7天在<a href="https://gugong.ktmtech.cn" target="_blank">故宫官网</a>预约，周一闭馆</div></div>
     <div class="tv-reminder-item"><span class="tv-reminder-icon">🚄</span><div><strong>高铁购票：</strong>国内高铁统一在 <a href="https://www.12306.cn" target="_blank">12306</a> 购票；西班牙 <a href="https://www.renfe.com/es/en" target="_blank">Renfe</a>；葡萄牙 <a href="https://www.cp.pt/passageiros/en" target="_blank">CP</a></div></div>
