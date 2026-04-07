@@ -23,6 +23,7 @@ menu:
   Tags: /tags/ || fas fa-tags
   Categories: /categories/ || fas fa-folder-open
   CAT: /cat/ || fas fa-cat
+  Travel: /travel/ || fas fa-plane
   About: /about/ || fas fa-user
 
 # --------------------------------------

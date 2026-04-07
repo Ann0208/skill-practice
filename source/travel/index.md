@@ -1,0 +1,2398 @@
+---
+title: Travel
+date: 2026-03-12
+comments: false
+aside: false
+---
+
+{% raw %}
+<style>
+/* ============================================================
+   TRAVEL PAGE — Magazine-style Visual Upgrade
+   ============================================================ */
+body, #body-wrap { background: linear-gradient(165deg, #faf8f5 0%, #fef6ee 50%, #faf8f5 100%) !important; }
+#page-header { background: transparent !important; }
+#nav {
+  background: rgba(255,255,255,0.65) !important;
+  backdrop-filter: blur(16px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.8) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.04) !important;
+}
+#nav.nav-fixed, #nav.show { background: rgba(255,255,255,0.8) !important; backdrop-filter: blur(16px) saturate(1.8) !important; -webkit-backdrop-filter: blur(16px) saturate(1.8) !important; }
+.nav-site-title .site-name, #nav .site-name { color: #1c1917 !important; }
+#nav .menus_items .site-page, #nav .menus_items a { color: #44403c !important; }
+#nav .menus_items .site-page:hover, #nav .menus_items a:hover { color: #f97316 !important; }
+#toggle-menu .site-page { color: #44403c !important; }
+#sidebar-menus { background: #faf8f5 !important; }
+#sidebar-menus .menus_item a { color: #44403c !important; }
+#sidebar-menus .menus_item a:hover { color: #f97316 !important; }
+#footer { background: #f5f0eb !important; border-top: 1px solid rgba(0,0,0,0.06) !important; }
+.footer-copyright, .footer-copyright a, .footer-copyright span,
+.framework-info, .framework-info a { color: rgba(0,0,0,0.35) !important; }
+#rightside button {
+  background: rgba(255,255,255,0.8) !important; border: 1px solid rgba(0,0,0,0.08) !important;
+  color: #44403c !important; box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  backdrop-filter: blur(8px) !important;
+}
+#rightside button:hover { background: #fff !important; }
+a { color: #f97316 !important; }
+a:hover { color: #ea580c !important; }
+#menu-mask { background: rgba(250,248,245,0.7) !important; }
+
+/* ---- Variables ---- */
+:root {
+  --tv-bg: #ffffff;
+  --tv-border: rgba(0,0,0,0.07);
+  --tv-text: #1c1917;
+  --tv-text2: #78716c;
+  --tv-text3: #a8a29e;
+  --tv-accent: #f97316;
+  --tv-accent-bg: #fff7ed;
+  --tv-green: #059669;
+  --tv-green-bg: #ecfdf5;
+  --tv-orange: #ea580c;
+  --tv-orange-bg: #fff7ed;
+  --tv-pink: #db2777;
+  --tv-pink-bg: #fdf2f8;
+  --tv-purple: #7c3aed;
+  --tv-purple-bg: #f5f3ff;
+  --tv-yellow: #d97706;
+  --tv-yellow-bg: #fffbeb;
+  --tv-teal: #0891b2;
+  --tv-teal-bg: #ecfeff;
+  --tv-radius: 16px;
+}
+* { box-sizing: border-box; }
+
+/* ---- Page Header ---- */
+.tv-page-header {
+  padding: 36px 0 24px; text-align: center; position: relative; overflow: hidden;
+}
+.tv-page-icon { font-size: 56px; line-height: 1; display: block; margin-bottom: 8px; }
+.tv-page-title {
+  font-size: 42px; font-weight: 900; color: var(--tv-text) !important;
+  margin: 0; letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #f97316, #db2777, #7c3aed);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tv-page-subtitle {
+  font-size: 14px; color: var(--tv-text2) !important; margin-top: 6px;
+  letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+}
+/* Airplane route animation */
+.tv-flight-path { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.tv-flight-path svg { width: 100%; height: 100%; }
+.tv-flight-route { fill: none; stroke: #f9731640; stroke-width: 1.5; stroke-dasharray: 6 4; }
+.tv-plane-icon { animation: tvFlyPath 8s ease-in-out infinite; }
+@keyframes tvFlyPath {
+  0% { offset-distance: 0%; } 100% { offset-distance: 100%; }
+}
+.tv-page-header > * { position: relative; z-index: 1; }
+
+/* ---- Year Overview ---- */
+.tv-overview {
+  background: var(--tv-bg); border: 1px solid var(--tv-border);
+  border-radius: var(--tv-radius); padding: 28px; margin-bottom: 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+.tv-section-title {
+  font-size: 15px; font-weight: 800; color: var(--tv-text) !important;
+  margin: 0 0 18px; display: flex; align-items: center; gap: 8px;
+}
+.tv-section-title i { color: var(--tv-accent); font-size: 14px; }
+
+/* Timeline bar with month markers */
+.tv-year-bar-wrap { margin-bottom: 22px; }
+.tv-year-bar {
+  display: flex; gap: 3px; border-radius: 8px; overflow: hidden; height: 10px;
+}
+.tv-bar-seg { flex: 1; border-radius: 5px; transition: transform 0.2s; }
+.tv-bar-seg:not(.tv-bar-empty):hover { transform: scaleY(1.5); }
+.tv-month-markers {
+  display: flex; justify-content: space-between; margin-top: 6px; padding: 0 2px;
+}
+.tv-month-markers span {
+  font-size: 9px; color: var(--tv-text3) !important; font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Trip cards row */
+.tv-trips-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px;
+}
+.tv-trip-card {
+  border: 1px solid var(--tv-border); border-radius: 14px;
+  cursor: pointer; transition: all 0.3s ease;
+  text-decoration: none !important; display: block;
+  overflow: hidden; position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.tv-trip-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.12); transform: translateY(-4px); border-color: rgba(0,0,0,0.12); }
+.tv-trip-cover {
+  width: 100%; height: 110px; object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.tv-trip-card:hover .tv-trip-cover { transform: scale(1.08); }
+.tv-trip-cover-wrap { overflow: hidden; position: relative; }
+.tv-trip-cover-wrap::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.15)); pointer-events: none;
+}
+.tv-trip-body { padding: 14px; }
+.tv-trip-month {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 5px;
+}
+.tv-trip-name { font-size: 15px; font-weight: 800; color: var(--tv-text) !important; margin-bottom: 4px; }
+.tv-trip-days { font-size: 12px; color: var(--tv-text2) !important; }
+.tv-trip-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  border-radius: 20px; padding: 3px 10px; margin-top: 8px;
+}
+
+/* Color tags */
+.tv-c-blue .tv-trip-month { color: var(--tv-accent) !important; }
+.tv-c-blue .tv-trip-tag { background: var(--tv-accent-bg); color: var(--tv-accent) !important; }
+.tv-c-green .tv-trip-month { color: var(--tv-green) !important; }
+.tv-c-green .tv-trip-tag { background: var(--tv-green-bg); color: var(--tv-green) !important; }
+.tv-c-orange .tv-trip-month { color: var(--tv-orange) !important; }
+.tv-c-orange .tv-trip-tag { background: var(--tv-orange-bg); color: var(--tv-orange) !important; }
+.tv-c-pink .tv-trip-month { color: var(--tv-pink) !important; }
+.tv-c-pink .tv-trip-tag { background: var(--tv-pink-bg); color: var(--tv-pink) !important; }
+.tv-c-purple .tv-trip-month { color: var(--tv-purple) !important; }
+.tv-c-purple .tv-trip-tag { background: var(--tv-purple-bg); color: var(--tv-purple) !important; }
+.tv-c-yellow .tv-trip-month { color: var(--tv-yellow) !important; }
+.tv-c-yellow .tv-trip-tag { background: var(--tv-yellow-bg); color: var(--tv-yellow) !important; }
+.tv-trip-tag.tv-tag-done { background: #ecfdf5 !important; color: #059669 !important; }
+
+/* Bar colors */
+.tv-bar-blue { background: linear-gradient(90deg, #38bdf8, #0ea5e9); }
+.tv-bar-green { background: linear-gradient(90deg, #34d399, #059669); }
+.tv-bar-orange { background: linear-gradient(90deg, #fb923c, #ea580c); }
+.tv-bar-pink { background: linear-gradient(90deg, #f472b6, #db2777); }
+.tv-bar-purple { background: linear-gradient(90deg, #a78bfa, #7c3aed); }
+.tv-bar-yellow { background: linear-gradient(90deg, #fbbf24, #d97706); }
+.tv-bar-empty { background: #ece9e4; }
+
+/* ---- Detail Section ---- */
+.tv-detail {
+  background: var(--tv-bg); border: 1px solid var(--tv-border);
+  border-radius: var(--tv-radius); margin-bottom: 24px; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s;
+}
+.tv-detail:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+.tv-detail-header {
+  padding: 20px 24px; cursor: pointer; display: flex;
+  align-items: center; gap: 14px; user-select: none;
+  transition: background 0.15s;
+}
+.tv-detail-header:hover { background: #fdfaf7; }
+.tv-detail-emoji { font-size: 32px; flex-shrink: 0; }
+.tv-detail-info { flex: 1; min-width: 0; }
+.tv-detail-name { font-size: 18px; font-weight: 800; color: var(--tv-text) !important; }
+.tv-detail-meta { font-size: 13px; color: var(--tv-text2) !important; margin-top: 3px; }
+.tv-detail-chevron {
+  color: var(--tv-text3); font-size: 14px;
+  transition: transform 0.3s ease; flex-shrink: 0;
+}
+.tv-detail-body { display: none; border-top: 1px solid var(--tv-border); }
+.tv-detail-body.tv-open { display: block; }
+.tv-detail-content { padding: 0 24px 24px; }
+
+/* City banner */
+.tv-city-banner {
+  width: 100%; height: 200px; object-fit: cover; display: block;
+}
+
+/* Quick links */
+.tv-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: 18px; }
+.tv-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid rgba(249,115,22,0.15);
+  border-radius: 20px; padding: 7px 14px; font-size: 12px;
+  font-weight: 600; color: var(--tv-text) !important;
+  text-decoration: none !important; transition: all 0.2s;
+}
+.tv-link:hover { background: linear-gradient(135deg, #fed7aa, #fde68a); box-shadow: 0 2px 12px rgba(249,115,22,0.15); transform: translateY(-1px); }
+.tv-link i { font-size: 12px; color: var(--tv-accent); }
+
+/* Day itinerary — timeline style */
+.tv-day { margin-bottom: 20px; position: relative; padding-left: 24px; }
+.tv-day::before {
+  content: ''; position: absolute; left: 6px; top: 28px; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, var(--tv-accent), rgba(249,115,22,0.1));
+  border-radius: 2px;
+}
+.tv-day:last-child::before { display: none; }
+.tv-day-dot {
+  position: absolute; left: 0; top: 10px; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--tv-accent); border: 3px solid #fff;
+  box-shadow: 0 0 0 2px rgba(249,115,22,0.2);
+}
+.tv-day-title {
+  font-size: 14px; font-weight: 800; color: var(--tv-text) !important;
+  padding: 6px 0 10px; margin-bottom: 0; display: flex; align-items: center; gap: 8px;
+}
+.tv-day-badge {
+  font-size: 10px; font-weight: 700; border-radius: 20px;
+  padding: 3px 10px; flex-shrink: 0;
+}
+
+/* Day content cards */
+.tv-day-cards { display: flex; flex-direction: column; gap: 8px; }
+.tv-day-card {
+  background: #fafaf8; border: 1px solid var(--tv-border);
+  border-radius: 12px; padding: 12px 14px;
+  transition: background 0.15s;
+}
+.tv-day-card:hover { background: #f5f3f0; }
+.tv-day-card-time {
+  font-size: 11px; font-weight: 700; color: var(--tv-accent) !important;
+  margin-bottom: 4px;
+}
+.tv-day-card-content {
+  font-size: 13px; color: var(--tv-text) !important; line-height: 1.5; font-weight: 500;
+}
+.tv-day-card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+
+/* Transport badges */
+.tv-transport-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--tv-teal-bg); color: var(--tv-teal) !important;
+  border-radius: 6px; padding: 2px 8px; font-size: 10px; font-weight: 600;
+}
+.tv-transport-badge i { font-size: 10px; }
+
+/* Food pills */
+.tv-food-pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3); color: #be185d !important;
+  border-radius: 20px; padding: 2px 10px; font-size: 10px; font-weight: 600;
+}
+.tv-food-pill::before { content: '🍽️'; font-size: 10px; }
+
+/* Day table (fallback for existing tables) */
+.tv-day-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.tv-day-table th {
+  text-align: left; color: var(--tv-text3) !important;
+  font-weight: 700; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 8px 12px;
+  border-bottom: 1px solid var(--tv-border); background: #fdfaf7;
+  border-radius: 8px 8px 0 0;
+}
+.tv-day-table td {
+  padding: 10px 12px; color: var(--tv-text) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.04); vertical-align: top;
+  line-height: 1.6;
+}
+.tv-day-table tr:last-child td { border-bottom: none; }
+.tv-day-table { border: 1px solid var(--tv-border); border-radius: 12px; overflow: hidden; }
+
+/* Tips box — illustrated card */
+.tv-tips {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid rgba(217,119,6,0.2); border-left: 4px solid #d97706;
+  border-radius: 12px; padding: 16px 18px; margin-top: 18px;
+  font-size: 12px; color: #92400e !important; line-height: 1.8;
+  position: relative;
+}
+.tv-tips::before { content: '💡'; position: absolute; top: -10px; right: 14px; font-size: 22px; }
+.tv-tips strong { color: #78350f !important; }
+
+/* Budget callout */
+.tv-budget {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1px solid rgba(249,115,22,0.2); border-left: 4px solid #f97316;
+  border-radius: 12px; padding: 16px 18px; margin-top: 18px;
+  font-size: 12px; color: #9a3412 !important; line-height: 1.8;
+  position: relative;
+}
+.tv-budget::before { content: '💰'; position: absolute; top: -10px; right: 14px; font-size: 22px; }
+
+/* Key reminders card — grid layout */
+.tv-reminders {
+  background: var(--tv-bg); border: 1px solid var(--tv-border);
+  border-radius: var(--tv-radius); padding: 28px; margin-bottom: 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+.tv-reminder-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px;
+}
+.tv-reminder-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px; border-radius: 12px;
+  background: #fdfaf7; border: 1px solid var(--tv-border);
+  font-size: 13px; color: var(--tv-text) !important; line-height: 1.6;
+  transition: all 0.2s;
+}
+.tv-reminder-item:hover { background: #faf5ef; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transform: translateY(-1px); }
+.tv-reminder-icon {
+  flex-shrink: 0; font-size: 22px; width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #fff7ed, #fef3c7);
+  border-radius: 12px;
+}
+
+/* Leave summary */
+.tv-leave-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px; margin-bottom: 16px;
+}
+.tv-leave-item {
+  background: linear-gradient(135deg, #fff7ed, #fffbeb); border: 1px solid rgba(249,115,22,0.1);
+  border-radius: 14px; padding: 16px 12px; text-align: center;
+  transition: transform 0.2s;
+}
+.tv-leave-item:hover { transform: scale(1.05); }
+.tv-leave-val { font-size: 26px; font-weight: 900; color: var(--tv-accent) !important; line-height: 1; }
+.tv-leave-label { font-size: 10px; color: var(--tv-text2) !important; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+/* ---- Status Tracker (Playful) ---- */
+.tv-tracker {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 30%, #fff7ed 60%, #fce7f3 100%);
+  border: 1.5px solid rgba(251,191,36,0.3);
+  border-radius: 20px; padding: 28px; margin-bottom: 20px;
+  position: relative; overflow: hidden;
+}
+.tv-tracker::before {
+  content: ''; position: absolute; right: -30px; top: -30px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(251,191,36,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.tv-tracker::after {
+  content: ''; position: absolute; left: -20px; bottom: -20px;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, rgba(244,114,182,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.tv-tracker-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; position: relative; z-index: 1;
+}
+.tv-tracker-title-area {
+  display: flex; align-items: center; gap: 10px;
+}
+.tv-tracker-title-icon { font-size: 28px; animation: tvBounce 2s ease-in-out infinite; }
+@keyframes tvBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.tv-tracker-title {
+  font-size: 18px; font-weight: 800; color: #1c1917 !important;
+  letter-spacing: -0.01em;
+}
+.tv-tracker-subtitle {
+  font-size: 12px; color: #a16207 !important; font-weight: 500; margin-top: 1px;
+}
+/* Donut progress */
+.tv-donut-wrap {
+  position: relative; width: 64px; height: 64px; flex-shrink: 0;
+}
+.tv-donut-svg { width: 64px; height: 64px; transform: rotate(-90deg); }
+.tv-donut-bg { fill: none; stroke: rgba(0,0,0,0.06); stroke-width: 5; }
+.tv-donut-fill {
+  fill: none; stroke: url(#tvDonutGrad); stroke-width: 5;
+  stroke-linecap: round; transition: stroke-dashoffset 0.6s ease;
+}
+.tv-donut-text {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 800; color: #ea580c !important;
+}
+/* Confetti burst */
+@keyframes tvConfetti {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.8); }
+}
+.tv-confetti-burst {
+  position: absolute; inset: 0; pointer-events: none; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; opacity: 0;
+}
+.tv-confetti-burst.tv-pop { animation: tvConfetti 0.6s ease-out forwards; }
+
+/* Tracker list */
+.tv-tracker-list {
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative; z-index: 1;
+}
+.tv-tracker-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px; border-radius: 14px;
+  background: rgba(255,255,255,0.7); backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.8);
+  cursor: pointer; transition: all 0.25s ease;
+  position: relative; overflow: hidden;
+}
+.tv-tracker-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border-color: rgba(251,191,36,0.4);
+}
+.tv-tracker-item:active { transform: translateY(0) scale(0.99); }
+.tv-tracker-item.tv-done {
+  background: rgba(220,252,231,0.5);
+  border-color: rgba(74,222,128,0.3);
+}
+
+/* Stamp icon */
+.tv-stamp {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; transition: all 0.3s ease;
+  background: rgba(255,255,255,0.8);
+  border: 2px dashed rgba(0,0,0,0.12);
+}
+.tv-tracker-item.tv-done .tv-stamp {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  border: 2px solid #16a34a; border-style: solid;
+  box-shadow: 0 2px 8px rgba(34,197,94,0.3);
+  animation: tvStampIn 0.35s ease;
+}
+@keyframes tvStampIn {
+  0% { transform: scale(0.3) rotate(-180deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.tv-stamp-check { display: none; color: #fff; font-size: 16px; font-weight: 800; }
+.tv-tracker-item.tv-done .tv-stamp-emoji { display: none; }
+.tv-tracker-item.tv-done .tv-stamp-check { display: block; }
+
+.tv-tracker-dest { flex: 1; min-width: 0; }
+.tv-tracker-name {
+  font-size: 14px; font-weight: 700; color: var(--tv-text) !important;
+  transition: all 0.3s;
+}
+.tv-tracker-item.tv-done .tv-tracker-name {
+  text-decoration: line-through;
+  text-decoration-color: rgba(34,197,94,0.5);
+  color: #6b7280 !important;
+}
+.tv-tracker-date {
+  font-size: 11px; color: var(--tv-text2) !important; margin-top: 2px;
+  display: flex; align-items: center; gap: 6px;
+}
+.tv-tracker-days-tag {
+  background: rgba(0,0,0,0.05); border-radius: 4px;
+  padding: 1px 6px; font-size: 10px; font-weight: 600;
+}
+
+/* Status pill */
+.tv-tracker-status {
+  font-size: 11px; font-weight: 700; border-radius: 20px;
+  padding: 4px 12px; flex-shrink: 0; white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.tv-status-done {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #16a34a !important;
+  box-shadow: 0 2px 8px rgba(34,197,94,0.15);
+}
+.tv-status-upcoming {
+  background: rgba(255,255,255,0.6); color: #9ca3af !important;
+  border: 1px dashed rgba(0,0,0,0.12);
+}
+.tv-status-next {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  color: #a16207 !important;
+  box-shadow: 0 2px 8px rgba(251,191,36,0.2);
+  animation: tvPulse 2s ease-in-out infinite;
+}
+@keyframes tvPulse {
+  0%, 100% { box-shadow: 0 2px 8px rgba(251,191,36,0.2); }
+  50% { box-shadow: 0 2px 16px rgba(251,191,36,0.4); }
+}
+
+/* All-done celebration */
+.tv-all-done-msg {
+  text-align: center; padding: 16px 0 4px; display: none;
+  position: relative; z-index: 1;
+}
+.tv-all-done-msg.tv-show { display: block; animation: tvFadeUp 0.5s ease; }
+@keyframes tvFadeUp {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.tv-all-done-text {
+  font-size: 16px; font-weight: 800; color: #ea580c !important;
+  letter-spacing: 0.02em;
+}
+.tv-all-done-sub {
+  font-size: 12px; color: #a16207 !important; margin-top: 4px;
+}
+
+/* Decorative separator between detail sections */
+.tv-separator {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 8px 0; color: var(--tv-text3) !important; font-size: 12px;
+}
+.tv-separator::before, .tv-separator::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+}
+.tv-separator-icon { font-size: 16px; opacity: 0.5; }
+
+/* Responsive */
+@media (max-width: 680px) {
+  .tv-trips-grid { grid-template-columns: 1fr 1fr; }
+  .tv-leave-grid { grid-template-columns: repeat(3, 1fr); }
+  .tv-page-title { font-size: 30px; }
+  .tv-day-table { font-size: 11px; }
+  .tv-reminder-grid { grid-template-columns: 1fr; }
+  .tv-city-banner { height: 140px; }
+  .tv-trip-cover { height: 90px; }
+}
+@media (max-width: 480px) {
+  .tv-trips-grid { grid-template-columns: 1fr; }
+  .tv-leave-grid { grid-template-columns: 1fr 1fr; }
+  .tv-day { padding-left: 18px; }
+}
+/* ===== Password Lock Overlay ===== */
+.tv-lock-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 99999;
+  background: linear-gradient(165deg, #faf8f5 0%, #fef6ee 50%, #faf8f5 100%);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  overflow: hidden;
+}
+.tv-lock-overlay.tv-unlocked { display: none; }
+/* floating clouds */
+.tv-lock-cloud {
+  position: absolute; font-size: 32px; opacity: 0.25; animation: tvFloat 6s ease-in-out infinite;
+}
+.tv-lock-cloud:nth-child(1) { top: 12%; left: 8%; animation-delay: 0s; font-size: 28px; }
+.tv-lock-cloud:nth-child(2) { top: 25%; right: 10%; animation-delay: 1.5s; font-size: 36px; }
+.tv-lock-cloud:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 3s; font-size: 24px; }
+.tv-lock-cloud:nth-child(4) { bottom: 30%; right: 12%; animation-delay: 0.8s; font-size: 30px; }
+.tv-lock-cloud:nth-child(5) { top: 8%; left: 50%; animation-delay: 2s; font-size: 20px; }
+@keyframes tvFloat {
+  0%,100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-12px) translateX(6px); }
+}
+.tv-lock-box {
+  position: relative; z-index: 1;
+  background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px; padding: 44px 40px 36px; text-align: center;
+  box-shadow: 0 12px 48px rgba(249,115,22,0.10), 0 2px 12px rgba(0,0,0,0.05);
+  max-width: 380px; width: 88%;
+  border: 1px solid rgba(255,255,255,0.6);
+  animation: tvBoxIn 0.6s ease-out;
+}
+@keyframes tvBoxIn {
+  0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.tv-lock-plane {
+  font-size: 42px; margin-bottom: 8px;
+  display: inline-block; animation: tvPlane 3s ease-in-out infinite;
+}
+@keyframes tvPlane {
+  0%,100% { transform: translateX(0) rotate(-5deg); }
+  50% { transform: translateX(8px) rotate(5deg); }
+}
+.tv-lock-box h2 {
+  font-size: 22px; color: #1c1917; margin: 0 0 4px; font-weight: 800;
+  background: linear-gradient(135deg, #f97316, #d97706);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tv-lock-box .tv-lock-sub { font-size: 13px; color: #a8a29e; margin: 0 0 24px; line-height: 1.6; }
+.tv-lock-input {
+  width: 100%; box-sizing: border-box; padding: 14px 16px; font-size: 20px; text-align: center;
+  border: 2px solid #f5f0eb; border-radius: 14px; outline: none; letter-spacing: 10px;
+  background: rgba(255,255,255,0.7); transition: all 0.25s;
+}
+.tv-lock-input::placeholder { letter-spacing: 6px; color: #d6d3d1; }
+.tv-lock-input:focus { border-color: #f97316; background: #fff; box-shadow: 0 0 0 4px rgba(249,115,22,0.1); }
+.tv-lock-input.tv-shake { animation: tvShake 0.4s ease; border-color: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.1); }
+.tv-lock-btn {
+  margin-top: 16px; width: 100%; padding: 13px; font-size: 15px; font-weight: 700;
+  border: none; border-radius: 14px; cursor: pointer; color: #fff; letter-spacing: 2px;
+  background: linear-gradient(135deg, #f97316, #ea580c); transition: all 0.25s;
+  box-shadow: 0 4px 16px rgba(249,115,22,0.25);
+}
+.tv-lock-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(249,115,22,0.35); }
+.tv-lock-btn:active { transform: translateY(0); }
+.tv-lock-hint { font-size: 12px; color: #ef4444; margin-top: 10px; min-height: 18px; }
+.tv-lock-footer { margin-top: 20px; font-size: 12px; color: #c8c2bc; }
+@keyframes tvShake {
+  0%,100% { transform: translateX(0); }
+  20%,60% { transform: translateX(-8px); }
+  40%,80% { transform: translateX(8px); }
+}
+.tv-content-hidden { display: none; }
+</style>
+
+<!-- ===== Password Lock ===== -->
+<div class="tv-lock-overlay" id="tvLockOverlay">
+  <div class="tv-lock-cloud">☁️</div>
+  <div class="tv-lock-cloud">✈️</div>
+  <div class="tv-lock-cloud">☁️</div>
+  <div class="tv-lock-cloud">🌤️</div>
+  <div class="tv-lock-cloud">🪂</div>
+  <div class="tv-lock-box">
+    <div class="tv-lock-plane">✈️</div>
+    <h2>旅行计划</h2>
+    <p class="tv-lock-sub">说出暗号，带你去看世界 🌍</p>
+    <input class="tv-lock-input" id="tvPwdInput" type="password" maxlength="10" placeholder="输入四位数密码" autofocus>
+    <button class="tv-lock-btn" id="tvPwdBtn" onclick="tvCheckPwd()">🛫 出发！</button>
+    <div class="tv-lock-hint" id="tvPwdHint"></div>
+    <div class="tv-lock-footer">✦ 去看海 绕世界流浪 ✦</div>
+  </div>
+</div>
+
+<!-- ===== Page Header ===== -->
+<div id="tvContent" class="tv-content-hidden">
+<div class="tv-page-header">
+  <svg class="tv-flight-path" viewBox="0 0 800 120" preserveAspectRatio="none">
+    <path id="tvFlightRoute" class="tv-flight-route" d="M0,80 C150,20 300,100 400,40 C500,-20 650,90 800,30"/>
+    <text font-size="18" style="offset-path:path('M0,80 C150,20 300,100 400,40 C500,-20 650,90 800,30');" class="tv-plane-icon">✈️</text>
+  </svg>
+  <span class="tv-page-icon">✈️</span>
+  <h1 class="tv-page-title">旅行计划</h1>
+  <div class="tv-page-subtitle">From Shanghai to the World · 2026</div>
+</div>
+
+<!-- ===== Year Overview ===== -->
+<div class="tv-overview">
+  <div class="tv-section-title"><i class="fas fa-calendar-alt"></i> 2026 全年行程总览</div>
+
+  <!-- Year progress bar with month markers -->
+  <div class="tv-year-bar-wrap">
+    <div class="tv-year-bar">
+      <div class="tv-bar-seg tv-bar-pink" style="flex:0.5" title="12月底-1月 首尔🇰🇷"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:2.5"></div>
+      <div class="tv-bar-seg tv-bar-blue" style="flex:1" title="4月 泉州"></div>
+      <div class="tv-bar-seg tv-bar-green" style="flex:1" title="5月 亚庇+北京"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
+      <div class="tv-bar-seg tv-bar-yellow" style="flex:1" title="6.28–7.7 青甘大环线"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:0.5"></div>
+      <div class="tv-bar-seg tv-bar-orange" style="flex:0.5" title="8月 南京"></div>
+      <div class="tv-bar-seg tv-bar-purple" style="flex:1" title="9-10月 欧洲"></div>
+      <div class="tv-bar-seg tv-bar-orange" style="flex:1" title="10月 广州+潮汕"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:1"></div>
+      <div class="tv-bar-seg tv-bar-pink" style="flex:0.5" title="12.31–1.3 日本大阪/北海道+东京"></div>
+      <div class="tv-bar-seg tv-bar-empty" style="flex:0.5"></div>
+    </div>
+    <div class="tv-month-markers">
+      <span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span>
+      <span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span>
+    </div>
+  </div>
+
+  <!-- Leave summary -->
+  <div class="tv-leave-grid">
+    <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">趟旅行</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">天年假</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">12</div><div class="tv-leave-label">天带薪病假</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">54+</div><div class="tv-leave-label">天在路上</div></div>
+    <div class="tv-leave-item"><div class="tv-leave-val">7</div><div class="tv-leave-label">个国家</div></div>
+  </div>
+
+  <!-- Trip cards with cover images -->
+  <div class="tv-trips-grid">
+    <div class="tv-trip-card tv-c-pink" onclick="tvToggle('tv-seoul')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1682270239838-165e15f0a284?w=400&h=200&fit=crop" alt="首尔" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">12.31–1.3</div>
+        <div class="tv-trip-name">首尔 🇰🇷</div>
+        <div class="tv-trip-days">4天3晚 · 跨年购物</div>
+        <span class="tv-trip-tag tv-tag-done">已完成 ✓</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-blue" onclick="tvToggle('tv-quanzhou')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1748180749362-e498105ecc7f?w=400&h=200&fit=crop" alt="泉州" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">4月</div>
+        <div class="tv-trip-name">泉州</div>
+        <div class="tv-trip-days">4天3晚 · 美食+世遗</div>
+        <span class="tv-trip-tag">2天年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-green" onclick="tvToggle('tv-kk')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1536478403399-ae2240ffd664?w=400&h=200&fit=crop" alt="亚庇" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">5.1–5.5</div>
+        <div class="tv-trip-name">亚庇</div>
+        <div class="tv-trip-days">5天4晚 · 大海落日</div>
+        <span class="tv-trip-tag">0年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-pink" onclick="tvToggle('tv-beijing')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=400&h=200&fit=crop" alt="北京" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">5.16–5.18</div>
+        <div class="tv-trip-name">北京</div>
+        <div class="tv-trip-days">3天2晚 · 五月天鸟巢</div>
+        <span class="tv-trip-tag">1天病假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-orange" onclick="tvToggle('tv-nanjing')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1599571234909-29ed5d1321d6?w=400&h=200&fit=crop" alt="南京" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">8月</div>
+        <div class="tv-trip-name">南京</div>
+        <div class="tv-trip-days">2天1晚 · 红山动物园</div>
+        <span class="tv-trip-tag">0年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-yellow" onclick="tvToggle('tv-guangzhou')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1753172115293-32b2a08f0798?w=400&h=200&fit=crop" alt="广州" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">10月</div>
+        <div class="tv-trip-name">广州</div>
+        <div class="tv-trip-days">4天3晚 · 美食之都</div>
+        <span class="tv-trip-tag">2天年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-orange" onclick="tvToggle('tv-chaoshan')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1741004418831-c854ccc70c67?w=400&h=200&fit=crop" alt="潮汕" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">10月</div>
+        <div class="tv-trip-name">潮汕</div>
+        <div class="tv-trip-days">4天3晚 · 海鲜最肥</div>
+        <span class="tv-trip-tag">2天年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-purple" onclick="tvToggle('tv-europe')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400&h=200&fit=crop" alt="欧洲" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">9.25–10.7</div>
+        <div class="tv-trip-name">欧洲</div>
+        <div class="tv-trip-days">13天 · 西葡法三国</div>
+        <span class="tv-trip-tag">3天年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-yellow" onclick="tvToggle('tv-qinggan')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=400&h=200&fit=crop" alt="青甘大环线" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">6.28–7.7</div>
+        <div class="tv-trip-name">青甘大环线</div>
+        <div class="tv-trip-days">10天 · 自驾西北</div>
+        <span class="tv-trip-tag">5天年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-pink" onclick="tvToggle('tv-osaka')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=400&h=200&fit=crop" alt="日本大阪" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">12.31–1.3</div>
+        <div class="tv-trip-name">日本大阪 🇯🇵</div>
+        <div class="tv-trip-days">4天3晚 · 跨年</div>
+        <span class="tv-trip-tag">0年假</span>
+      </div>
+    </div>
+    <div class="tv-trip-card tv-c-teal" onclick="tvToggle('tv-hokkaido')">
+      <div class="tv-trip-cover-wrap"><img class="tv-trip-cover" src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=400&h=200&fit=crop" alt="北海道+东京" loading="lazy"></div>
+      <div class="tv-trip-body">
+        <div class="tv-trip-month">12.31–1.3</div>
+        <div class="tv-trip-name">北海道+东京 🇯🇵</div>
+        <div class="tv-trip-days">4天3晚 · 雪国跨年</div>
+        <span class="tv-trip-tag">0年假</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Status Tracker ===== -->
+<div class="tv-tracker">
+  <div class="tv-tracker-header">
+    <div class="tv-tracker-title-area">
+      <span class="tv-tracker-title-icon">🗺️</span>
+      <div>
+        <div class="tv-tracker-title">旅行集邮册</div>
+        <div class="tv-tracker-subtitle" id="tv-motto">每一次出发，都是给自己的礼物~</div>
+      </div>
+    </div>
+    <div class="tv-donut-wrap">
+      <svg class="tv-donut-svg" viewBox="0 0 36 36">
+        <defs><linearGradient id="tvDonutGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#ec4899"/></linearGradient></defs>
+        <circle class="tv-donut-bg" cx="18" cy="18" r="15.9"/>
+        <circle class="tv-donut-fill" id="tv-donut" cx="18" cy="18" r="15.9" stroke-dasharray="100 100" stroke-dashoffset="100"/>
+      </svg>
+      <div class="tv-donut-text" id="tv-donut-text">0/10</div>
+    </div>
+  </div>
+  <div class="tv-tracker-list" id="tv-tracker-list">
+    <div class="tv-tracker-item tv-done" data-trip="seoul" data-emoji="🇰🇷" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🇰🇷</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">首尔 · 跨年购物</div>
+        <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">5天4晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-done">已打卡 ✓</span>
+      <div class="tv-confetti-burst">🎆</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="quanzhou" data-emoji="🏛️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🏛️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">泉州 · 美食+世遗</div>
+        <div class="tv-tracker-date">4.17–4.20 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-next">即将出发 ~</span>
+      <div class="tv-confetti-burst">🎉</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="kk" data-emoji="🏝️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🏝️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">亚庇 · 大海落日</div>
+        <div class="tv-tracker-date">5.1–5.5 <span class="tv-tracker-days-tag">5天4晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🌊</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="beijing" data-emoji="🎸" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🎸</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">北京 · 五月天鸟巢</div>
+        <div class="tv-tracker-date">5.16–5.18 <span class="tv-tracker-days-tag">3天2晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🎶</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="qinggan" data-emoji="🏜️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🏜️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">青甘大环线 · 自驾西北</div>
+        <div class="tv-tracker-date">6.28–7.7 <span class="tv-tracker-days-tag">10天</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🐫</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="nanjing" data-emoji="🐼" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🐼</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">南京 · 红山动物园</div>
+        <div class="tv-tracker-date">8.8–8.9 <span class="tv-tracker-days-tag">2天1晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🐾</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="europe" data-emoji="🇪🇺" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🇪🇺</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">欧洲 · 西葡法三国</div>
+        <div class="tv-tracker-date">9.25–10.7 <span class="tv-tracker-days-tag">13天</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🗼</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="guangzhou" data-emoji="🍜" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🍜</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">广州 · 美食之都</div>
+        <div class="tv-tracker-date">10.17–10.20 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🥘</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="chaoshan" data-emoji="🦐" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🦐</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">潮汕 · 海鲜最肥</div>
+        <div class="tv-tracker-date">10.24–10.27 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🦀</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="osaka" data-emoji="🇯🇵" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">🇯🇵</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">日本大阪 · 跨年</div>
+        <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">⛩️</div>
+    </div>
+    <div class="tv-tracker-item" data-trip="hokkaido" data-emoji="❄️" onclick="tvToggleCheck(this)">
+      <div class="tv-stamp"><span class="tv-stamp-emoji">❄️</span><span class="tv-stamp-check">✓</span></div>
+      <div class="tv-tracker-dest">
+        <div class="tv-tracker-name">北海道+东京 · 雪国跨年</div>
+        <div class="tv-tracker-date">12.31–1.3 <span class="tv-tracker-days-tag">4天3晚</span></div>
+      </div>
+      <span class="tv-tracker-status tv-status-upcoming">燥候！</span>
+      <div class="tv-confetti-burst">🎿</div>
+    </div>
+  </div>
+  <div class="tv-all-done-msg" id="tv-all-done">
+    <div class="tv-all-done-text">🎊 全部打卡完成！2026 太酷啦！🎊</div>
+    <div class="tv-all-done-sub">你已经集齐了所有旅行印章，世界因你更精彩~</div>
+  </div>
+</div>
+
+<!-- ===== 0. 首尔 ===== -->
+<div class="tv-detail" id="tv-seoul">
+  <div class="tv-detail-header" onclick="tvToggle('tv-seoul')">
+    <span class="tv-detail-emoji">🇰🇷</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">首尔 · 4天3晚</div>
+      <div class="tv-detail-meta">2025.12.31–2026.1.3 · 跨年+2天年假 · -5℃ 冬季</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1682270239838-165e15f0a284?w=800&h=300&fit=crop" alt="首尔" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 12.31（二）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">上海→首尔</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">抵达首尔，东大门跨年烟花 🎆</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 1.1（三，元旦）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">明洞逛街购物</div><div class="tv-day-card-meta"><span class="tv-food-pill">脊骨锅</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 1.2（四，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">弘大逛街购物</div><div class="tv-day-card-meta"><span class="tv-food-pill">披萨</span><span class="tv-food-pill">醉蟹</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 1.3（五，年假）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">首尔→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">返程回上海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">✈️</span></div>
+<!-- ===== 1. 泉州 ===== -->
+<div class="tv-detail" id="tv-quanzhou">
+  <div class="tv-detail-header" onclick="tvToggle('tv-quanzhou')">
+    <span class="tv-detail-emoji">🏛️</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">泉州 · 4天3晚</div>
+      <div class="tv-detail-meta">4.17–4.20 · 双休+2天年假 · 19–26℃ 舒适</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1748180749362-e498105ecc7f?w=800&h=300&fit=crop" alt="泉州" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://www.12306.cn" target="_blank"><i class="fas fa-train"></i> 12306 购票</a>
+      <a class="tv-link" href="https://you.ctrip.com/sight/quanzhou244.html" target="_blank"><i class="fas fa-ticket-alt"></i> 携程·泉州景点</a>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 4.17（五，年假）<span class="tv-day-badge" style="background:#fff7ed;color:#f97316">上海→泉州</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">08:00–15:00</div>
+          <div class="tv-day-card-content">上海→泉州（高铁）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G1657 约7h ¥430</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">15:30–17:30</div>
+          <div class="tv-day-card-content">逛西街、开元寺、钟楼</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 开元寺免费</span><span class="tv-food-pill">侯阿婆肉粽</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">18:00–20:00</div>
+          <div class="tv-day-card-content">西街晚餐+夜景</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">面线糊+醋肉</span><span class="tv-food-pill">海蛎煎</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 4.18（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–11:30</div>
+          <div class="tv-day-card-content">蟳埔村（簪花、蚵壳厝）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 簪花¥30/人</span><span class="tv-food-pill">海蛎粥</span><span class="tv-food-pill">姜母鸭</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">14:00–16:00</div>
+          <div class="tv-day-card-content">洛阳桥</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">17:00–18:30</div>
+          <div class="tv-day-card-content">清净寺</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> ¥10/人</span><span class="tv-food-pill">土笋冻</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 4.19（日）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–12:00</div>
+          <div class="tv-day-card-content">清源山（老君岩、天湖）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> ¥70/人</span><span class="tv-food-pill">清源山素面</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">14:00–16:00</div>
+          <div class="tv-day-card-content">梧林传统村落</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">四果汤</span><span class="tv-food-pill">润饼</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">17:00–18:00</div>
+          <div class="tv-day-card-content">天后宫</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 4.20（一，年假）<span class="tv-day-badge" style="background:#fff7ed;color:#f97316">泉州→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–10:30</div>
+          <div class="tv-day-card-content">府文庙、承天寺</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">11:00–12:00</div>
+          <div class="tv-day-card-content">买特产（姜母鸭、肉粽、麻粩）</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">面线糊收尾</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">12:30–19:30</div>
+          <div class="tv-day-card-content">泉州→上海（高铁）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G1660 约7h ¥430</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>西街开元寺旁民宿（3晚约¥980/人），方便逛吃<br>
+      <strong>提示：</strong>4月泉州气候舒适，刺桐花开，适合拍照
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">✈️</span></div>
+<!-- ===== 2. 亚庇 ===== -->
+<div class="tv-detail" id="tv-kk">
+  <div class="tv-detail-header" onclick="tvToggle('tv-kk')">
+    <span class="tv-detail-emoji">🏝️</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">亚庇 · 5天4晚</div>
+      <div class="tv-detail-meta">5.1–5.5 · 五一假期 · 30℃ 旱季尾声 · 日落概率高</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1536478403399-ae2240ffd664?w=800&h=300&fit=crop" alt="亚庇" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://flights.ctrip.com" target="_blank"><i class="fas fa-plane"></i> 携程·机票</a>
+      <a class="tv-link" href="https://www.klook.com/zh-CN/city/14-kota-kinabalu-things-to-do/" target="_blank"><i class="fas fa-umbrella-beach"></i> Klook·亚庇玩乐</a>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 5.1（四）<span class="tv-day-badge" style="background:#ecfdf5;color:#059669">上海→亚庇</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">07:00–11:00</div><div class="tv-day-card-content">上海浦东→亚庇（直飞约4h）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 往返约¥3000</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">14:00–16:00</div><div class="tv-day-card-content">逛加雅街</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> Grab ¥50</span><span class="tv-food-pill">佑记肉骨茶</span><span class="tv-food-pill">叻沙</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">18:00–19:30</div><div class="tv-day-card-content">丹绒亚路海滩看日落</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">大茄来海鲜</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 5.2（五）跳岛浮潜</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">08:30–16:00</div><div class="tv-day-card-content">东姑阿都拉曼海岛公园（沙比岛+马努干岛浮潜）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ship"></i> 跳岛套票¥200/人</span><span class="tv-food-pill">海岛简餐</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">19:00–20:30</div><div class="tv-day-card-content">晚餐</div><div class="tv-day-card-meta"><span class="tv-food-pill">奶油老虎虾</span><span class="tv-food-pill">咸蛋黄蟹</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 5.3（六）神山探索</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">07:30–12:00</div><div class="tv-day-card-content">神山国家公园（树顶吊桥、高山牧场）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 拼车¥80/人</span><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 门票¥50+吊桥¥30</span><span class="tv-food-pill">竹筒饭</span><span class="tv-food-pill">山猪肉</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">14:00–16:00</div><div class="tv-day-card-content">波令温泉</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> ¥20/人</span><span class="tv-food-pill">热带水果</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">19:00–20:30</div><div class="tv-day-card-content">加雅街夜市</div><div class="tv-day-card-meta"><span class="tv-food-pill">各类小吃</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 5.4（日）红树林</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">14:00–16:00</div><div class="tv-day-card-content">出发KAWA红树林</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ship"></i> 套票¥180/人</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">17:00–18:30</div><div class="tv-day-card-content">看长鼻猴</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 含在套票内</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">19:00–20:30</div><div class="tv-day-card-content">看萤火虫</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 含在套票内</span><span class="tv-food-pill">双天海鲜楼</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D5 · 5.5（一）<span class="tv-day-badge" style="background:#ecfdf5;color:#059669">亚庇→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">09:00–11:00</div><div class="tv-day-card-content">买特产（芒果干、椰子饼、沙巴红茶）</div><div class="tv-day-card-meta"><span class="tv-food-pill">叻沙收尾</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">12:00–16:00</div><div class="tv-day-card-content">亚庇→上海浦东（直飞约4h）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> Grab ¥50到机场</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>加雅街/丹绒亚路海滩酒店（4晚约¥1500/人）<br>
+      <strong>签证：</strong>中国护照免签30天，直接入境<br>
+      <strong>提示：</strong>五一为旱季尾声，日落概率高
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">🚄</span></div>
+<!-- ===== 3. 北京五月天 ===== -->
+<div class="tv-detail" id="tv-beijing">
+  <div class="tv-detail-header" onclick="tvToggle('tv-beijing')">
+    <span class="tv-detail-emoji">🎸</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">北京 · 五月天鸟巢 · 3天2晚</div>
+      <div class="tv-detail-meta">5.16–5.18 · 周末+1天病假</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&h=300&fit=crop" alt="北京" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://www.12306.cn" target="_blank"><i class="fas fa-train"></i> 12306 购票</a>
+      <a class="tv-link" href="https://www.damai.cn" target="_blank"><i class="fas fa-music"></i> 大麦网·演唱会票</a>
+      <a class="tv-link" href="https://gugong.ktmtech.cn" target="_blank"><i class="fas fa-landmark"></i> 故宫预约</a>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 5.16（五，病假）<span class="tv-day-badge" style="background:#fdf2f8;color:#db2777">上海→北京</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">08:00–12:30</div>
+          <div class="tv-day-card-content">上海→北京（高铁）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G10 约4.5h 二等座¥550</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">14:30–17:30</div>
+          <div class="tv-day-card-content">天安门、故宫</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 故宫¥60/人（提前7天预约）</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">18:00–19:30</div>
+          <div class="tv-day-card-content">景山公园看日落</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> ¥2/人</span><span class="tv-food-pill">四季民福烤鸭</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">20:00–21:30</div>
+          <div class="tv-day-card-content">前门小吃街</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">艾窝窝</span><span class="tv-food-pill">驴打滚</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 5.17（六）<span class="tv-day-badge" style="background:#fdf2f8;color:#db2777">演唱会日</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">10:00–12:00</div>
+          <div class="tv-day-card-content">南锣鼓巷、什刹海</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">铜锅涮肉（南门涮肉）</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">14:00–17:00</div>
+          <div class="tv-day-card-content">自由闲逛（三里屯/王府井）</div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">19:30–22:00</div>
+          <div class="tv-day-card-content">五月天鸟巢演唱会</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 门票¥355–1255/人</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 5.18（日）<span class="tv-day-badge" style="background:#fdf2f8;color:#db2777">北京→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–11:00</div>
+          <div class="tv-day-card-content">前门大街、买特产</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">炸酱面收尾</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">12:00–17:00</div>
+          <div class="tv-day-card-content">北京→上海（高铁）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G19 约4.5h ¥550</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>前门/南锣鼓巷附近酒店（2晚约¥800/人）<br>
+      <strong>提示：</strong>故宫需提前7天预约，避开周一闭馆；演唱会当天提前1小时到鸟巢
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">🚄</span></div>
+
+<!-- ===== 4. 南京红山动物园 ===== -->
+<div class="tv-detail" id="tv-nanjing">
+  <div class="tv-detail-header" onclick="tvToggle('tv-nanjing')">
+    <span class="tv-detail-emoji">🐼</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">南京红山动物园 · 2天1晚</div>
+      <div class="tv-detail-meta">8.8–8.9 · 双休 · 28–38℃ 夏季</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1599571234909-29ed5d1321d6?w=800&h=300&fit=crop" alt="南京" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://www.12306.cn" target="_blank"><i class="fas fa-train"></i> 12306 购票</a>
+      <a class="tv-link" href="https://you.ctrip.com/sight/nanjing9/136702.html" target="_blank"><i class="fas fa-ticket-alt"></i> 携程·红山动物园</a>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 8.8（六）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">上海→南京</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–10:00</div>
+          <div class="tv-day-card-content">上海→南京（高铁约1h）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G7082 二等座¥140</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">12:00–17:00</div>
+          <div class="tv-day-card-content">红山动物园（北门进：熊猫馆→考拉馆→亚洲灵长馆→虎馆→细尾獴馆）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 成人¥70/人（提前预约） 喂食时间 8:30/12:30/14:30/16:30</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">17:30–19:00</div>
+          <div class="tv-day-card-content">晚餐</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">皮肚面</span><span class="tv-food-pill">金陵汤包</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 8.9（日）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">南京→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–12:00</div>
+          <div class="tv-day-card-content">继续逛动物园（冈瓦纳展区→象馆→长颈鹿馆→狼馆）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 含在门票内</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">14:00–16:00</div>
+          <div class="tv-day-card-content">玄武湖</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">鸭血粉丝汤</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">16:30–17:30</div>
+          <div class="tv-day-card-content">南京→上海（高铁约1h）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G7089 ¥140</span><span class="tv-food-pill">特产：盐水鸭</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>动物园附近酒店（1晚约¥400/人）<br>
+      <strong>提示：</strong>园区面积大，穿舒适运动鞋，可租代步车¥100/h；建议8:30开园就入园<br>
+      <strong>防暑：</strong>8月南京高温，务必带防晒霜、遮阳帽、便携风扇，多补水
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">🚄</span></div>
+<!-- ===== 5. 广州 ===== -->
+<div class="tv-detail" id="tv-guangzhou">
+  <div class="tv-detail-header" onclick="tvToggle('tv-guangzhou')">
+    <span class="tv-detail-emoji">🍜</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">广州 · 4天3晚</div>
+      <div class="tv-detail-meta">10.17–10.20 · 双休+2天年假 · 海鲜肥美</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1753172115293-32b2a08f0798?w=800&h=300&fit=crop" alt="广州" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://www.12306.cn" target="_blank"><i class="fas fa-train"></i> 12306 购票</a>
+      <a class="tv-link" href="https://you.ctrip.com/sight/guangzhou152.html" target="_blank"><i class="fas fa-ticket-alt"></i> 携程·广州景点</a>
+      <a class="tv-link" href="https://www.chimelong.com" target="_blank"><i class="fas fa-hippo"></i> 长隆官网购票</a>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 10.17（五，年假）<span class="tv-day-badge" style="background:#fffbeb;color:#d97706">上海→广州</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">08:00–14:00</div>
+          <div class="tv-day-card-content">上海→广州（高铁约6h）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G85 二等座¥600</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">16:00–18:30</div>
+          <div class="tv-day-card-content">北京路、上下九</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">陶陶居早茶</span><span class="tv-food-pill">云吞面</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">19:00–21:00</div>
+          <div class="tv-day-card-content">晚餐+夜景</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">广州酒家（烧腊、白切鸡）</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 10.18（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">10:30–12:30</div>
+          <div class="tv-day-card-content">沙面岛</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">艇仔粥</span><span class="tv-food-pill">炒河粉</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">14:30–16:30</div>
+          <div class="tv-day-card-content">永庆坊</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span><span class="tv-food-pill">姜撞奶</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">17:00–19:00</div>
+          <div class="tv-day-card-content">广州塔（外观+拍照）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 登塔¥150（可选）</span><span class="tv-food-pill">炳胜品味（珠江新城店）</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 10.19（日）<span class="tv-day-badge" style="background:#fffbeb;color:#d97706">长隆日</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">10:00–17:00</div>
+          <div class="tv-day-card-content">长隆野生动物世界</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 成人¥300/人（地铁3号线约50min）</span><span class="tv-transport-badge"><i class="fas fa-mobile-alt"></i> 下载"长隆旅游"APP查排队</span><span class="tv-food-pill">熊猫餐厅</span><span class="tv-food-pill">煲仔饭</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">19:00–21:00</div>
+          <div class="tv-day-card-content">返回市区晚餐</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">顺记冰室双皮奶</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 10.20（一，年假）<span class="tv-day-badge" style="background:#fffbeb;color:#d97706">广州→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">09:00–10:30</div>
+          <div class="tv-day-card-content">早茶</div>
+          <div class="tv-day-card-meta"><span class="tv-food-pill">点都德（北京路店）</span></div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">11:00–12:00</div>
+          <div class="tv-day-card-content">买特产（广式腊肠、鸡仔饼）</div>
+        </div>
+        <div class="tv-day-card">
+          <div class="tv-day-card-time">12:30–18:30</div>
+          <div class="tv-day-card-content">广州→上海（高铁约6h）</div>
+          <div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> G86 ¥600</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>北京路/上下九附近酒店（3晚约¥1000/人）<br>
+      <strong>提示：</strong>长隆建议早到避开人流，穿舒适运动鞋
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">🚄</span></div>
+
+<!-- ===== 6. 潮汕 ===== -->
+<div class="tv-detail" id="tv-chaoshan">
+  <div class="tv-detail-header" onclick="tvToggle('tv-chaoshan')">
+    <span class="tv-detail-emoji">🦐</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">潮汕 · 4天3晚</div>
+      <div class="tv-detail-meta">10.24–10.27 · 双休+2天年假 · 海鲜最肥</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1741004418831-c854ccc70c67?w=800&h=300&fit=crop" alt="潮汕" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://www.12306.cn" target="_blank"><i class="fas fa-train"></i> 12306 购票</a>
+      <a class="tv-link" href="https://you.ctrip.com/sight/shantou539.html" target="_blank"><i class="fas fa-ticket-alt"></i> 携程·潮汕景点</a>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 10.24（五，年假）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">上海→潮州</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">08:00–14:00</div>
+        <div class="tv-day-card-content">上海→潮汕站（高铁约6h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> G1639 二等座¥450</span>
+          <span class="tv-transport-badge"><i class="fas fa-car"></i> 打车到古城¥50</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">16:00–18:30</div>
+        <div class="tv-day-card-content">潮州古城、牌坊街、开元寺</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">牛肉火锅（八合里海记）</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">19:00–20:00</div>
+        <div class="tv-day-card-content">广济桥灯光秀</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 上桥¥20/人（灯光秀免费）</span>
+          <span class="tv-food-pill">鸭母捻</span>
+          <span class="tv-food-pill">猪肠胀糯米</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 10.25（六）南澳岛</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">潮州→南澳岛</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-car"></i> 打车¥80（约1.5h）</span>
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> "南澳畅行"小程序提前7天预约入岛</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:30–12:00</div>
+        <div class="tv-day-card-content">长山尾灯塔、钱澳湾灯塔</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-transport-badge"><i class="fas fa-motorcycle"></i> 环岛租电动车¥80/天</span>
+          <span class="tv-food-pill">后宅镇海鲜排档</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–16:30</div>
+        <div class="tv-day-card-content">青澳湾（游泳、沙滩）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">南澳果汁冰</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:00–18:30</div>
+        <div class="tv-day-card-content">北回归线标志塔</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> ¥10/人</span>
+          <span class="tv-food-pill">然仔生腌</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 10.26（日）汕头</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">南澳岛→汕头</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-car"></i> 打车¥60（约1h）</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:30–12:00</div>
+        <div class="tv-day-card-content">汕头小公园</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">卤鹅（老仓卤鹅）</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–16:00</div>
+        <div class="tv-day-card-content">汕头大学（外观）、老市区</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">牛肉丸（福合埕）</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:00–20:30</div>
+        <div class="tv-day-card-content">龙眼南路美食街</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-food-pill">各类小吃</span>
+          <span class="tv-food-pill">鱼丸汤</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 10.27（一，年假）<span class="tv-day-badge" style="background:#fff7ed;color:#ea580c">汕头→上海</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:30</div>
+        <div class="tv-day-card-content">买特产（牛肉丸、潮汕三宝）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-food-pill">牛肉火锅收尾</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">11:00–17:00</div>
+        <div class="tv-day-card-content">潮汕站→上海（高铁约6h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> G1640 ¥450</span>
+          <span class="tv-transport-badge"><i class="fas fa-car"></i> 打车到站¥40</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>潮州古城1晚 + 汕头市区2晚（3晚约¥900/人）<br>
+      <strong>提示：</strong>南澳岛建议住后宅镇，交通便利美食集中；海鲜务必问清时价
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="tv-separator"><span class="tv-separator-icon">✈️</span></div>
+
+<!-- ===== 7. 欧洲 ===== -->
+<div class="tv-detail" id="tv-europe">
+  <div class="tv-detail-header" onclick="tvToggle('tv-europe')">
+    <span class="tv-detail-emoji">🇪🇺</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">欧洲 · 13天 · 西班牙→葡萄牙→法国</div>
+      <div class="tv-detail-meta">9.25–10.7 · 中秋+国庆+3天年假 · 马德里→巴塞罗那→里斯本→波尔图→尼斯</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&h=300&fit=crop" alt="欧洲" loading="lazy">
+    <div class="tv-detail-content">
+    <div class="tv-links">
+      <a class="tv-link" href="https://flights.ctrip.com" target="_blank"><i class="fas fa-plane"></i> 携程·国际机票</a>
+      <a class="tv-link" href="https://www.renfe.com/es/en" target="_blank"><i class="fas fa-train"></i> Renfe·西班牙高铁</a>
+      <a class="tv-link" href="https://www.cp.pt/passageiros/en" target="_blank"><i class="fas fa-train"></i> CP·葡萄牙火车</a>
+      <a class="tv-link" href="https://www.booking.com" target="_blank"><i class="fas fa-hotel"></i> Booking·酒店</a>
+      <a class="tv-link" href="https://www.getyouguide.com" target="_blank"><i class="fas fa-ticket-alt"></i> GetYourGuide·门票</a>
+    </div>
+
+    <div class="tv-budget">
+      <strong>请假方案：</strong>中秋 9.25–9.27（3天）+ 年假 9.28–9.30（3天）+ 国庆 10.1–10.7（7天）= 仅请3天年假<br>
+      <strong>预算参考：</strong>机票往返约¥6000 + 住宿12晚约¥5000/人 + 欧洲境内交通+门票约¥3000
+    </div>
+
+    <!-- Phase 1: Spain -->
+    <div style="margin-top:18px;margin-bottom:8px;font-size:14px;font-weight:700;color:#37352f">🇪🇸 第一阶段：西班牙（9.25–9.30）</div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 9.25（五，中秋）<span class="tv-day-badge" style="background:#f5f3ff;color:#7c3aed">上海→马德里</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">13:00–次日01:00</div>
+        <div class="tv-day-card-content">上海浦东→马德里（直飞约12h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-plane"></i> MU709 往返约¥6000</span>
+          <span class="tv-transport-badge"><i class="fas fa-subway"></i> 机场→市区地铁€5</span>
+          <span class="tv-food-pill">Tapas简餐</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 9.26（六）马德里</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:00–12:00</div>
+        <div class="tv-day-card-content">马德里皇宫</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €12/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–16:30</div>
+        <div class="tv-day-card-content">普拉多博物馆</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €15/人（闭馆前2h免费）</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:00–18:30</div>
+        <div class="tv-day-card-content">丽池公园</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">19:00–21:00</div>
+        <div class="tv-day-card-content">太阳门广场、马约尔广场</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">Tapas</span>
+          <span class="tv-food-pill">海鲜饭</span>
+          <span class="tv-food-pill">桑格利亚</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 9.27（日）托莱多一日游</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">马德里→托莱多（高铁Avant 30min）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €15/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:30–16:30</div>
+        <div class="tv-day-card-content">托莱多古城、大教堂、圣马丁桥</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 大教堂€10/人</span>
+          <span class="tv-food-pill">烤乳猪</span>
+          <span class="tv-food-pill">Churros配热巧克力</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:00–18:00</div>
+        <div class="tv-day-card-content">返回马德里</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €15/人</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 9.28（一，年假）<span class="tv-day-badge" style="background:#f5f3ff;color:#7c3aed">马德里→巴塞罗那</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–11:30</div>
+        <div class="tv-day-card-content">高铁AVE（2.5h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €60/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">13:30–16:00</div>
+        <div class="tv-day-card-content">圣家堂</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €21–30/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">16:30–18:30</div>
+        <div class="tv-day-card-content">巴特罗之家 + 米拉之家</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 巴特罗€25 + 米拉€22</span>
+          <span class="tv-food-pill">海滩日落 + 海鲜餐厅</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D5 · 9.29（二，年假）巴塞罗那</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:00–12:30</div>
+        <div class="tv-day-card-content">哥特区、兰布拉大道</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–16:00</div>
+        <div class="tv-day-card-content">波盖利亚市场</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">水果汁</span>
+          <span class="tv-food-pill">海鲜串</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">16:30–18:00</div>
+        <div class="tv-day-card-content">桂尔公园</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €12/人</span>
+          <span class="tv-food-pill">西班牙煎蛋饼</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">22:00–次日00:30</div>
+        <div class="tv-day-card-content">巴塞罗那→马德里（高铁）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €60/人</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D6 · 9.30（三，年假）<span class="tv-day-badge" style="background:#f5f3ff;color:#7c3aed">马德里→里斯本</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">伯纳乌球场</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €25/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">11:00–12:00</div>
+        <div class="tv-day-card-content">马德里→里斯本（飞机1h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-plane"></i> €50/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:30–17:00</div>
+        <div class="tv-day-card-content">贝伦区（热罗尼莫斯修道院、贝伦塔）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 修道院€15 + 贝伦塔€10</span>
+          <span class="tv-food-pill">贝伦蛋挞（€1.3/个）</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:30–18:30</div>
+        <div class="tv-day-card-content">发现者纪念碑</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">鳕鱼料理</span>
+          <span class="tv-food-pill">烤章鱼</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2: Portugal + France -->
+    <div style="margin-top:24px;margin-bottom:8px;font-size:14px;font-weight:700;color:#37352f">🇵🇹🇫🇷 第二阶段：葡萄牙+法国（10.1–10.7）</div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D7 · 10.1（四，国庆）辛特拉一日游</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">里斯本→辛特拉（火车45min）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €4/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:30–12:30</div>
+        <div class="tv-day-card-content">佩纳宫</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €18/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–15:30</div>
+        <div class="tv-day-card-content">摩尔人城堡</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €8/人</span>
+          <span class="tv-food-pill">葡式炖菜</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">16:00–17:30</div>
+        <div class="tv-day-card-content">罗卡角（欧洲大陆最西端）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D8 · 10.2（五）<span class="tv-day-badge" style="background:#f5f3ff;color:#7c3aed">里斯本→波尔图</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–11:30</div>
+        <div class="tv-day-card-content">高铁（2.5h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €30/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">13:30–16:00</div>
+        <div class="tv-day-card-content">波尔图老城区、利贝拉码头</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">16:30–18:00</div>
+        <div class="tv-day-card-content">波特酒窖品酒</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €15/人（含2杯酒）</span>
+          <span class="tv-food-pill">烤乳猪</span>
+          <span class="tv-food-pill">波尔图蛋挞</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D9 · 10.3（六）波尔图</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:00–12:00</div>
+        <div class="tv-day-card-content">牧师塔 + 圣弗朗西斯科教堂</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 牧师塔€8 + 教堂€10</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–16:30</div>
+        <div class="tv-day-card-content">杜罗河游船（约1h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €12/人</span>
+          <span class="tv-food-pill">鳕鱼饭</span>
+          <span class="tv-food-pill">葡式海鲜烩饭</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D10 · 10.4（日）<span class="tv-day-badge" style="background:#f5f3ff;color:#7c3aed">波尔图→尼斯</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:00–11:00</div>
+        <div class="tv-day-card-content">飞机（1.5h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-plane"></i> €80/人</span>
+          <span class="tv-transport-badge"><i class="fas fa-bus"></i> 机场→市区打车€30</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">13:30–16:30</div>
+        <div class="tv-day-card-content">尼斯天使湾、老城区</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">尼斯沙拉</span>
+          <span class="tv-food-pill">可丽饼</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:00–18:30</div>
+        <div class="tv-day-card-content">英国人散步大道</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">法式海鲜</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D11 · 10.5（一）摩纳哥一日游</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">尼斯→摩纳哥（火车30min）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-train"></i> €5/人</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">10:30–12:00</div>
+        <div class="tv-day-card-content">蒙特卡洛、大赌场</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费（入内需正装）</span>
+          <span class="tv-food-pill">法式鹅肝</span>
+          <span class="tv-food-pill">松露意面</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">14:00–15:30</div>
+        <div class="tv-day-card-content">亲王宫（含卫兵换岗仪式）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> €10/人</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D12 · 10.6（二）埃兹+戛纳</div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–15:30</div>
+        <div class="tv-day-card-content">埃兹小镇（山顶植物园）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-bus"></i> 公交112路 40min €2/人</span>
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 植物园€6</span>
+          <span class="tv-food-pill">法式焗蜗牛</span>
+          <span class="tv-food-pill">水果塔</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">17:00–19:00</div>
+        <div class="tv-day-card-content">尼斯海滩看日落</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-ticket-alt"></i> 免费</span>
+          <span class="tv-food-pill">法式晚餐</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D13 · 10.7（三）<span class="tv-day-badge" style="background:#f5f3ff;color:#7c3aed">尼斯→上海</span></div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">09:00–10:00</div>
+        <div class="tv-day-card-content">尼斯市区闲逛、买特产（香水、巧克力、葡萄酒）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-bus"></i> 打车到机场€30</span>
+          <span class="tv-food-pill">机场简餐</span>
+        </div>
+      </div>
+      <div class="tv-day-card">
+        <div class="tv-day-card-time">11:00–次日</div>
+        <div class="tv-day-card-content">尼斯→上海浦东（直飞约12h）</div>
+        <div class="tv-day-card-meta">
+          <span class="tv-transport-badge"><i class="fas fa-plane"></i> MU774</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>住宿：</strong>全程四星酒店（12晚约¥5000/人）<br>
+      <strong>签证：</strong>提前3个月办理西班牙申根签（出签率高）<br>
+      <strong>货币：</strong>欧元提前兑换，小额消费建议用现金<br>
+      <strong>提示：</strong>穿舒适步行鞋，欧洲多石板路、坡路
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 8. 青甘大环线 ===== -->
+<div class="tv-detail" id="tv-qinggan">
+  <div class="tv-detail-header" onclick="tvToggle('tv-qinggan')">
+    <span class="tv-detail-emoji">🏜️</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">青甘大环线 · 10天自驾</div>
+      <div class="tv-detail-meta">2026.6.28–7.7 · 5天年假 · 西北大环线</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&h=300&fit=crop" alt="青甘大环线" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 6.28（日）<span class="tv-day-badge" style="background:#fef3c7;color:#d97706">上海→西宁</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">飞抵西宁，塔尔寺参观</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span><span class="tv-food-pill">青海酸奶</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 6.29（一，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">西宁→青海湖→茶卡盐湖（天空之镜）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 6.30（二，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">茶卡→翡翠湖→大柴旦</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 7.1（三，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">大柴旦→315公路→东台吉乃尔湖→水上雅丹</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D5 · 7.2（四，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">水上雅丹→冷湖石油小镇→阿克塞</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D6 · 7.3（五，年假）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">阿克塞→敦煌莫高窟（需提前预约！）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">傍晚</div><div class="tv-day-card-content">鸣沙山月牙泉看日落 🌅</div><div class="tv-day-card-meta"><span class="tv-food-pill">驴肉黄面</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D7 · 7.4（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">敦煌→嘉峪关（天下第一雄关）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D8 · 7.5（日）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">嘉峪关→张掖七彩丹霞（日落最佳）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D9 · 7.6（一）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">张掖→祁连山卓尔山→门源油菜花海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-car"></i> 自驾</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D10 · 7.7（二）<span class="tv-day-badge" style="background:#fef3c7;color:#d97706">西宁→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">门源→西宁，飞回上海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>自驾：</strong>国内驾照即可租车，建议SUV，加满油再出发<br>
+      <strong>高反：</strong>青海湖海拔3200m+，提前服用红景天，慢慢适应<br>
+      <strong>莫高窟：</strong>旺季需提前30天在官网预约，每日限流<br>
+      <strong>衣物：</strong>昼夜温差大，夏天也要带外套和防晒
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 9. 日本大阪 ===== -->
+<div class="tv-detail" id="tv-osaka">
+  <div class="tv-detail-header" onclick="tvToggle('tv-osaka')">
+    <span class="tv-detail-emoji">🇯🇵</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">日本大阪周边 · 4天3晚</div>
+      <div class="tv-detail-meta">2026.12.31–2027.1.3 · 跨年 · 0年假</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=800&h=300&fit=crop" alt="日本大阪" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 12.31（四）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">上海→大阪</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">抵达关西机场，前往难波</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">道顿堀跨年倒数 🎆 章鱼烧+大阪烧</div><div class="tv-day-card-meta"><span class="tv-food-pill">章鱼烧</span><span class="tv-food-pill">大阪烧</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 1.1（五，元旦）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">大阪城天守阁 🏯</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">中午</div><div class="tv-day-card-content">黑门市场吃海鲜</div><div class="tv-day-card-meta"><span class="tv-food-pill">金枪鱼</span><span class="tv-food-pill">烤扇贝</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">心斋桥购物</div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 1.2（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">全天</div><div class="tv-day-card-content">京都一日游：伏见稻荷大社⛩️ → 清水寺 → 锦市场<br>或 奈良喂鹿 🦌 + 东大寺</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> JR/近铁</span><span class="tv-food-pill">抹茶甜点</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 1.3（日）<span class="tv-day-badge" style="background:#fce7f3;color:#db2777">大阪→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">奈良/自由购物，临空奥特莱斯</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">关西机场→上海</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>签证：</strong>提前办理日本单次旅游签证（约200元，5个工作日）<br>
+      <strong>交通：</strong>建议购买大阪周游卡/关西周游券<br>
+      <strong>货币：</strong>提前兑换日元，小店多用现金<br>
+      <strong>跨年：</strong>道顿堀/心斋桥跨年氛围好，注意保暖
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 10. 北海道+东京 ===== -->
+<div class="tv-detail" id="tv-hokkaido">
+  <div class="tv-detail-header" onclick="tvToggle('tv-hokkaido')">
+    <span class="tv-detail-emoji">❄️</span>
+    <div class="tv-detail-info">
+      <div class="tv-detail-name">北海道+东京 · 4天3晚</div>
+      <div class="tv-detail-meta">2026.12.31–2027.1.3 · 雪国跨年 · 0年假</div>
+    </div>
+    <i class="fas fa-chevron-down tv-detail-chevron"></i>
+  </div>
+  <div class="tv-detail-body">
+    <img class="tv-city-banner" src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&h=300&fit=crop" alt="北海道" loading="lazy">
+    <div class="tv-detail-content">
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D1 · 12.31（四）<span class="tv-day-badge" style="background:#ecfeff;color:#0891b2">上海→东京</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">上海浦东→东京成田/羽田（约3h）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">涩谷忠犬八公像 → 原宿竹下通 → 表参道</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">涩谷十字路口跨年倒数 🎆 或东京塔跨年灯光秀</div><div class="tv-day-card-meta"><span class="tv-food-pill">拉面</span><span class="tv-food-pill">居酒屋</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D2 · 1.1（五，元旦）<span class="tv-day-badge" style="background:#ecfeff;color:#0891b2">东京→札幌</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">明治神宫初诣 ⛩️（新年参拜）→ 新宿逛逛</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">羽田→新千岁机场（约1.5h国内航班）</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 国内航班约¥500</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">札幌薄野夜景 🌃 味噌拉面+成吉思汗烤肉</div><div class="tv-day-card-meta"><span class="tv-food-pill">味噌拉面</span><span class="tv-food-pill">成吉思汗烤肉</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D3 · 1.2（六）</div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">小樽运河散步 ❄️ 八音盒堂 + 北一硝子馆</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-train"></i> JR札幌→小樽 约30min</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">中午</div><div class="tv-day-card-content">小樽三角市场海鲜丼 🍣</div><div class="tv-day-card-meta"><span class="tv-food-pill">海鲜丼</span><span class="tv-food-pill">烤蟹</span></div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">返回札幌，白色恋人公园 🏰 → 狸小路商店街购物</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">晚上</div><div class="tv-day-card-content">札幌电视塔夜景 🗼 螃蟹料理</div><div class="tv-day-card-meta"><span class="tv-food-pill">帝王蟹</span><span class="tv-food-pill">白色恋人</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-day">
+      <div class="tv-day-dot"></div>
+      <div class="tv-day-title">D4 · 1.3（日）<span class="tv-day-badge" style="background:#ecfeff;color:#0891b2">札幌→上海</span></div>
+      <div class="tv-day-cards">
+        <div class="tv-day-card"><div class="tv-day-card-time">上午</div><div class="tv-day-card-content">新千岁机场购物（Royce巧克力工厂、机场温泉）</div></div>
+        <div class="tv-day-card"><div class="tv-day-card-time">下午</div><div class="tv-day-card-content">新千岁机场→上海浦东</div><div class="tv-day-card-meta"><span class="tv-transport-badge"><i class="fas fa-plane"></i> 飞机</span></div></div>
+      </div>
+    </div>
+
+    <div class="tv-tips">
+      <strong>签证：</strong>提前办理日本单次旅游签证（约200元，5个工作日）<br>
+      <strong>机票：</strong>需买 上海→东京 + 东京→札幌（国内段） + 札幌→上海，提前关注特价<br>
+      <strong>交通：</strong>东京用Suica卡，北海道段JR pass或单买票<br>
+      <strong>保暖：</strong>12月底北海道约-5~-10℃，务必带羽绒服、雪地靴、暖宝宝<br>
+      <strong>亮点：</strong>东京跨年+明治神宫初诣 → 北海道雪景+小樽运河+螃蟹大餐
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Key Reminders ===== -->
+<div class="tv-reminders">
+  <div class="tv-section-title"><i class="fas fa-bell"></i> 关键提醒</div>
+  <div class="tv-reminder-grid">
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🎫</span><div><strong>五月天门票：</strong>5.16–5.18场次，建议提前1–2个月在<a href="https://www.damai.cn" target="_blank">大麦网</a>抢票</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🛂</span><div><strong>亚庇免签：</strong>中国护照免签30天，直接入境</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🇪🇺</span><div><strong>欧洲申根签：</strong>提前3个月办理，西班牙签出签率高</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🏜️</span><div><strong>青甘自驾：</strong>国内驾照即可，高海拔注意高反，莫高窟需提前30天<a href="https://www.mogaoku.net" target="_blank">官网预约</a></div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🇯🇵</span><div><strong>日本签证：</strong>提前办理单次旅游签，约200元/5个工作日出签</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🦀</span><div><strong>美食季：</strong>潮汕/广州10月海鲜最肥，泉州4月刺桐花开</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🏛️</span><div><strong>故宫预约：</strong>提前7天在<a href="https://gugong.ktmtech.cn" target="_blank">故宫官网</a>预约，周一闭馆</div></div>
+    <div class="tv-reminder-item"><span class="tv-reminder-icon">🚄</span><div><strong>高铁购票：</strong>国内高铁统一在 <a href="https://www.12306.cn" target="_blank">12306</a> 购票；西班牙 <a href="https://www.renfe.com/es/en" target="_blank">Renfe</a>；葡萄牙 <a href="https://www.cp.pt/passageiros/en" target="_blank">CP</a></div></div>
+  </div>
+</div>
+
+<script>
+window.tvToggle = function(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var body = el.querySelector('.tv-detail-body');
+  var chevron = el.querySelector('.tv-detail-chevron');
+  if (!body) return;
+  var isOpen = body.classList.contains('tv-open');
+  body.classList.toggle('tv-open', !isOpen);
+  if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+};
+
+/* ---- Playful Trip Completion Tracker ---- */
+(function() {
+  var STORAGE_KEY = 'tv_completed_trips';
+  var CIRCUMFERENCE = 100; // stroke-dasharray
+
+  var mottos = [
+    '每一次出发，都是给自己的礼物~',
+    '世界那么大，一个一个去看看！',
+    '攒够回忆，才是最大的富有~',
+    '生活不止眼前的代码，还有诗和远方！',
+    '打工人的快乐，就藏在年假里~'
+  ];
+  var doneWords = [
+    '已打卡! ✌️', '去过啦 ~', '收入囊中!', '盖章! ✅', '搞定! 🎯', '到此一游!', '集邮成功!'
+  ];
+
+  function getCompleted() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; }
+  }
+  function saveCompleted(data) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+  }
+  function randomPick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function updateProgress() {
+    var items = document.querySelectorAll('.tv-tracker-item');
+    var total = items.length;
+    var done = document.querySelectorAll('.tv-tracker-item.tv-done').length;
+
+    // Donut chart
+    var donut = document.getElementById('tv-donut');
+    var donutText = document.getElementById('tv-donut-text');
+    if (donut) {
+      var pct = total ? (done / total * 100) : 0;
+      donut.setAttribute('stroke-dashoffset', CIRCUMFERENCE - pct);
+    }
+    if (donutText) donutText.textContent = done + '/' + total;
+
+    // All-done celebration
+    var allDone = document.getElementById('tv-all-done');
+    if (allDone) {
+      if (done === total && total > 0) {
+        allDone.classList.add('tv-show');
+      } else {
+        allDone.classList.remove('tv-show');
+      }
+    }
+
+    // Update motto
+    var motto = document.getElementById('tv-motto');
+    if (motto) {
+      if (done === total && total > 0) {
+        motto.textContent = '2026 全部打卡完成，你太厉害啦！';
+      } else if (done > 0) {
+        motto.textContent = '已解锁 ' + done + '/' + total + ' 个目的地，继续加油~';
+      } else {
+        motto.textContent = randomPick(mottos);
+      }
+    }
+  }
+
+  function applyState(item, checked, animate) {
+    var status = item.querySelector('.tv-tracker-status');
+    if (checked) {
+      item.classList.add('tv-done');
+      if (status) {
+        status.className = 'tv-tracker-status tv-status-done';
+        status.textContent = randomPick(doneWords);
+      }
+      // Confetti burst on click
+      if (animate) {
+        var burst = item.querySelector('.tv-confetti-burst');
+        if (burst) {
+          burst.classList.remove('tv-pop');
+          void burst.offsetWidth; // force reflow
+          burst.classList.add('tv-pop');
+        }
+      }
+    } else {
+      item.classList.remove('tv-done');
+      if (status) {
+        status.className = 'tv-tracker-status tv-status-upcoming';
+        status.textContent = '等我呀 ~';
+      }
+    }
+  }
+
+  window.tvToggleCheck = function(item) {
+    var trip = item.getAttribute('data-trip');
+    var completed = getCompleted();
+    var isNowDone = !item.classList.contains('tv-done');
+    completed[trip] = isNowDone;
+    saveCompleted(completed);
+    applyState(item, isNowDone, true);
+    updateProgress();
+  };
+
+  // Restore state on load
+  document.addEventListener('DOMContentLoaded', function() {
+    var completed = getCompleted();
+    var items = document.querySelectorAll('.tv-tracker-item');
+    items.forEach(function(item) {
+      var trip = item.getAttribute('data-trip');
+      if (completed[trip]) applyState(item, true, false);
+    });
+    updateProgress();
+  });
+})();
+
+/* ===== Password Lock Logic ===== */
+(function(){
+  var PASS = '1027';
+  var KEY = 'tv_unlocked';
+  if (localStorage.getItem(KEY) === 'yes') tvUnlock();
+  window.tvCheckPwd = function() {
+    var input = document.getElementById('tvPwdInput');
+    var hint = document.getElementById('tvPwdHint');
+    if (input.value === PASS) {
+      localStorage.setItem(KEY, 'yes');
+      tvUnlock();
+    } else {
+      hint.textContent = '密码错误，请重试';
+      input.classList.add('tv-shake');
+      setTimeout(function(){ input.classList.remove('tv-shake'); }, 400);
+      input.value = '';
+      input.focus();
+    }
+  };
+  function tvUnlock() {
+    var overlay = document.getElementById('tvLockOverlay');
+    var content = document.getElementById('tvContent');
+    if (overlay) overlay.classList.add('tv-unlocked');
+    if (content) content.classList.remove('tv-content-hidden');
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var input = document.getElementById('tvPwdInput');
+    if (input) input.addEventListener('keydown', function(e){
+      if (e.key === 'Enter') tvCheckPwd();
+    });
+  });
+})();
+</script>
+</div>
+{% endraw %}
