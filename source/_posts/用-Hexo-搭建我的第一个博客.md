@@ -1,6 +1,6 @@
 ---
 title: 用 Hexo 搭建我的第一个博客
-date: 2024-01-15 20:30:00
+date: 2021-09-15 20:30:00
 tags:
   - Hexo
   - GitHub Pages

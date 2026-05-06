@@ -154,7 +154,7 @@ module.exports = {
     },
     card_announcement: {
       enable: true,
-      content: 'This is my Blog'
+      content: '期待一场旅程 精彩万分 你却还在等'
     },
     card_recent_post: {
       enable: true,
