@@ -7,6 +7,7 @@ tags:
   - 前端入门
 categories:
   - 前端基础
+difficulty: 入门
 ---
 
 学完 HTML/CSS 开始啃 JavaScript。这篇整理了变量声明、函数定义、DOM 操作和事件机制的核心知识点，都是最基础但最重要的部分。

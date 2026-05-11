@@ -1,0 +1,80 @@
+/* ============================================
+ * Skill Practice - Custom Enhancements
+ * Dark mode smooth transition + Performance
+ * ============================================ */
+
+/* Smooth dark mode transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="dark"] *,
+html:not([data-theme="dark"]) * {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.2s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Exclude elements that shouldn't transition (performance) */
+html img,
+html video,
+html canvas,
+html pre,
+html code,
+html .highlight {
+  transition: none !important;
+}
+
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Enhanced code block styling */
+figure.highlight {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Project page responsive adjustments */
+@media screen and (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #667eea;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}

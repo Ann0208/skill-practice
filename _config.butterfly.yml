@@ -22,6 +22,7 @@ menu:
   Archives: /archives/ || fas fa-archive
   Tags: /tags/ || fas fa-tags
   Categories: /categories/ || fas fa-folder-open
+  Projects: /projects/ || fas fa-project-diagram
   CAT: /cat/ || fas fa-cat
   Travel: /travel/ || fas fa-plane
   About: /about/ || fas fa-user
@@ -239,15 +240,15 @@ post_pagination: 1
 
 # Displays outdated notice for a post
 noticeOutdate:
-  enable: false
+  enable: true
   # Style: simple / flat
   style: flat
   # When will it be shown
-  limit_day: 365
+  limit_day: 180
   # Position: top / bottom
   position: top
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
+  message_prev: 本文最后更新于
+  message_next: 天前，部分内容可能已过时，请注意甄别。
 
 # --------------------------------------
 # Footer Settings
@@ -289,7 +290,7 @@ aside:
       link: https://github.com/xxxxxx
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 前端开发 & AI 探索者，记录技术成长之路。欢迎交流！
   card_recent_post:
     enable: true
     # If set 0 will show all
@@ -384,7 +385,7 @@ darkmode:
   # autoChangeMode: 1  Following System Settings, if the system doesn't support dark mode, it will switch dark mode between 6 pm to 6 am
   # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am
   # autoChangeMode: false
-  autoChangeMode: false
+  autoChangeMode: 1
   # Set the light mode time. The value is between 0 and 24. If not set, the default value is 6 and 18
   start:
   end:
@@ -426,7 +427,7 @@ copy:
 
 # Need to install the hexo-wordcount plugin
 wordcount:
-  enable: false
+  enable: true
   # Display the word count of the article in post meta
   post_wordcount: true
   # Display the time to read the article in post meta
@@ -471,8 +472,8 @@ math:
 search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
-  use:
-  placeholder:
+  use: local_search
+  placeholder: 搜索文章标题或内容...
 
   # Algolia Search
   algolia_search:
@@ -482,14 +483,14 @@ search:
   # Local Search
   local_search:
     # Preload the search data when the page loads.
-    preload: false
+    preload: true
     # Show top n results per article, show all results by setting to -1
-    top_n_per_article: 1
+    top_n_per_article: 3
     # Unescape html strings to the readable one.
-    unescape: false
+    unescape: true
     # Enable pagination for search results
     pagination:
-      enable: false
+      enable: true
       # Number of search results per page
       hitsPerPage: 8
     CDN:
@@ -790,11 +791,11 @@ mask:
 
 # Loading Animation
 preloader:
-  enable: false
+  enable: true
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
-  source: 1
+  source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
 
@@ -981,7 +982,7 @@ note:
 
 # https://github.com/MoOx/pjax
 pjax:
-  enable: false
+  enable: true
   # Exclude the specified pages from pjax, such as '/music/'
   exclude:
     # - /xxxxxx/
@@ -1003,18 +1004,18 @@ snackbar:
 
 # Instant.page
 # https://instant.page/
-instantpage: false
+instantpage: true
 
 # Lazyload
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
-  enable: false
+  enable: true
   # Use browser's native lazyload instead of vanilla-lazyload
-  native: false
+  native: true
   # Specify the field to use lazyload (site or post)
   field: site
   placeholder:
-  blur: false
+  blur: true
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
@@ -1056,9 +1057,15 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/skill-practice/css/coze-style.css">
+    - <link rel="stylesheet" href="/skill-practice/css/custom-enhancements.css">
+    - <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    - <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   bottom:
     - <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
     - <script>new CozeWebSDK.WebChatClient({config:{bot_id:'7611465130148151336'},componentProps:{title:'Ann 的博客助手'},auth:{type:'token',token:'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO',onRefreshToken:function(){return 'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO'}}});</script>
+    - <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/skill-practice/sw.js')}</script>
+    - <div class="reading-progress" id="reading-progress"></div>
+    - <script>window.addEventListener('scroll',function(){var h=document.documentElement;var p=(h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100;document.getElementById('reading-progress').style.width=p+'%'});</script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work

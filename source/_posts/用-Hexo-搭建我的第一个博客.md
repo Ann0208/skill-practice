@@ -7,6 +7,7 @@ tags:
   - 博客搭建
 categories:
   - 技术实践
+difficulty: 入门
 ---
 
 > 从零开始，用 Hexo + GitHub Pages 搭建属于自己的技术博客。这篇文章记录了整个搭建过程与心得。
