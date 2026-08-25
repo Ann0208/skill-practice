@@ -277,8 +277,8 @@ permalink: /travel/iberia-2026/
 
     <header class="iberia-hero">
       <div class="iberia-kicker">Portugal + Spain · local time</div>
-      <h1>西葡，慢慢走。</h1>
-      <p class="iberia-subtitle"><strong>2026.09.23 — 10.04 · 西班牙当地行程</strong>　10 月 4 日 22:50 西班牙当地起飞，10 月 5 日 21:50 中国时间抵达。</p>
+      <h1>吃葡萄不吐西瓜皮</h1>
+      <p class="iberia-subtitle"><strong>2026.09.23 — 10.04 · 西班牙当地行程</strong>10 月 5 日 21:50 中国时间返家。</p>
       <div class="iberia-route-strip" aria-label="城市路线">
         <button class="iberia-city-button is-active" type="button" data-city="lisbon" aria-pressed="true"><span class="iberia-city-dot"></span><span class="iberia-city-name">里斯本</span><span class="iberia-city-date">09/23 — 09/26</span></button>
         <button class="iberia-city-button" type="button" data-city="porto" aria-pressed="false"><span class="iberia-city-dot"></span><span class="iberia-city-name">波尔图</span><span class="iberia-city-date">09/26 — 09/28</span></button>
