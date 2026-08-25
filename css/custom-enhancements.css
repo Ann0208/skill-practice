@@ -1,0 +1,74 @@
+/* ============================================
+ * Skill Practice - Custom Enhancements
+ * Cyan & Coral theme enhancements
+ * ============================================ */
+
+/* Smooth dark mode transition */
+html,
+html *:not(img):not(video):not(canvas):not(pre):not(code):not(.highlight):not(.highlight *) {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.2s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Reading progress bar - Cyan to Coral gradient */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #069182 0%, #2DD4A8 50%, #F472B6 100%);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+[data-theme='dark'] .reading-progress {
+  box-shadow: 0 0 8px rgba(45,212,168,0.4);
+}
+
+/* Enhanced code block styling */
+figure.highlight {
+  border-radius: 10px;
+}
+
+/* Project page responsive adjustments */
+@media screen and (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #069182;
+  outline-offset: 2px;
+}
+
+[data-theme='dark'] a:focus-visible,
+[data-theme='dark'] button:focus-visible {
+  outline-color: #2DD4A8;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #069182;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}

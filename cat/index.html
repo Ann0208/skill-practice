@@ -57,7 +57,7 @@
         document.head.appendChild(link)
       }),
       addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
+        if (!true && key.startsWith('pjax')) return
         const globalFn = parent.globalFn || {}
         globalFn[key] = globalFn[key] || {}
         globalFn[key][name || Object.keys(globalFn[key]).length] = fn
@@ -84,7 +84,25 @@
 
       const theme = saveToLocal.get('theme')
     
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
         
       
       const asideStatus = saveToLocal.get('aside-status')
@@ -104,7 +122,7 @@
   </script><script>const GLOBAL_CONFIG = {
   root: '/skill-practice/',
   algolia: undefined,
-  localSearch: undefined,
+  localSearch: {"path":"/skill-practice/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: undefined,
   highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
@@ -138,13 +156,21 @@
     toc: true,
     rightside: false,
   },
-  autoDarkmode: false
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'CAT',
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><link rel="stylesheet" href="/skill-practice/css/coze-style.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/skill-practice/img/avatar.jpg" onerror="this.onerror=null;this.src='/skill-practice/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/skill-practice/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/skill-practice/tags/"><div class="headline">标签</div><div class="length-num">130</div></a><a href="/skill-practice/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/travel/"><i class="fa-fw fas fa-plane"></i><span> Travel</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/skill-practice/"><span class="site-name">Ann 的技能练习小站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/travel/"><i class="fa-fw fas fa-plane"></i><span> Travel</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">CAT</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container">
+}</script><link rel="stylesheet" href="/skill-practice/css/coze-style.css"><link rel="stylesheet" href="/skill-practice/css/custom-enhancements.css"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta name="generator" content="Hexo 8.1.1"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/skill-practice/img/avatar.jpg" onerror="this.onerror=null;this.src='/skill-practice/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/skill-practice/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/skill-practice/tags/"><div class="headline">标签</div><div class="length-num">162</div></a><a href="/skill-practice/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> Projects</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/travel/"><i class="fa-fw fas fa-plane"></i><span> Travel</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/skill-practice/"><span class="site-name">Ann 的技能练习小站</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> Projects</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/travel/"><i class="fa-fw fas fa-plane"></i><span> Travel</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">CAT</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container">
 <style>
 /* ============================================================
    CAT PAGE — Macaroon Lemon Yellow Fresh Style
@@ -494,7 +520,7 @@ a:hover { color: #ca8a04 !important; }
 
   <!-- Hero -->
   <div class="cath-hero">
-    <img class="cath-avatar-img" src="/skill-practice/img/cat/cat-avatar.jpg" alt="敬礼" />
+    <img class="cath-avatar-img" src="/skill-practice/img/cat/cat-avatar.jpg" alt="敬礼" / loading='lazy'>
     <div class="cath-hero-info">
       <div class="cath-name">敬 礼</div>
       <div class="cath-subtitle">蓝金渐层 · 小女猫 · ♌ 狮子座</div>
@@ -505,10 +531,10 @@ a:hover { color: #ca8a04 !important; }
       </div>
       <div class="cath-owners">
         <div class="cath-owner">
-          <img src="/skill-practice/img/cat/owner-chen.jpg" alt="小陈工程师" />
+          <img src="/skill-practice/img/cat/owner-chen.jpg" alt="小陈工程师" / loading='lazy'>
         </div>
         <div class="cath-owner">
-          <img src="/skill-practice/img/cat/owner-yan.png" alt="小严大人" />
+          <img src="/skill-practice/img/cat/owner-yan.png" alt="小严大人" / loading='lazy'>
         </div>
         <span class="cath-duration" id="cat-duration-text"></span>
       </div>
@@ -548,19 +574,19 @@ a:hover { color: #ca8a04 !important; }
   <div class="cath-gallery">
     <div>
       <div class="cath-gallery-item">
-        <img src="/skill-practice/img/cat/cat-day1.jpg" alt="回家第一天" />
+        <img src="/skill-practice/img/cat/cat-day1.jpg" alt="回家第一天" / loading='lazy'>
       </div>
       <div class="cath-gallery-caption">🏠 回家第一天</div>
     </div>
     <div>
       <div class="cath-gallery-item">
-        <img src="/skill-practice/img/cat/cat-daily.jpg" alt="日常" />
+        <img src="/skill-practice/img/cat/cat-daily.jpg" alt="日常" / loading='lazy'>
       </div>
       <div class="cath-gallery-caption">📷 日常照片</div>
     </div>
     <div>
       <div class="cath-gallery-item">
-        <img src="/skill-practice/img/cat/cat-vet.jpg" alt="绝育体检" />
+        <img src="/skill-practice/img/cat/cat-vet.jpg" alt="绝育体检" / loading='lazy'>
       </div>
       <div class="cath-gallery-caption">🏥 绝育体检</div>
     </div>
@@ -585,7 +611,7 @@ a:hover { color: #ca8a04 !important; }
           <div class="cath-tl-title">第一次拍 X 光 🩻</div>
           <div class="cath-tl-desc">因怀疑误吞玩具拍片检查，意外发现肠胃炎，及时治疗已康复</div>
         </div>
-        <img class="cath-tl-img" src="/skill-practice/img/cat/first-xray.jpg" alt="第一次拍X光" />
+        <img class="cath-tl-img" src="/skill-practice/img/cat/first-xray.jpg" alt="第一次拍X光" / loading='lazy'>
       </div>
       <div class="cath-tl-item">
         <div class="cath-tl-dot cath-tl-dot-pk"></div>
@@ -594,7 +620,7 @@ a:hover { color: #ca8a04 !important; }
           <div class="cath-tl-title">绝育手术 ✓</div>
           <div class="cath-tl-desc">顺利完成绝育，勇敢的敬礼！</div>
         </div>
-        <img class="cath-tl-img" src="/skill-practice/img/cat/cat-vet.jpg" alt="绝育体检" />
+        <img class="cath-tl-img" src="/skill-practice/img/cat/cat-vet.jpg" alt="绝育体检" / loading='lazy'>
       </div>
       <div class="cath-tl-item">
         <div class="cath-tl-dot cath-tl-dot-m"></div>
@@ -603,7 +629,7 @@ a:hover { color: #ca8a04 !important; }
           <div class="cath-tl-title">🎂 一岁生日快乐！</div>
           <div class="cath-tl-desc">敬礼满一岁啦，生日快乐小朋友～</div>
         </div>
-        <img class="cath-tl-img" src="/skill-practice/img/cat/first-birthday.jpg" alt="一岁生日" />
+        <img class="cath-tl-img" src="/skill-practice/img/cat/first-birthday.jpg" alt="一岁生日" / loading='lazy'>
       </div>
     </div>
   </div>
@@ -975,4 +1001,58 @@ a:hover { color: #ca8a04 !important; }
 })();
 </script>
 
-</div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Ann</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/skill-practice/js/utils.js?v=5.5.4"></script><script src="/skill-practice/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script><script>new CozeWebSDK.WebChatClient({config:{bot_id:'7611465130148151336'},componentProps:{title:'Ann 的博客助手'},auth:{type:'token',token:'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO',onRefreshToken:function(){return 'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO'}}});</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Ann</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/skill-practice/js/utils.js?v=5.5.4"></script><script src="/skill-practice/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script><script>new CozeWebSDK.WebChatClient({config:{bot_id:'7611465130148151336'},componentProps:{title:'Ann 的博客助手'},auth:{type:'token',token:'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO',onRefreshToken:function(){return 'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO'}}});</script><script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/skill-practice/sw.js')}</script><div class="reading-progress" id="reading-progress"></div><script>window.addEventListener('scroll',function(){var h=document.documentElement;var p=(h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100;document.getElementById('reading-progress').style.width=p+'%'});</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/skill-practice/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章标题或内容..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/skill-practice/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

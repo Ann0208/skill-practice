@@ -1,0 +1,790 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>西葡旅行 | Ann 的技能练习小站</title><meta name="author" content="Ann"><meta name="copyright" content="Ann"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="2026 年西班牙与葡萄牙旅行路线、日程、地图、交通比价、住宿和预订提醒。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="西葡旅行">
+<meta property="og:url" content="https://ann0208.github.io/skill-practice/travel/iberia-2026/index.html">
+<meta property="og:site_name" content="Ann 的技能练习小站">
+<meta property="og:description" content="2026 年西班牙与葡萄牙旅行路线、日程、地图、交通比价、住宿和预订提醒。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg">
+<meta property="article:published_time" content="2026-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-25T09:01:55.536Z">
+<meta property="article:author" content="Ann">
+<meta property="article:tag" content="技术博客,学习笔记,前端开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ann0208.github.io/skill-practice/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/skill-practice/img/favicon.png"><link rel="canonical" href="https://ann0208.github.io/skill-practice/travel/iberia-2026/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/skill-practice/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/skill-practice/',
+  algolia: undefined,
+  localSearch: {"path":"/skill-practice/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '西葡旅行',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/skill-practice/css/coze-style.css"><link rel="stylesheet" href="/skill-practice/css/custom-enhancements.css"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta name="generator" content="Hexo 8.1.1"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/skill-practice/img/avatar.jpg" onerror="this.onerror=null;this.src='/skill-practice/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/skill-practice/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/skill-practice/tags/"><div class="headline">标签</div><div class="length-num">162</div></a><a href="/skill-practice/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> Projects</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/travel/"><i class="fa-fw fas fa-plane"></i><span> Travel</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/skill-practice/"><span class="site-name">Ann 的技能练习小站</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/skill-practice/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> Projects</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/cat/"><i class="fa-fw fas fa-cat"></i><span> CAT</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/travel/"><i class="fa-fw fas fa-plane"></i><span> Travel</span></a></div><div class="menus_item"><a class="site-page" href="/skill-practice/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">西葡旅行</h1></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="page-title">西葡旅行</div><div class="container" id="article-container">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
+<style>
+  body:has(#iberia-page),
+  body:has(#iberia-page) #body-wrap {
+    background: #f6f1e8 !important;
+  }
+
+  body:has(#iberia-page) #page-header,
+  body:has(#iberia-page) #post-info,
+  body:has(#iberia-page) .post-copyright,
+  body:has(#iberia-page) .post-reward {
+    display: none !important;
+  }
+
+  body:has(#iberia-page) .page-title { display: none !important; }
+
+  #iberia-page {
+    --iberia-bg: #f6f1e8;
+    --iberia-surface: #fffdf8;
+    --iberia-ink: #202522;
+    --iberia-muted: #73786f;
+    --iberia-line: #deded4;
+    --iberia-coral: #d86e4e;
+    --iberia-coral-soft: #f7e3d9;
+    --iberia-teal: #2a8077;
+    --iberia-teal-soft: #deeee8;
+    --iberia-yellow-soft: #f5ecd2;
+    --iberia-shadow: 0 12px 30px rgba(61, 56, 44, .08);
+    color: var(--iberia-ink);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    font-size: 14px;
+  }
+
+  #iberia-page *,
+  #iberia-page *::before,
+  #iberia-page *::after { box-sizing: border-box; }
+  #iberia-page a { color: inherit; text-decoration: none; }
+  #iberia-page button { font: inherit; }
+  #iberia-page .iberia-shell { max-width: 1180px; margin: 0 auto; padding: 22px 24px 64px; }
+  #iberia-page .iberia-topline { display: flex; justify-content: space-between; gap: 16px; color: var(--iberia-muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  #iberia-page .iberia-brand { color: var(--iberia-ink); font-weight: 600; letter-spacing: 0; text-transform: none; }
+  #iberia-page .iberia-brand span { color: var(--iberia-coral); }
+  #iberia-page .iberia-lock { white-space: nowrap; }
+  #iberia-page .iberia-hero { padding: 54px 0 30px; }
+  #iberia-page .iberia-kicker { color: var(--iberia-coral); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+  #iberia-page h1 { margin: 8px 0 8px; color: var(--iberia-ink); font-size: clamp(36px, 5vw, 60px); line-height: 1.05; font-weight: 600; letter-spacing: -.04em; }
+  #iberia-page .iberia-subtitle { max-width: 720px; margin: 0; color: var(--iberia-muted); font-size: 15px; }
+  #iberia-page .iberia-subtitle strong { color: var(--iberia-ink); font-weight: 600; }
+  #iberia-page .iberia-local-nav { display: flex; flex-wrap: wrap; gap: 4px; border-top: 1px solid var(--iberia-line); border-bottom: 1px solid var(--iberia-line); padding: 10px 0; }
+  #iberia-page .iberia-local-nav a { padding: 5px 10px; color: var(--iberia-muted); font-size: 12px; }
+  #iberia-page .iberia-local-nav a:hover { color: var(--iberia-coral); }
+
+  #iberia-page .iberia-route-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; position: relative; margin-top: 30px; padding-top: 18px; }
+  #iberia-page .iberia-route-strip::before { content: ""; position: absolute; top: 23px; left: 11px; right: 11px; height: 1px; background: var(--iberia-line); }
+  #iberia-page .iberia-city-button { position: relative; z-index: 1; display: grid; gap: 6px; border: 0; background: transparent; padding: 0; color: var(--iberia-ink); text-align: left; cursor: pointer; }
+  #iberia-page .iberia-city-button:focus-visible,
+  #iberia-page .iberia-day summary:focus-visible,
+  #iberia-page .iberia-city-tab:focus-visible { outline: 2px solid var(--iberia-teal); outline-offset: 4px; }
+  #iberia-page .iberia-city-dot { width: 12px; height: 12px; border: 3px solid var(--iberia-bg); border-radius: 50%; background: var(--iberia-muted); box-shadow: 0 0 0 1px var(--iberia-muted); }
+  #iberia-page .iberia-city-button.is-active .iberia-city-dot { background: var(--iberia-coral); box-shadow: 0 0 0 1px var(--iberia-coral); }
+  #iberia-page .iberia-city-name { font-weight: 600; }
+  #iberia-page .iberia-city-date { color: var(--iberia-muted); font-size: 11px; }
+
+  #iberia-page .iberia-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 28px 0 10px; }
+  #iberia-page .iberia-stat { background: var(--iberia-surface); border: 1px solid var(--iberia-line); padding: 17px 18px; box-shadow: var(--iberia-shadow); }
+  #iberia-page .iberia-stat-value { font-size: 25px; font-weight: 600; }
+  #iberia-page .iberia-stat-label { color: var(--iberia-muted); font-size: 11px; }
+
+  #iberia-page .iberia-section { padding-top: 36px; }
+  #iberia-page .iberia-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  #iberia-page h2 { margin: 0; color: var(--iberia-ink); font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+  #iberia-page h3 { margin: 0; color: var(--iberia-ink); font-size: 15px; font-weight: 600; }
+  #iberia-page .iberia-section-heading small { color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-surface { background: var(--iberia-surface); border: 1px solid var(--iberia-line); box-shadow: var(--iberia-shadow); }
+
+  #iberia-page .iberia-mobility-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr); gap: 18px; }
+  #iberia-page .iberia-map-surface { padding: 15px; }
+  #iberia-page #iberia-map { width: 100%; height: 420px; background: #ece8dc; }
+  #iberia-page .leaflet-container { font: inherit; }
+  #iberia-page .leaflet-control-attribution { font-size: 9px; }
+  #iberia-page .iberia-map-note { display: flex; justify-content: space-between; gap: 12px; padding-top: 9px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-transport-surface { padding: 20px; }
+  #iberia-page .iberia-city-tabs { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 14px; }
+  #iberia-page .iberia-city-tab { border: 1px solid var(--iberia-line); background: transparent; padding: 6px 10px; color: var(--iberia-muted); cursor: pointer; font-size: 11px; }
+  #iberia-page .iberia-city-tab.is-active { border-color: var(--iberia-teal); background: var(--iberia-teal-soft); color: var(--iberia-teal); }
+  #iberia-page .iberia-transport-route { margin-bottom: 10px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-transport-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  #iberia-page .iberia-transport-table th,
+  #iberia-page .iberia-transport-table td { border-bottom: 1px solid var(--iberia-line); padding: 9px 6px; text-align: left; vertical-align: top; font-size: 11px; }
+  #iberia-page .iberia-transport-table th { color: var(--iberia-muted); font-weight: 400; }
+  #iberia-page .iberia-transport-table th:nth-child(1) { width: 24%; }
+  #iberia-page .iberia-transport-table th:nth-child(2) { width: 18%; }
+  #iberia-page .iberia-transport-table th:nth-child(3) { width: 18%; }
+  #iberia-page .iberia-transport-table td strong { font-weight: 600; }
+  #iberia-page .iberia-transport-table td span { color: var(--iberia-muted); }
+  #iberia-page .iberia-recommend { color: var(--iberia-teal) !important; }
+  #iberia-page .iberia-recommend.is-warn { color: var(--iberia-coral) !important; }
+  #iberia-page .iberia-source { display: inline-block; margin-top: 3px; padding: 2px 5px; background: var(--iberia-yellow-soft); color: #97702c !important; font-size: 9px; }
+  #iberia-page .iberia-transport-note { margin: 12px 0 0; color: var(--iberia-muted); font-size: 10px; }
+  #iberia-page .iberia-intercity { margin-top: 18px; padding: 18px 20px; }
+  #iberia-page .iberia-intercity-table { width: 100%; border-collapse: collapse; }
+  #iberia-page .iberia-intercity-table th,
+  #iberia-page .iberia-intercity-table td { border-bottom: 1px solid var(--iberia-line); padding: 8px 5px; text-align: left; vertical-align: top; font-size: 11px; }
+  #iberia-page .iberia-intercity-table th { color: var(--iberia-muted); font-weight: 400; }
+  #iberia-page .iberia-intercity-table td strong { font-weight: 600; }
+  #iberia-page .iberia-intercity-table td span { display: block; color: var(--iberia-muted); }
+
+  #iberia-page .iberia-schedule-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 18px; }
+  #iberia-page .iberia-schedule-nav { align-self: start; display: grid; gap: 7px; position: sticky; top: 76px; }
+  #iberia-page .iberia-schedule-nav button { border: 1px solid var(--iberia-line); background: var(--iberia-surface); padding: 10px 12px; color: var(--iberia-muted); text-align: left; cursor: pointer; }
+  #iberia-page .iberia-schedule-nav button.is-active { border-color: var(--iberia-coral); background: var(--iberia-coral-soft); color: var(--iberia-coral); }
+  #iberia-page .iberia-schedule-nav strong { display: block; color: inherit; font-size: 12px; font-weight: 600; }
+  #iberia-page .iberia-schedule-nav span { display: block; margin-top: 2px; font-size: 10px; }
+  #iberia-page .iberia-day-list { display: grid; gap: 10px; }
+  #iberia-page .iberia-day { background: var(--iberia-surface); border: 1px solid var(--iberia-line); }
+  #iberia-page .iberia-day summary { display: grid; grid-template-columns: 66px 1fr auto; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; list-style: none; }
+  #iberia-page .iberia-day summary::-webkit-details-marker { display: none; }
+  #iberia-page .iberia-day-date { color: var(--iberia-coral); font-size: 12px; font-weight: 600; }
+  #iberia-page .iberia-day-title { display: block; font-size: 14px; font-weight: 600; }
+  #iberia-page .iberia-day-meta { display: block; margin-top: 2px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-day-chevron { color: var(--iberia-muted); font-size: 15px; }
+  #iberia-page .iberia-day-body { border-top: 1px solid var(--iberia-line); padding: 4px 18px 14px 94px; }
+  #iberia-page .iberia-itinerary-item { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--iberia-line); }
+  #iberia-page .iberia-itinerary-item:last-child { border-bottom: 0; }
+  #iberia-page .iberia-time { color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-itinerary-title { font-size: 13px; font-weight: 600; }
+  #iberia-page .iberia-itinerary-note { margin-top: 2px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-pill { display: inline-block; margin-top: 6px; padding: 3px 7px; background: var(--iberia-teal-soft); color: var(--iberia-teal); font-size: 10px; }
+  #iberia-page .iberia-pill.is-warn { background: var(--iberia-coral-soft); color: var(--iberia-coral); }
+  #iberia-page .iberia-pill.is-neutral { background: var(--iberia-yellow-soft); color: #97702c; }
+
+  #iberia-page .iberia-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  #iberia-page .iberia-panel { padding: 20px; }
+  #iberia-page .iberia-ticket-list,
+  #iberia-page .iberia-hotel-list,
+  #iberia-page .iberia-check-list { display: grid; gap: 9px; }
+  #iberia-page .iberia-ticket,
+  #iberia-page .iberia-hotel,
+  #iberia-page .iberia-check { display: grid; grid-template-columns: 95px 1fr; gap: 10px; border-bottom: 1px solid var(--iberia-line); padding: 9px 0; }
+  #iberia-page .iberia-ticket:last-child,
+  #iberia-page .iberia-hotel:last-child,
+  #iberia-page .iberia-check:last-child { border-bottom: 0; }
+  #iberia-page .iberia-ticket strong,
+  #iberia-page .iberia-hotel strong,
+  #iberia-page .iberia-check strong { font-size: 12px; font-weight: 600; }
+  #iberia-page .iberia-ticket span,
+  #iberia-page .iberia-hotel span,
+  #iberia-page .iberia-check span { color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-ticket em { color: var(--iberia-coral); font-size: 10px; font-style: normal; }
+  #iberia-page .iberia-hotel-price { color: var(--iberia-coral); font-size: 12px; }
+  #iberia-page .iberia-expense-table { width: 100%; border-collapse: collapse; }
+  #iberia-page .iberia-expense-table th,
+  #iberia-page .iberia-expense-table td { border-bottom: 1px solid var(--iberia-line); padding: 9px 5px; text-align: left; font-size: 12px; }
+  #iberia-page .iberia-expense-table th { color: var(--iberia-muted); font-weight: 400; }
+  #iberia-page .iberia-expense-table td:last-child { text-align: right; }
+  #iberia-page .iberia-footnote { margin: 13px 0 0; color: var(--iberia-muted); font-size: 10px; }
+  #iberia-page .iberia-footer { padding-top: 34px; color: var(--iberia-muted); font-size: 11px; }
+
+  @media (max-width: 900px) {
+    #iberia-page .iberia-mobility-grid { grid-template-columns: 1fr; }
+    #iberia-page .iberia-schedule-layout { grid-template-columns: 1fr; }
+    #iberia-page .iberia-schedule-nav { position: static; display: flex; overflow-x: auto; padding-bottom: 2px; }
+    #iberia-page .iberia-schedule-nav button { min-width: 138px; }
+  }
+
+  @media (max-width: 620px) {
+    #iberia-page .iberia-shell { padding: 16px 14px 46px; }
+    #iberia-page .iberia-topline { align-items: flex-start; }
+    #iberia-page .iberia-lock { white-space: normal; text-align: right; }
+    #iberia-page .iberia-hero { padding: 40px 0 24px; }
+    #iberia-page h1 { font-size: 42px; }
+    #iberia-page .iberia-route-strip { gap: 7px; }
+    #iberia-page .iberia-city-name { font-size: 12px; }
+    #iberia-page .iberia-city-date { font-size: 9px; }
+    #iberia-page .iberia-stats,
+    #iberia-page .iberia-two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #iberia-page .iberia-stat { padding: 13px; }
+    #iberia-page .iberia-stat-value { font-size: 22px; }
+    #iberia-page #iberia-map { height: 330px; }
+    #iberia-page .iberia-transport-table th,
+    #iberia-page .iberia-transport-table td { padding: 8px 3px; font-size: 10px; }
+    #iberia-page .iberia-transport-table th:nth-child(1) { width: 23%; }
+    #iberia-page .iberia-transport-table th:nth-child(2),
+    #iberia-page .iberia-transport-table th:nth-child(3) { width: 19%; }
+    #iberia-page .iberia-day summary { grid-template-columns: 51px 1fr auto; gap: 8px; padding: 12px; }
+    #iberia-page .iberia-day-body { padding: 3px 12px 12px 71px; }
+    #iberia-page .iberia-itinerary-item { grid-template-columns: 70px 1fr; gap: 8px; }
+    #iberia-page .iberia-ticket,
+    #iberia-page .iberia-hotel,
+    #iberia-page .iberia-check { grid-template-columns: 78px 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    #iberia-page .iberia-stats { grid-template-columns: 1fr 1fr; }
+    #iberia-page .iberia-two-col { grid-template-columns: 1fr; }
+    #iberia-page .iberia-map-note { display: block; }
+    #iberia-page .iberia-map-note span { display: block; margin-top: 4px; }
+  }
+</style>
+
+<div class="iberia-page" id="iberia-page">
+  <div class="iberia-shell">
+    <div class="iberia-topline">
+      <div class="iberia-brand">ann <span>/</span> private travel page</div>
+      <div class="iberia-lock">hidden page · only with the link</div>
+    </div>
+
+    <header class="iberia-hero">
+      <div class="iberia-kicker">Portugal + Spain · local time</div>
+      <h1>西葡，慢慢走。</h1>
+      <p class="iberia-subtitle"><strong>2026.09.23 — 10.04 · 西班牙当地行程</strong>　10 月 4 日 22:50 西班牙当地起飞，10 月 5 日 21:50 中国时间抵达。</p>
+      <div class="iberia-route-strip" aria-label="城市路线">
+        <button class="iberia-city-button is-active" type="button" data-city="lisbon" aria-pressed="true"><span class="iberia-city-dot"></span><span class="iberia-city-name">里斯本</span><span class="iberia-city-date">09/23 — 09/26</span></button>
+        <button class="iberia-city-button" type="button" data-city="porto" aria-pressed="false"><span class="iberia-city-dot"></span><span class="iberia-city-name">波尔图</span><span class="iberia-city-date">09/26 — 09/28</span></button>
+        <button class="iberia-city-button" type="button" data-city="madrid" aria-pressed="false"><span class="iberia-city-dot"></span><span class="iberia-city-name">马德里</span><span class="iberia-city-date">09/28 — 10/01</span></button>
+        <button class="iberia-city-button" type="button" data-city="barcelona" aria-pressed="false"><span class="iberia-city-dot"></span><span class="iberia-city-name">巴塞罗那</span><span class="iberia-city-date">10/01 — 10/04</span></button>
+      </div>
+    </header>
+
+    <nav class="iberia-local-nav" aria-label="页面内导航">
+      <a href="#iberia-mobility">地图与出行</a>
+      <a href="#iberia-schedule">日程</a>
+      <a href="#iberia-tickets">预订</a>
+      <a href="#iberia-hotels">住宿</a>
+      <a href="#iberia-expenses">花费</a>
+      <a href="#iberia-optimization">优化建议</a>
+    </nav>
+
+    <section class="iberia-stats" aria-label="行程概览">
+      <div class="iberia-stat"><div class="iberia-stat-value">12</div><div class="iberia-stat-label">当地行程日</div></div>
+      <div class="iberia-stat"><div class="iberia-stat-value">4</div><div class="iberia-stat-label">座城市</div></div>
+      <div class="iberia-stat"><div class="iberia-stat-value">2</div><div class="iberia-stat-label">个国家</div></div>
+      <div class="iberia-stat"><div class="iberia-stat-value">10/05</div><div class="iberia-stat-label">中国时间抵达</div></div>
+    </section>
+
+    <section class="iberia-section" id="iberia-mobility">
+      <div class="iberia-section-heading"><h2>地图与出行决策</h2><small>按城市切换，比较时间、价格和适用场景</small></div>
+      <div class="iberia-mobility-grid">
+        <div class="iberia-surface iberia-map-surface">
+          <div id="iberia-map" role="img" aria-label="西葡城市和日常路线地图"></div>
+          <div class="iberia-map-note"><span>城市级路线与机场 / 酒店 / 景点点位</span><span>点位为行程规划示意，实时导航以当天地图为准</span></div>
+        </div>
+        <div class="iberia-surface iberia-transport-surface">
+          <div class="iberia-section-heading"><h3 id="iberia-transport-title">里斯本出行</h3><small>推荐方式优先</small></div>
+          <div class="iberia-city-tabs" role="tablist" aria-label="城市出行比较">
+            <button class="iberia-city-tab is-active" type="button" data-city-tab="lisbon" aria-pressed="true">里斯本</button>
+            <button class="iberia-city-tab" type="button" data-city-tab="porto" aria-pressed="false">波尔图</button>
+            <button class="iberia-city-tab" type="button" data-city-tab="madrid" aria-pressed="false">马德里</button>
+            <button class="iberia-city-tab" type="button" data-city-tab="barcelona" aria-pressed="false">巴塞罗那</button>
+          </div>
+          <div id="iberia-transport-route" class="iberia-transport-route"></div>
+          <div id="iberia-transport-body"></div>
+          <p id="iberia-transport-note" class="iberia-transport-note"></p>
+        </div>
+      </div>
+      <div class="iberia-surface iberia-intercity">
+        <div class="iberia-section-heading"><h3>跨城交通比价</h3><small>Excel 原始记录 + 待核实项</small></div>
+        <table class="iberia-intercity-table">
+          <thead><tr><th>路线</th><th>方式</th><th>时间</th><th>价格</th><th>建议</th></tr></thead>
+          <tbody>
+            <tr><td><strong>里斯本 → 波尔图</strong></td><td>Alfa Pendular 高铁</td><td>约 3h15m</td><td>€10–45</td><td>推荐，提前看早促</td></tr>
+            <tr><td></td><td>大巴</td><td>约 4h+ <span>待核实</span></td><td>待核实</td><td>仅在明显便宜时考虑</td></tr>
+            <tr><td><strong>波尔图 → 马德里</strong></td><td>直飞</td><td>约 1h25m</td><td>€40–80</td><td>注意廉航行李额度</td></tr>
+            <tr><td></td><td>大巴</td><td>长途 <span>待核实</span></td><td>待核实</td><td>不作为首选</td></tr>
+            <tr><td><strong>马德里 → 巴塞罗那</strong></td><td>AVE 高铁</td><td>约 3h09m</td><td>€18–110</td><td>提前锁价更稳</td></tr>
+            <tr><td></td><td>大巴</td><td>约 7h+ <span>待核实</span></td><td>待核实</td><td>预算优先才考虑</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="iberia-section" id="iberia-schedule">
+      <div class="iberia-section-heading"><h2>按天走</h2><small>选择城市后查看对应日程</small></div>
+      <div class="iberia-schedule-layout">
+        <div id="iberia-schedule-nav" class="iberia-schedule-nav" aria-label="城市日程导航"></div>
+        <div id="iberia-schedule-body" class="iberia-day-list"></div>
+      </div>
+    </section>
+
+    <section class="iberia-section iberia-two-col">
+      <div class="iberia-surface iberia-panel" id="iberia-tickets">
+        <div class="iberia-section-heading"><h2>预订清单</h2><small>按优先级处理</small></div>
+        <div class="iberia-ticket-list">
+          <div class="iberia-ticket"><strong>必须提前</strong><span>雷加莱拉庄园、热罗尼莫斯修道院、圣若热城堡、莱罗书店、证券交易所宫、杜罗河游船、圣家堂、古埃尔公园、巴特罗之家、米拉之家。</span></div>
+          <div class="iberia-ticket"><strong>确认开放</strong><span>贝伦塔、水晶宫、德波神庙、蒂比达博；免费项目也要确认是否预约或限流。</span></div>
+          <div class="iberia-ticket"><strong>现场 / Walk-in</strong><span>贝伦宫、帝国广场、阿尔法玛老城、波盖利亚市场、哥特区、巴塞罗内塔海滩等。</span></div>
+          <div class="iberia-ticket"><strong>当前修正</strong><span><em>09/24 只去雷加莱拉庄园，不去罗卡角，也不安排佩纳宫。</em></span></div>
+        </div>
+      </div>
+
+      <div class="iberia-surface iberia-panel" id="iberia-hotels">
+        <div class="iberia-section-heading"><h2>住宿候选</h2><small>保留原表选择</small></div>
+        <div class="iberia-hotel-list">
+          <div class="iberia-hotel"><strong>里斯本</strong><span>Hotel Dom Sancho I · 自由大道中段 · 含早 · ¥1104/晚 · 不可取消</span></div>
+          <div class="iberia-hotel"><strong>波尔图</strong><span>Porto Centro Trindade · 莱罗书店步行约 18 分钟 · ¥677/晚 · 无早</span></div>
+          <div class="iberia-hotel"><strong>马德里</strong><span>H-A San Mateo Suites · 钱贝里区 · ¥761/晚 · 无早 · 不可取消</span></div>
+          <div class="iberia-hotel"><strong>巴塞罗那</strong><span>Amfores Boutique Guest House · 老城区 · ¥1135/晚 · 无早 · 不可取消</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="iberia-section iberia-two-col">
+      <div class="iberia-surface iberia-panel" id="iberia-expenses">
+        <div class="iberia-section-heading"><h2>花费记录</h2><small>不混算币种</small></div>
+        <table class="iberia-expense-table">
+          <thead><tr><th>项目</th><th>原表记录</th></tr></thead>
+          <tbody>
+            <tr><td>表格汇总记录</td><td>¥37,335.56</td></tr>
+            <tr><td>国际机票</td><td>¥22,098</td></tr>
+            <tr><td>酒店记录</td><td>¥10,496.97</td></tr>
+            <tr><td>签证 / 流量卡</td><td>¥3,035.76</td></tr>
+            <tr><td>门票已填金额</td><td>€42.95 + €48</td></tr>
+          </tbody>
+        </table>
+        <p class="iberia-footnote">原表中存在空白金额、人民币与欧元混记，因此页面只展示原始口径，不自动换算总预算。</p>
+      </div>
+
+      <div class="iberia-surface iberia-panel" id="iberia-optimization">
+        <div class="iberia-section-heading"><h2>可以优化的地方</h2><small>出发前检查</small></div>
+        <div class="iberia-check-list">
+          <div class="iberia-check"><strong>里斯本 09/24</strong><span>只安排雷加莱拉庄园，罗卡角、佩纳宫移除；贝伦不再塞进当天。</span></div>
+          <div class="iberia-check"><strong>贝伦区</strong><span>保留为独立机动项，建议不要和辛特拉绑定，体力不足时可以直接放弃。</span></div>
+          <div class="iberia-check"><strong>巴塞罗那高迪线</strong><span>圣家堂、古埃尔公园等需预约，建议不要把所有高迪建筑都押在现场排队。</span></div>
+          <div class="iberia-check"><strong>离境时间</strong><span>10/04 22:50 西班牙当地起飞，10/05 21:50 中国时间抵达；按当地时间提前三小时到 BCN。</span></div>
+          <div class="iberia-check"><strong>预算表</strong><span>补充币种、支付状态、每人/总额和价格更新时间，再做最终预算。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="iberia-footer">hidden page · route: /travel/iberia-2026/ · map data: OpenStreetMap</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+  (() => {
+    const page = document.getElementById('iberia-page');
+    if (!page) return;
+
+    const cityData = {
+      lisbon: {
+        name: '里斯本', dates: '09/23 — 09/26', center: [38.7223, -9.1393], zoom: 12,
+        route: [[38.7742, -9.1342], [38.7180, -9.1444], [38.7960, -9.3970]],
+        points: [
+          ['LIS 机场', 38.7742, -9.1342, '抵达 22:50，夜间优先 Bolt/Uber'],
+          ['Hotel Dom Sancho I', 38.7180, -9.1444, '自由大道中段，Avenida 地铁站附近'],
+          ['雷加莱拉庄园', 38.7960, -9.3970, '09/24 辛特拉唯一主景点'],
+          ['贝伦区', 38.6975, -9.2060, '独立机动项，不与辛特拉同日绑定']
+        ],
+        transportRoute: '机场 → Hotel Dom Sancho I / 老城区日常',
+        note: 'Excel 已记录 Bolt/Uber €12–18；地铁更省钱，但抵达较晚且有行李，不作为第一选择。',
+        transport: [
+          ['地铁 / 公交', '35–45 分钟', '€1.80+', '省钱；带行李一般', '估算', false],
+          ['Bolt / Uber', '15–20 分钟', '€12–18', '22:50 抵达优先', 'Excel', true],
+          ['出租车', '15–25 分钟', '待核实', '注意夜间费率', '待核实', false],
+          ['步行', '10–30 分钟', '€0', '老城区景点串联', '建议', false]
+        ],
+        days: [
+          {date: '09/23', title: '周三 · 里斯本抵达日', meta: '落地、入住、附近补给', items: [
+            ['07:35 — 22:50', '浦东机场 → 里斯本 LIS', '中途途经比利时，需要换航站楼', '飞机 · 大交通', '机票', 'normal'],
+            ['抵达后', '机场 → Hotel Dom Sancho I', '走到 P2 TVDE 网约车专区，最后 2–5 分钟石板路步行', 'Bolt/Uber · 15–20 分钟', '€12–18 · Excel', 'warn'],
+            ['24:00', '酒店附近简单晚餐 / 便利店补给', '早点休息，不安排外出逛', '步行', '€10–15', 'normal']
+          ]},
+          {date: '09/24', title: '周四 · 辛特拉一日往返', meta: '只去雷加莱拉庄园，不去罗卡角和佩纳宫', items: [
+            ['07:30 — 12:00', 'Rossio → 辛特拉', '市郊火车约 40 分钟，再换 434 环线公交', '火车 + 公交', '通票约 €11.5', 'normal'],
+            ['上午 — 下午', '雷加莱拉庄园', '本日辛特拉唯一主景点，建议提前锁定入场时段', '434 环线 + 步行', '门票待核实', 'warn'],
+            ['返程后', '回酒店休息', '不再安排贝伦区；把体力留给后续老城区', '市郊火车', '往返约 €5.1', 'normal']
+          ]},
+          {date: '09/25', title: '周五 · 里斯本老城区', meta: '电车、城堡、阿尔法玛和日落', items: [
+            ['09:30 — 17:30', '奥古斯塔街之门 → 圣若热城堡', '圣胡斯塔升降机、卡尔莫修道院、伯特兰书店、圣卢西亚观景台、主教堂', '步行 + 28 路电车', '门票 €12 + 电车 €1.85', 'normal'],
+            ['17:30 — 19:30', '28 路复古电车 → 圣若热城堡', '把日落留给城堡；热门时段建议提前购票', '电车 + 步行', '城堡 €12', 'warn'],
+            ['晚上', '阿尔法玛区晚餐', 'Fado 街头表演 walk-in；餐厅场次需要订座', '步行', '待定', 'normal']
+          ]}
+        ]
+      },
+      porto: {
+        name: '波尔图', dates: '09/26 — 09/28', center: [41.1496, -8.6109], zoom: 13,
+        route: [[41.2420, -8.6780], [41.1440, -8.6070], [41.1378, -8.6110], [41.1413, -8.6090]],
+        points: [
+          ['波尔图机场', 41.2420, -8.6780, '机场到市区打车 Excel 记录 €10–15'],
+          ['N Apartments - Chã', 41.1440, -8.6070, 'Sao Bento 地铁站约 200 米'],
+          ['莱罗书店', 41.1468, -8.6150, '建议提前购买指定时段'],
+          ['Jardim do Morro', 41.1380, -8.6090, '杜罗河日落机位']
+        ],
+        transportRoute: '波尔图城区 / 机场 → 住宿',
+        note: '波尔图景点集中，主线以步行为主；上坡、夜间或行李日再用地铁和 Bolt/Uber。',
+        transport: [
+          ['步行', '10–30 分钟', '€0', '市中心首选', '建议', true],
+          ['地铁 / 公交', '10–25 分钟', '待核实', '跨区或机场', '待核实', false],
+          ['Bolt / Uber', '10–20 分钟', '待核实', '夜间、上坡、行李', '待核实', false],
+          ['出租车', '20–25 分钟', '€10–15', '机场到住宿', 'Excel', false]
+        ],
+        days: [
+          {date: '09/26', title: '周六 · 里斯本 → 波尔图', meta: '高铁、瓷砖墙、波特酒', items: [
+            ['08:30 — 12:00', '里斯本 → 波尔图 Alfa Pendular 高铁', '约 3h15m，抵达后先办理入住', '高铁', '早促 €10–28', 'normal'],
+            ['13:00 — 18:00', '波尔图城区', '圣伊尔德丰索堂、灵魂教堂、波尔图市场、市政厅、卡尔莫教堂、莱罗书店', '步行', '教堂免费；莱罗 €5', 'normal'],
+            ['晚上', '加亚新城晚餐，尝波特酒', 'Francesinha 三明治；可顺路看河景', '步行', '€18–25', 'normal']
+          ]},
+          {date: '09/27', title: '周日 · 波尔图老城和杜罗河', meta: '游船、桥、河岸日落', items: [
+            ['上午', '杜罗河游船，老城小巷漫步', '可以睡懒觉，按松弛节奏开始', '游船 · 50 分钟', '€18–25', 'normal'],
+            ['13:00 — 18:00', '波尔图大教堂 → 证券交易所宫 → 圣本托车站', '经过路易一世大桥，傍晚到 Jardim do Morro 或 Serra do Pilar', '步行跨桥', '证券交易所 €10', 'normal'],
+            ['晚餐', '河畔晚餐', '走到对岸观景，波特酒窖只做简单参观', '步行', '€16–22', 'normal']
+          ]}
+        ]
+      },
+      madrid: {
+        name: '马德里', dates: '09/28 — 10/01', center: [40.4168, -3.7038], zoom: 13,
+        route: [[40.4719, -3.5626], [40.4120, -3.6910], [40.4180, -3.7140], [40.4240, -3.7170]],
+        points: [
+          ['马德里机场', 40.4719, -3.5626, '抵达后地铁或打车进城'],
+          ['Hostal Bruña Paseo del Prado', 40.4120, -3.6910, '市中心，步行与地铁都方便'],
+          ['马德里王宫', 40.4180, -3.7140, '建议提前购买门票'],
+          ['德波神庙', 40.4240, -3.7170, '日落机位，开放规则需确认']
+        ],
+        transportRoute: '市中心景点圈 / 机场到住宿',
+        note: '太阳门、王宫、圣米格尔市场、德波神庙可用步行串联；跨区再使用地铁。',
+        transport: [
+          ['步行', '10–20 分钟', '€0', '中心景点串联', '建议', true],
+          ['地铁', '10–25 分钟', '€1.5–2', '跨区稳定', 'Excel', false],
+          ['机场地铁', '35–45 分钟', '待核实', '预算优先', '待核实', false],
+          ['出租车 / Bolt', '8–18 分钟', '待核实', '多人、赶时间', '待核实', false]
+        ],
+        days: [
+          {date: '09/28', title: '周一 · 波尔图 → 马德里', meta: '抵达、王宫、德波神庙、Tapas', items: [
+            ['上午', '波尔图机场 → 马德里巴拉哈斯机场', '直飞约 1h25m，注意伏林 / 瑞安廉航行李额度', '飞机', '€40–80', 'warn'],
+            ['下午', '太阳门广场 → 马约尔广场 → 圣米格尔市场 → 马德里王宫', '每个景点间步行 10–20 分钟，王宫预留 1.5 小时', '地铁 + 步行', '地铁 €1.5–2', 'normal'],
+            ['傍晚 — 晚上', '德波神庙日落 → 拉丁区 Tapas', '马德里夜生活体验', '步行 / 地铁', '€18–25', 'normal']
+          ]},
+          {date: '09/29', title: '周二 · 马德里艺术与公园', meta: '普拉多、丽池公园、伯纳乌', items: [
+            ['09:30 — 16:00', '普拉多博物馆 → 丽池公园 → 水晶宫', '普拉多建议提前购票；水晶宫先确认开放', '地铁 + 步行', '预约免费 / 待核实', 'warn'],
+            ['下午 — 傍晚', '阿尔卡拉门 → 西贝莱斯广场 → 伯纳乌球场', '伯纳乌参观待定，不强行加入', '地铁', '门票待定', 'neutral'],
+            ['晚餐', '博物馆周边 Tapas 小馆', '按体力决定是否继续逛', '步行', '€16–22', 'normal']
+          ]},
+          {date: '09/30', title: '周三 · 托莱多一日往返', meta: '中世纪古城、大教堂、全景', items: [
+            ['09:00 — 17:30', '托莱多老城区和大教堂漫游', '火车站 → 阿尔坎卡拉桥 → 阿尔卡萨 → 大教堂 → 山谷观景台', 'AVANT 高铁 + 步行', '交通 €12–19；门票约 €30', 'warn'],
+            ['傍晚', '返回马德里市区', '晚上早点休息，为第二天高铁做准备', '高铁 / 地铁', '已含上边', 'normal']
+          ]}
+        ]
+      },
+      barcelona: {
+        name: '巴塞罗那', dates: '10/01 — 10/04', center: [41.3874, 2.1686], zoom: 13,
+        route: [[41.2974, 2.0833], [41.3720, 2.1490], [41.4036, 2.1744], [41.4145, 2.1527], [41.3635, 2.1580]],
+        points: [
+          ['BCN 机场', 41.2974, 2.0833, '10/04 22:50 西班牙当地起飞'],
+          ['Hotel Brick Barcelona', 41.3720, 2.1490, '扩展区 / 圣蒙特惠奇附近'],
+          ['圣家堂', 41.4036, 2.1744, '必须提前购买指定时段门票'],
+          ['古埃尔公园', 41.4145, 2.1527, '付费区域需指定时段'],
+          ['蒙锥克山', 41.3635, 2.1580, '离境日观景与西班牙广场']
+        ],
+        transportRoute: '市区 ↔ BCN 机场 / 高迪建筑区',
+        note: '机场 L9 地铁约 €5.5、35 分钟；出租车约 €25–32。市内优先 T-10 / 地铁和步行。',
+        transport: [
+          ['L9 地铁', '约 35 分钟', '€5.5', '预算优先', 'Excel', true],
+          ['机场大巴', '约 35 分钟', '待核实', '直达市区', '待核实', false],
+          ['出租车', '25–35 分钟', '€25–32', '行李多、夜间', 'Excel', false],
+          ['T-10 / 地铁', '15–35 分钟', '约 €2.4/次', '市内日常', 'Excel', true]
+        ],
+        days: [
+          {date: '10/01', title: '周四 · 马德里 → 巴塞罗那', meta: 'AVE、哥特区、海边日落', items: [
+            ['08:57 — 12:06', '马德里 → 巴塞罗那 Sants', '约 3h09m，抵达后酒店放行李', 'AVE 高铁', '€18–110', 'normal'],
+            ['下午', '巴塞罗那主教堂 → 叹息桥 → 波盖利亚市场 → 皇家广场', '市场小吃，尝试西班牙火腿和吉事果', '地铁 + 步行', 'T-10 约 €2.4/次', 'normal'],
+            ['傍晚', '巴塞罗内塔海滩散步', '看日落，四个盒子机位', '地铁 + 步行', '已含交通', 'normal']
+          ]},
+          {date: '10/02', title: '周五 · 高迪建筑之旅 1', meta: '圣家堂、维森斯之家、古埃尔公园', items: [
+            ['09:00 — 12:00', '圣家堂', '务必提前预约；把时间留给内部参观', '地铁', '€26 起', 'warn'],
+            ['下午', '维森斯之家 → 古埃尔公园', '高迪路线较密，维森斯之家可作为可选项', '地铁 + 步行', '门票待核实', 'warn'],
+            ['傍晚', '焦糖山 / Turo de la Rovira', '俯瞰城市全景，按体力决定是否去', '步行上坡', '免费 / 待核实', 'neutral']
+          ]},
+          {date: '10/03', title: '周六 · 高迪建筑之旅 2', meta: '米拉之家、巴特罗之家、蒂比达博', items: [
+            ['早上', '米拉之家 → 巴特罗之家', '巴特罗之家、米拉之家都建议提前购票', '地铁 + 步行', '巴特罗 €28；米拉 €26', 'warn'],
+            ['下午', '格拉西亚大道 → 蒂比达博山', '缆车 / 游乐场和教堂，先确认运营时间', '地铁 + 上山', '交通待核实', 'neutral'],
+            ['晚餐', '市区晚餐，地中海风味', '海鲜饭 Paella', '步行', '€18–24', 'normal']
+          ]},
+          {date: '10/04', title: '周日 · 巴塞罗那 / 离境', meta: '购物、蒙锥克山、机场；10/05 中国时间抵达', items: [
+            ['上午', '睡到自然醒，购物采购纪念品', '行李寄存酒店，保留机动时间', '地铁 + 步行', '餐费 €18–24', 'normal'],
+            ['中午', '蒙锥克山 → 西班牙广场', '国家宫观景台与西班牙广场', '步行', '餐费 €20–28', 'normal'],
+            ['17:00 左右', '提前三小时到 BCN 机场', '10/04 22:50 西班牙当地起飞；按机场大巴、L9 或出租车倒推', 'L9 / 出租车', '地铁 €5.5；出租车 €25–32', 'warn'],
+            ['次日 21:50', '抵达中国', '10/05 中国时间抵达，结束本次行程', '飞机', '机票已记录', 'normal']
+          ]}
+        ]
+      }
+    };
+
+    const cityButtons = [...page.querySelectorAll('[data-city]')];
+    const cityTabs = [...page.querySelectorAll('[data-city-tab]')];
+    const scheduleNav = page.querySelector('#iberia-schedule-nav');
+    const scheduleBody = page.querySelector('#iberia-schedule-body');
+    const transportBody = page.querySelector('#iberia-transport-body');
+    const transportRoute = page.querySelector('#iberia-transport-route');
+    const transportTitle = page.querySelector('#iberia-transport-title');
+    const transportNote = page.querySelector('#iberia-transport-note');
+    let activeCity = 'lisbon';
+    let map;
+    let cityLayer;
+    let mapIcon;
+
+    const renderTransport = (city) => {
+      const data = cityData[city];
+      transportTitle.textContent = data.name + '出行';
+      transportRoute.textContent = data.transportRoute;
+      transportNote.textContent = data.note;
+      transportBody.innerHTML = '<table class="iberia-transport-table"><thead><tr><th>方式</th><th>时间</th><th>价格</th><th>建议</th></tr></thead><tbody>' + data.transport.map((item) => '<tr><td><strong>' + item[0] + '</strong><span class="iberia-source">' + item[4] + '</span></td><td>' + item[1] + '</td><td>' + item[2] + '</td><td><span class="iberia-recommend' + (item[5] ? ' is-warn' : '') + '">' + item[3] + '</span></td></tr>').join('') + '</tbody></table>';
+    };
+
+    const renderSchedule = (city) => {
+      const data = cityData[city];
+      scheduleNav.innerHTML = Object.keys(cityData).map((key) => '<button type="button" class="' + (key === city ? 'is-active' : '') + '" data-schedule-city="' + key + '"><strong>' + cityData[key].name + '</strong><span>' + cityData[key].dates + '</span></button>').join('');
+      scheduleBody.innerHTML = data.days.map((day, index) => '<details class="iberia-day"' + (index === 0 ? ' open' : '') + '><summary><span class="iberia-day-date">' + day.date + '</span><span><span class="iberia-day-title">' + day.title + '</span><span class="iberia-day-meta">' + day.meta + '</span></span><span class="iberia-day-chevron">⌄</span></summary><div class="iberia-day-body">' + day.items.map((item) => '<div class="iberia-itinerary-item"><div class="iberia-time">' + item[0] + '</div><div><div class="iberia-itinerary-title">' + item[1] + '</div><div class="iberia-itinerary-note">' + item[2] + '</div><span class="iberia-pill ' + (item[5] === 'warn' ? 'is-warn' : item[5] === 'neutral' ? 'is-neutral' : '') + '">' + item[3] + ' · ' + item[4] + '</span></div></div>').join('') + '</div></details>').join('');
+      [...scheduleNav.querySelectorAll('[data-schedule-city]')].forEach((button) => button.addEventListener('click', () => selectCity(button.dataset.scheduleCity)));
+    };
+
+    const selectCity = (city) => {
+      activeCity = city;
+      cityButtons.forEach((button) => {
+        const active = button.dataset.city === city;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      cityTabs.forEach((button) => {
+        const active = button.dataset.cityTab === city;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      renderTransport(city);
+      renderSchedule(city);
+      updateMap(city);
+    };
+
+    const updateMap = (city) => {
+      if (!map || !window.L) return;
+      const data = cityData[city];
+      cityLayer.clearLayers();
+      const line = L.polyline(data.route, { color: '#d86e4e', weight: 4, opacity: .85 }).addTo(cityLayer);
+      data.points.forEach((point) => L.marker([point[1], point[2]], { icon: mapIcon }).bindPopup('<strong>' + point[0] + '</strong><br>' + point[3]).addTo(cityLayer));
+      map.fitBounds(line.getBounds().pad(.35), { maxZoom: data.zoom });
+    };
+
+    cityButtons.forEach((button) => button.addEventListener('click', () => selectCity(button.dataset.city)));
+    cityTabs.forEach((button) => button.addEventListener('click', () => selectCity(button.dataset.cityTab)));
+    renderTransport(activeCity);
+    renderSchedule(activeCity);
+
+    if (window.L) {
+      mapIcon = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+      });
+      map = L.map('iberia-map', { scrollWheelZoom: false, zoomControl: true }).setView(cityData.lisbon.center, cityData.lisbon.zoom);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+      L.polyline(Object.keys(cityData).map((key) => cityData[key].center), { color: '#2a8077', weight: 2, dashArray: '6 8', opacity: .8 }).addTo(map);
+      cityLayer = L.layerGroup().addTo(map);
+      updateMap(activeCity);
+    } else {
+      page.querySelector('#iberia-map').innerHTML = '<div style="padding:20px;color:#73786f">地图资源暂时不可用，路线和交通比较仍可正常查看。</div>';
+    }
+  })();
+</script>
+
+</div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Ann</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/skill-practice/js/utils.js?v=5.5.4"></script><script src="/skill-practice/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script><script>new CozeWebSDK.WebChatClient({config:{bot_id:'7611465130148151336'},componentProps:{title:'Ann 的博客助手'},auth:{type:'token',token:'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO',onRefreshToken:function(){return 'pat_Ia0bwvXSY41JxFn1KIrIXW5HGZvj3bkUOXfOYpiy6q70HmmtIaOpzQK6hzIrsohO'}}});</script><script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/skill-practice/sw.js')}</script><div class="reading-progress" id="reading-progress"></div><script>window.addEventListener('scroll',function(){var h=document.documentElement;var p=(h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100;document.getElementById('reading-progress').style.width=p+'%'});</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/skill-practice/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章标题或内容..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/skill-practice/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
