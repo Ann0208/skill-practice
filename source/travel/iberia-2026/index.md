@@ -91,7 +91,7 @@ permalink: /travel/iberia-2026/
 
   #iberia-page .iberia-mobility-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr); gap: 18px; }
   #iberia-page .iberia-map-surface { padding: 15px; }
-  #iberia-page #iberia-map { width: 100%; height: 420px; background: #ece8dc; }
+  #iberia-page #iberia-map { width: 100%; height: 420px; }
   #iberia-page .leaflet-container { font: inherit; }
   #iberia-page .leaflet-control-attribution { font-size: 9px; }
   #iberia-page .iberia-map-note { display: flex; justify-content: space-between; gap: 12px; padding-top: 9px; color: var(--iberia-muted); font-size: 11px; }
@@ -212,6 +212,46 @@ permalink: /travel/iberia-2026/
     #iberia-page .iberia-map-note { display: block; }
     #iberia-page .iberia-map-note span { display: block; margin-top: 4px; }
   }
+
+  /* Keep the travel page readable against the site's article overrides. */
+  #iberia-page h1,
+  #iberia-page h2,
+  #iberia-page h3,
+  #iberia-page h4,
+  #iberia-page p,
+  #iberia-page table th,
+  #iberia-page table td,
+  #iberia-page a {
+    color: var(--iberia-ink) !important;
+  }
+
+  #iberia-page .iberia-topline,
+  #iberia-page .iberia-subtitle,
+  #iberia-page .iberia-city-date,
+  #iberia-page .iberia-stat-label,
+  #iberia-page .iberia-section-heading small,
+  #iberia-page .iberia-map-note,
+  #iberia-page .iberia-transport-route,
+  #iberia-page .iberia-transport-table th,
+  #iberia-page .iberia-transport-table td span,
+  #iberia-page .iberia-transport-note,
+  #iberia-page .iberia-intercity-table th,
+  #iberia-page .iberia-day-meta,
+  #iberia-page .iberia-day-chevron,
+  #iberia-page .iberia-time,
+  #iberia-page .iberia-itinerary-note,
+  #iberia-page .iberia-ticket span,
+  #iberia-page .iberia-hotel span,
+  #iberia-page .iberia-check span,
+  #iberia-page .iberia-footnote {
+    color: var(--iberia-muted) !important;
+  }
+
+  #iberia-page .iberia-local-nav a { color: var(--iberia-teal) !important; }
+  #iberia-page .iberia-kicker,
+  #iberia-page .iberia-day-date,
+  #iberia-page .iberia-hotel-price,
+  #iberia-page .iberia-ticket em { color: var(--iberia-coral) !important; }
 </style>
 
 <div class="iberia-page" id="iberia-page">
