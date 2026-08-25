@@ -1,7 +1,7 @@
 ---
 title: 西葡旅行
 date: 2026-08-25
-description: 2026 年西班牙与葡萄牙旅行路线、日程、地图、交通比价、住宿和预订提醒。
+description: 2026 年西班牙与葡萄牙旅行路线、逐日点到点地图、交通耗时、已订酒店和预订提醒。
 type: page
 layout: page
 comments: false
@@ -94,32 +94,41 @@ permalink: /travel/iberia-2026/
   #iberia-page #iberia-map { width: 100%; height: 420px; }
   #iberia-page .leaflet-container { font: inherit; }
   #iberia-page .leaflet-control-attribution { font-size: 9px; }
+  #iberia-page .iberia-map-marker { display: grid; place-items: center; width: 27px; height: 27px; border: 2px solid #fffdf8; border-radius: 50%; background: var(--iberia-coral); box-shadow: 0 2px 7px rgba(32, 37, 34, .28); color: #fff; font-size: 11px; font-weight: 700; }
+  #iberia-page .iberia-map-popup strong { color: var(--iberia-ink); font-size: 12px; }
+  #iberia-page .iberia-map-popup span { display: block; margin-top: 3px; color: var(--iberia-muted); font-size: 10px; line-height: 1.45; }
   #iberia-page .iberia-map-note { display: flex; justify-content: space-between; gap: 12px; padding-top: 9px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-route-context { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-route-context strong { color: var(--iberia-ink); font-size: 13px; }
   #iberia-page .iberia-transport-surface { padding: 20px; }
-  #iberia-page .iberia-city-tabs { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 14px; }
+  #iberia-page .iberia-city-tabs,
+  #iberia-page .iberia-day-tabs { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 10px; }
   #iberia-page .iberia-city-tab { border: 1px solid var(--iberia-line); background: transparent; padding: 6px 10px; color: var(--iberia-muted); cursor: pointer; font-size: 11px; }
   #iberia-page .iberia-city-tab.is-active { border-color: var(--iberia-teal); background: var(--iberia-teal-soft); color: var(--iberia-teal); }
-  #iberia-page .iberia-transport-route { margin-bottom: 10px; color: var(--iberia-muted); font-size: 11px; }
-  #iberia-page .iberia-transport-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  #iberia-page .iberia-transport-table th,
-  #iberia-page .iberia-transport-table td { border-bottom: 1px solid var(--iberia-line); padding: 9px 6px; text-align: left; vertical-align: top; font-size: 11px; }
-  #iberia-page .iberia-transport-table th { color: var(--iberia-muted); font-weight: 400; }
-  #iberia-page .iberia-transport-table th:nth-child(1) { width: 24%; }
-  #iberia-page .iberia-transport-table th:nth-child(2) { width: 18%; }
-  #iberia-page .iberia-transport-table th:nth-child(3) { width: 18%; }
-  #iberia-page .iberia-transport-table td strong { font-weight: 600; }
-  #iberia-page .iberia-transport-table td span { color: var(--iberia-muted); }
+  #iberia-page .iberia-day-tab { border: 1px solid var(--iberia-line); background: transparent; padding: 6px 9px; color: var(--iberia-muted); cursor: pointer; font-size: 10px; white-space: nowrap; }
+  #iberia-page .iberia-day-tab.is-active { border-color: var(--iberia-coral); background: var(--iberia-coral-soft); color: var(--iberia-coral); }
+  #iberia-page .iberia-day-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
+  #iberia-page .iberia-route-summary { margin: 8px 0 12px; color: var(--iberia-muted); font-size: 11px; }
+  #iberia-page .iberia-route-summary strong { color: var(--iberia-ink); font-size: 12px; }
+  #iberia-page .iberia-leg-list { display: grid; gap: 7px; }
+  #iberia-page .iberia-leg { display: grid; grid-template-columns: minmax(0, 1fr) 86px 76px 92px; gap: 8px; border-bottom: 1px solid var(--iberia-line); padding: 8px 0; }
+  #iberia-page .iberia-leg:last-child { border-bottom: 0; }
+  #iberia-page .iberia-leg-route { min-width: 0; }
+  #iberia-page .iberia-leg-route strong { display: block; font-size: 11px; font-weight: 600; }
+  #iberia-page .iberia-leg-mode,
+  #iberia-page .iberia-leg-time,
+  #iberia-page .iberia-leg-cost { color: var(--iberia-ink); font-size: 10px; }
+  #iberia-page .iberia-leg-mode strong,
+  #iberia-page .iberia-leg-time strong,
+  #iberia-page .iberia-leg-cost strong { display: block; color: var(--iberia-muted); font-size: 9px; font-weight: 400; }
+  #iberia-page .iberia-leg-note { grid-column: 1 / -1; margin: -2px 0 0 21px; color: var(--iberia-muted); font-size: 10px; }
+  #iberia-page .iberia-day-route-button { margin-top: 10px; border: 1px solid var(--iberia-teal); background: transparent; padding: 6px 9px; color: var(--iberia-teal); cursor: pointer; font-size: 10px; }
+  #iberia-page .iberia-day-route-button:hover { background: var(--iberia-teal-soft); }
+  #iberia-page .iberia-leg-basis { display: inline-block; margin-left: 3px; padding: 1px 4px; background: var(--iberia-yellow-soft); color: #97702c; font-size: 8px; }
   #iberia-page .iberia-recommend { color: var(--iberia-teal) !important; }
   #iberia-page .iberia-recommend.is-warn { color: var(--iberia-coral) !important; }
   #iberia-page .iberia-source { display: inline-block; margin-top: 3px; padding: 2px 5px; background: var(--iberia-yellow-soft); color: #97702c !important; font-size: 9px; }
   #iberia-page .iberia-transport-note { margin: 12px 0 0; color: var(--iberia-muted); font-size: 10px; }
-  #iberia-page .iberia-intercity { margin-top: 18px; padding: 18px 20px; }
-  #iberia-page .iberia-intercity-table { width: 100%; border-collapse: collapse; }
-  #iberia-page .iberia-intercity-table th,
-  #iberia-page .iberia-intercity-table td { border-bottom: 1px solid var(--iberia-line); padding: 8px 5px; text-align: left; vertical-align: top; font-size: 11px; }
-  #iberia-page .iberia-intercity-table th { color: var(--iberia-muted); font-weight: 400; }
-  #iberia-page .iberia-intercity-table td strong { font-weight: 600; }
-  #iberia-page .iberia-intercity-table td span { display: block; color: var(--iberia-muted); }
 
   #iberia-page .iberia-schedule-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 18px; }
   #iberia-page .iberia-schedule-nav { align-self: start; display: grid; gap: 7px; position: sticky; top: 76px; }
@@ -193,14 +202,17 @@ permalink: /travel/iberia-2026/
     #iberia-page .iberia-stat { padding: 13px; }
     #iberia-page .iberia-stat-value { font-size: 22px; }
     #iberia-page #iberia-map { height: 330px; }
-    #iberia-page .iberia-transport-table th,
-    #iberia-page .iberia-transport-table td { padding: 8px 3px; font-size: 10px; }
-    #iberia-page .iberia-transport-table th:nth-child(1) { width: 23%; }
-    #iberia-page .iberia-transport-table th:nth-child(2),
-    #iberia-page .iberia-transport-table th:nth-child(3) { width: 19%; }
     #iberia-page .iberia-day summary { grid-template-columns: 51px 1fr auto; gap: 8px; padding: 12px; }
     #iberia-page .iberia-day-body { padding: 3px 12px 12px 71px; }
     #iberia-page .iberia-itinerary-item { grid-template-columns: 70px 1fr; gap: 8px; }
+    #iberia-page .iberia-route-context { display: block; }
+    #iberia-page .iberia-route-context span { display: block; margin-top: 3px; }
+    #iberia-page .iberia-leg { grid-template-columns: minmax(0, 1fr) 78px; }
+    #iberia-page .iberia-leg-route { grid-column: 1 / -1; }
+    #iberia-page .iberia-leg-mode { grid-column: 1; }
+    #iberia-page .iberia-leg-time { grid-column: 2; grid-row: 2; text-align: right; }
+    #iberia-page .iberia-leg-cost { grid-column: 2; grid-row: 1; text-align: right; }
+    #iberia-page .iberia-leg-note { margin-left: 0; }
     #iberia-page .iberia-ticket,
     #iberia-page .iberia-hotel,
     #iberia-page .iberia-check { grid-template-columns: 78px 1fr; }
@@ -231,11 +243,13 @@ permalink: /travel/iberia-2026/
   #iberia-page .iberia-stat-label,
   #iberia-page .iberia-section-heading small,
   #iberia-page .iberia-map-note,
-  #iberia-page .iberia-transport-route,
-  #iberia-page .iberia-transport-table th,
-  #iberia-page .iberia-transport-table td span,
+  #iberia-page .iberia-route-context,
+  #iberia-page .iberia-route-summary,
   #iberia-page .iberia-transport-note,
-  #iberia-page .iberia-intercity-table th,
+  #iberia-page .iberia-leg-mode strong,
+  #iberia-page .iberia-leg-time strong,
+  #iberia-page .iberia-leg-cost strong,
+  #iberia-page .iberia-leg-note,
   #iberia-page .iberia-day-meta,
   #iberia-page .iberia-day-chevron,
   #iberia-page .iberia-time,
@@ -290,38 +304,26 @@ permalink: /travel/iberia-2026/
     </section>
 
     <section class="iberia-section" id="iberia-mobility">
-      <div class="iberia-section-heading"><h2>地图与出行决策</h2><small>按城市切换，比较时间、价格和适用场景</small></div>
+      <div class="iberia-section-heading"><h2>地图与出行决策</h2><small>城市 → 日期 → 景点 → 点到点交通</small></div>
       <div class="iberia-mobility-grid">
         <div class="iberia-surface iberia-map-surface">
+          <div class="iberia-route-context"><strong id="iberia-map-title">里斯本 · 09/23</strong><span id="iberia-map-subtitle">按编号顺序查看当天路线</span></div>
           <div id="iberia-map" role="img" aria-label="西葡城市和日常路线地图"></div>
-          <div class="iberia-map-note"><span>城市级路线与机场 / 酒店 / 景点点位</span><span>点位为行程规划示意，实时导航以当天地图为准</span></div>
+          <div class="iberia-map-note"><span>编号点位与右侧交通段一一对应</span><span>路线为行程规划示意，实时导航以当天地图为准</span></div>
         </div>
         <div class="iberia-surface iberia-transport-surface">
-          <div class="iberia-section-heading"><h3 id="iberia-transport-title">里斯本出行</h3><small>推荐方式优先</small></div>
-          <div class="iberia-city-tabs" role="tablist" aria-label="城市出行比较">
+          <div class="iberia-section-heading"><h3 id="iberia-transport-title">里斯本 · 09/23</h3><small>逐段交通明细</small></div>
+          <div class="iberia-city-tabs" role="tablist" aria-label="城市选择">
             <button class="iberia-city-tab is-active" type="button" data-city-tab="lisbon" aria-pressed="true">里斯本</button>
             <button class="iberia-city-tab" type="button" data-city-tab="porto" aria-pressed="false">波尔图</button>
             <button class="iberia-city-tab" type="button" data-city-tab="madrid" aria-pressed="false">马德里</button>
             <button class="iberia-city-tab" type="button" data-city-tab="barcelona" aria-pressed="false">巴塞罗那</button>
           </div>
-          <div id="iberia-transport-route" class="iberia-transport-route"></div>
-          <div id="iberia-transport-body"></div>
+          <div id="iberia-day-tabs" class="iberia-day-tabs" role="tablist" aria-label="日期选择"></div>
+          <div id="iberia-route-summary" class="iberia-route-summary"></div>
+          <div id="iberia-route-legs" class="iberia-leg-list"></div>
           <p id="iberia-transport-note" class="iberia-transport-note"></p>
         </div>
-      </div>
-      <div class="iberia-surface iberia-intercity">
-        <div class="iberia-section-heading"><h3>跨城交通比价</h3><small>Excel 原始记录 + 待核实项</small></div>
-        <table class="iberia-intercity-table">
-          <thead><tr><th>路线</th><th>方式</th><th>时间</th><th>价格</th><th>建议</th></tr></thead>
-          <tbody>
-            <tr><td><strong>里斯本 → 波尔图</strong></td><td>Alfa Pendular 高铁</td><td>约 3h15m</td><td>€10–45</td><td>推荐，提前看早促</td></tr>
-            <tr><td></td><td>大巴</td><td>约 4h+ <span>待核实</span></td><td>待核实</td><td>仅在明显便宜时考虑</td></tr>
-            <tr><td><strong>波尔图 → 马德里</strong></td><td>直飞</td><td>约 1h25m</td><td>€40–80</td><td>注意廉航行李额度</td></tr>
-            <tr><td></td><td>大巴</td><td>长途 <span>待核实</span></td><td>待核实</td><td>不作为首选</td></tr>
-            <tr><td><strong>马德里 → 巴塞罗那</strong></td><td>AVE 高铁</td><td>约 3h09m</td><td>€18–110</td><td>提前锁价更稳</td></tr>
-            <tr><td></td><td>大巴</td><td>约 7h+ <span>待核实</span></td><td>待核实</td><td>预算优先才考虑</td></tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
@@ -340,17 +342,16 @@ permalink: /travel/iberia-2026/
           <div class="iberia-ticket"><strong>必须提前</strong><span>雷加莱拉庄园、热罗尼莫斯修道院、圣若热城堡、莱罗书店、证券交易所宫、杜罗河游船、圣家堂、古埃尔公园、巴特罗之家、米拉之家。</span></div>
           <div class="iberia-ticket"><strong>确认开放</strong><span>贝伦塔、水晶宫、德波神庙、蒂比达博；免费项目也要确认是否预约或限流。</span></div>
           <div class="iberia-ticket"><strong>现场 / Walk-in</strong><span>贝伦宫、帝国广场、阿尔法玛老城、波盖利亚市场、哥特区、巴塞罗内塔海滩等。</span></div>
-          <div class="iberia-ticket"><strong>当前修正</strong><span><em>09/24 只去雷加莱拉庄园，不去罗卡角，也不安排佩纳宫。</em></span></div>
+          <div class="iberia-ticket"><strong>当前修正</strong><span><em>09/24 辛特拉只去雷加莱拉庄园；12:00–17:00 继续按原表走贝伦区；罗卡角、佩纳宫移除。</em></span></div>
         </div>
       </div>
-
       <div class="iberia-surface iberia-panel" id="iberia-hotels">
-        <div class="iberia-section-heading"><h2>住宿候选</h2><small>保留原表选择</small></div>
+        <div class="iberia-section-heading"><h2>已订酒店</h2><small>名称与地址来自行程总表</small></div>
         <div class="iberia-hotel-list">
-          <div class="iberia-hotel"><strong>里斯本</strong><span>Hotel Dom Sancho I · 自由大道中段 · 含早 · ¥1104/晚 · 不可取消</span></div>
-          <div class="iberia-hotel"><strong>波尔图</strong><span>Porto Centro Trindade · 莱罗书店步行约 18 分钟 · ¥677/晚 · 无早</span></div>
-          <div class="iberia-hotel"><strong>马德里</strong><span>H-A San Mateo Suites · 钱贝里区 · ¥761/晚 · 无早 · 不可取消</span></div>
-          <div class="iberia-hotel"><strong>巴塞罗那</strong><span>Amfores Boutique Guest House · 老城区 · ¥1135/晚 · 无早 · 不可取消</span></div>
+          <div class="iberia-hotel"><strong>里斯本</strong><span><b>Hotel Dom Sancho I</b><br>地址：Avenida da Liberdade 202, Santo António, 1250-147 Lisboa, Portugal<br>入住 14:00 后 · 退房 12:00 前 · 含早</span></div>
+          <div class="iberia-hotel"><strong>波尔图</strong><span><b>N Apartments - Chã</b><br>地址：101 Rua Chã, União de Freguesias do Centro, 4000-098 Porto, Portugal<br>入住 15:00–24:00 · 退房 11:00 前 · 需提前告知抵达</span></div>
+          <div class="iberia-hotel"><strong>马德里</strong><span><b>Hostal Bruña Paseo del Prado</b><br>地址：Moratín, 50, Madrid Centro, 28014 Madrid, Spain</span></div>
+          <div class="iberia-hotel"><strong>巴塞罗那</strong><span><b>Hotel Brick Barcelona</b><br>地址：304 Gran Via de les Corts Catalanes, Sants-Montjuïc, 08004 Barcelona, Spain</span></div>
         </div>
       </div>
     </section>
@@ -370,15 +371,14 @@ permalink: /travel/iberia-2026/
         </table>
         <p class="iberia-footnote">原表中存在空白金额、人民币与欧元混记，因此页面只展示原始口径，不自动换算总预算。</p>
       </div>
-
       <div class="iberia-surface iberia-panel" id="iberia-optimization">
         <div class="iberia-section-heading"><h2>可以优化的地方</h2><small>出发前检查</small></div>
         <div class="iberia-check-list">
-          <div class="iberia-check"><strong>里斯本 09/24</strong><span>只安排雷加莱拉庄园，罗卡角、佩纳宫移除；贝伦不再塞进当天。</span></div>
-          <div class="iberia-check"><strong>贝伦区</strong><span>保留为独立机动项，建议不要和辛特拉绑定，体力不足时可以直接放弃。</span></div>
-          <div class="iberia-check"><strong>巴塞罗那高迪线</strong><span>圣家堂、古埃尔公园等需预约，建议不要把所有高迪建筑都押在现场排队。</span></div>
-          <div class="iberia-check"><strong>离境时间</strong><span>10/04 22:50 西班牙当地起飞，10/05 21:50 中国时间抵达；按当地时间提前三小时到 BCN。</span></div>
-          <div class="iberia-check"><strong>预算表</strong><span>补充币种、支付状态、每人/总额和价格更新时间，再做最终预算。</span></div>
+          <div class="iberia-check"><strong>09/24 体力</strong><span>辛特拉 + 贝伦确实偏满，但贝伦保留；建议雷加莱拉只安排一个室内主景点，贝伦区按“蛋挞—修道院—发现者纪念碑—贝伦塔”主线走。</span></div>
+          <div class="iberia-check"><strong>贝伦区</strong><span>12:00–17:00 为原表固定行程，不再标记为可放弃；若排队超时，优先缩短内部参观，不删除贝伦区域。</span></div>
+          <div class="iberia-check"><strong>点到点</strong><span>每个城市已按日期拆成编号地图和交通段，耗时为 Excel 原始记录或规划估算；出发前用当天导航复核施工、排队和班次。</span></div>
+          <div class="iberia-check"><strong>预约</strong><span>雷加莱拉庄园、热罗尼莫斯修道院、圣若热城堡、圣家堂和高迪建筑仍应优先锁定时段。</span></div>
+          <div class="iberia-check"><strong>离境</strong><span>10/04 22:50 西班牙当地起飞，10/05 21:50 中国时间抵达；按当地时间提前三小时到 BCN。</span></div>
         </div>
       </div>
     </section>
@@ -393,145 +393,313 @@ permalink: /travel/iberia-2026/
     const page = document.getElementById('iberia-page');
     if (!page) return;
 
+    const point = (name, lat, lng, note) => ({ name, coords: [lat, lng], note });
+    const leg = (from, to, mode, time, cost, basis, note, tone = 'normal') => ({ from, to, mode, time, cost, basis, note, tone });
+    const item = (time, title, note, mode, cost, tone = 'normal') => ({ time, title, note, mode, cost, tone });
+
     const cityData = {
       lisbon: {
         name: '里斯本', dates: '09/23 — 09/26', center: [38.7223, -9.1393], zoom: 12,
-        route: [[38.7742, -9.1342], [38.7180, -9.1444], [38.7960, -9.3970]],
-        points: [
-          ['LIS 机场', 38.7742, -9.1342, '抵达 22:50，夜间优先 Bolt/Uber'],
-          ['Hotel Dom Sancho I', 38.7180, -9.1444, '自由大道中段，Avenida 地铁站附近'],
-          ['雷加莱拉庄园', 38.7960, -9.3970, '09/24 辛特拉唯一主景点'],
-          ['贝伦区', 38.6975, -9.2060, '独立机动项，不与辛特拉同日绑定']
-        ],
-        transportRoute: '机场 → Hotel Dom Sancho I / 老城区日常',
-        note: 'Excel 已记录 Bolt/Uber €12–18；地铁更省钱，但抵达较晚且有行李，不作为第一选择。',
-        transport: [
-          ['地铁 / 公交', '35–45 分钟', '€1.80+', '省钱；带行李一般', '估算', false],
-          ['Bolt / Uber', '15–20 分钟', '€12–18', '22:50 抵达优先', 'Excel', true],
-          ['出租车', '15–25 分钟', '待核实', '注意夜间费率', '待核实', false],
-          ['步行', '10–30 分钟', '€0', '老城区景点串联', '建议', false]
-        ],
+        hotel: 'Hotel Dom Sancho I',
         days: [
-          {date: '09/23', title: '周三 · 里斯本抵达日', meta: '落地、入住、附近补给', items: [
-            ['07:35 — 22:50', '浦东机场 → 里斯本 LIS', '中途途经比利时，需要换航站楼', '飞机 · 大交通', '机票', 'normal'],
-            ['抵达后', '机场 → Hotel Dom Sancho I', '走到 P2 TVDE 网约车专区，最后 2–5 分钟石板路步行', 'Bolt/Uber · 15–20 分钟', '€12–18 · Excel', 'warn'],
-            ['24:00', '酒店附近简单晚餐 / 便利店补给', '早点休息，不安排外出逛', '步行', '€10–15', 'normal']
+          {id: 'lisbon-0923', date: '09/23', title: '周三 · 里斯本抵达日', meta: '落地、入住、附近补给', summary: '夜间只完成机场 → 酒店 → 补给，保留睡眠。', transportNote: '机场到酒店按 Excel 记录优先 Bolt/Uber；地铁不适合深夜携带行李。', points: [
+            point('LIS 机场', 38.7742, -9.1342, '22:50 抵达；从航站楼步行到 P2 TVDE 网约车专区'),
+            point('Hotel Dom Sancho I', 38.7180, -9.1444, 'Avenida da Liberdade 202；最后 2–5 分钟石板路步行'),
+            point('酒店附近晚餐 / 便利店', 38.7180, -9.1444, '抵达后只补给，不再安排远距离移动')
+          ], legs: [
+            leg('LIS 机场', 'Hotel Dom Sancho I', 'Bolt / Uber', '15–20 分钟', '€12–18', 'Excel', '机场内走到 P2 TVDE 区，老城区车辆不能直达酒店门口。', 'warn'),
+            leg('Hotel Dom Sancho I', '酒店附近晚餐 / 便利店', '步行', '5–10 分钟', '€0', '规划', '不再安排景点，优先补水、买早餐和倒时差。')
+          ], items: [
+            item('07:35 — 22:50', '浦东机场 → 里斯本 LIS', '中途途经比利时，需要换航站楼。', '飞机', '机票'),
+            item('抵达后', '机场 → Hotel Dom Sancho I', '按 P2 TVDE 取车点和石板路落客条件执行。', 'Bolt / Uber', '€12–18 · Excel', 'warn'),
+            item('24:00', '酒店附近简单晚餐 / 便利店补给', '早点休息，不安排外出逛。', '步行', '餐费 €10–15')
           ]},
-          {date: '09/24', title: '周四 · 辛特拉一日往返', meta: '只去雷加莱拉庄园，不去罗卡角和佩纳宫', items: [
-            ['07:30 — 12:00', 'Rossio → 辛特拉', '市郊火车约 40 分钟，再换 434 环线公交', '火车 + 公交', '通票约 €11.5', 'normal'],
-            ['上午 — 下午', '雷加莱拉庄园', '本日辛特拉唯一主景点，建议提前锁定入场时段', '434 环线 + 步行', '门票待核实', 'warn'],
-            ['返程后', '回酒店休息', '不再安排贝伦区；把体力留给后续老城区', '市郊火车', '往返约 €5.1', 'normal']
+          {id: 'lisbon-0924', date: '09/24', title: '周四 · 辛特拉 + 贝伦区', meta: '偏满但保留完整贝伦行程；辛特拉只去雷加莱拉庄园', summary: '上午辛特拉雷加莱拉，12:00–17:00 按原表继续走贝伦区。罗卡角、佩纳宫不去。', transportNote: '这是全程最满的一天：内部参观要卡预约时段，贝伦区主线保留，不把贝伦删掉。', points: [
+            point('Hotel Dom Sancho I', 38.7180, -9.1444, '出发点'),
+            point('Rossio 车站', 38.7142, -9.1399, '辛特拉市郊火车出发'),
+            point('Sintra 车站', 38.7982, -9.3860, '抵达后换 434 环线'),
+            point('雷加莱拉庄园', 38.7960, -9.3970, '本日辛特拉唯一景点；提前锁定入场时段'),
+            point('Rossio 车站', 38.7142, -9.1399, '返程换乘去贝伦'),
+            point('Pastéis de Belém', 38.6975, -9.2032, '贝伦区午餐 / 蛋挞起点'),
+            point('热罗尼莫斯修道院', 38.6978, -9.2066, '建议提前购票'),
+            point('圣玛丽教堂', 38.6974, -9.2057, '确认是否与修道院共用入口'),
+            point('4 月 25 日大桥观景点', 38.6956, -9.2076, '沿河岸步行看桥'),
+            point('贝伦宫', 38.6964, -9.2092, '外部参观免费'),
+            point('阿方索广场', 38.6975, -9.2024, '花园与电车站附近'),
+            point('发现者纪念碑', 38.6937, -9.2057, '沿帝国广场方向'),
+            point('帝国广场', 38.6978, -9.2055, '贝伦主轴广场'),
+            point('贝伦塔', 38.6916, -9.2159, '确认开放；至少保留外观与河岸'),
+            point('Hotel Dom Sancho I', 38.7180, -9.1444, '偏满日直接回酒店休息')
+          ], legs: [
+            leg('Hotel Dom Sancho I', 'Rossio 车站', '步行', '15–18 分钟', '€0', '规划', '带轻装出发；不要为了赶车打车。'),
+            leg('Rossio 车站', 'Sintra 车站', '市郊火车', '约 40 分钟', '往返 €5.10', 'Excel', '早班出发，预留站内候车和换乘时间。'),
+            leg('Sintra 车站', '雷加莱拉庄园', '434 环线公交', '10–15 分钟', '通票约 €11.50', 'Excel', '不去罗卡角、不去佩纳宫；下车后仍需步行入园。', 'warn'),
+            leg('雷加莱拉庄园', 'Sintra 车站', '434 环线公交', '10–15 分钟', '已含通票', '规划', '按预约结束时间倒推返程，不在辛特拉加点。'),
+            leg('Sintra 车站', 'Rossio 车站', '市郊火车', '约 40 分钟', '已含往返', 'Excel', '目标 12:00 前回到里斯本。', 'warn'),
+            leg('Rossio 车站', 'Pastéis de Belém', '15E 电车 / 公交', '30–35 分钟', '约 €1.85 或通票', '规划', '贝伦区 12:00–17:00 主线从蛋挞店开始。', 'warn'),
+            leg('Pastéis de Belém', '热罗尼莫斯修道院', '步行', '3 分钟', '€0', '规划', '排队时间不计入步行耗时。'),
+            leg('热罗尼莫斯修道院', '圣玛丽教堂', '步行', '1 分钟', '€0', 'Excel', '先确认入口和是否需要单独排队。'),
+            leg('圣玛丽教堂', '4 月 25 日大桥观景点', '步行', '8–10 分钟', '€0', '规划', '沿河岸向西南。'),
+            leg('4 月 25 日大桥观景点', '贝伦宫', '步行', '8–10 分钟', '€0', '规划', '外部拍照即可，不安排内部参观。'),
+            leg('贝伦宫', '阿方索广场', '步行', '2–3 分钟', '€0', '规划', '顺路穿过花园。'),
+            leg('阿方索广场', '发现者纪念碑', '步行', '8–10 分钟', '€0', '规划', '回到河岸主轴。'),
+            leg('发现者纪念碑', '帝国广场', '步行', '4–5 分钟', '€0', '规划', '保留拍照和休息时间。'),
+            leg('帝国广场', '贝伦塔', '步行', '10–12 分钟', '€0', '规划', '最后一站；若内部关闭，保留外观。'),
+            leg('贝伦塔', 'Hotel Dom Sancho I', '15E 电车 / Bolt 备选', '35–45 分钟 / 15–20 分钟', '€1.85+ / €8–12', '规划', '偏满日优先 Bolt 回酒店，避免再走长距离。', 'warn')
+          ], items: [
+            item('07:30 — 12:00', '酒店 → Rossio → 辛特拉 → 雷加莱拉庄园', '市郊火车约 40 分钟，434 环线接驳；只去雷加莱拉，不去罗卡角、佩纳宫。', '火车 + 434 公交', '通票约 €11.50；火车往返 €5.10', 'warn'),
+            item('12:00 — 17:00', '贝伦区完整主线', 'Pastéis de Belém → 热罗尼莫斯修道院 → 圣玛丽教堂 → 4 月 25 日大桥 → 贝伦宫 → 阿方索广场 → 发现者纪念碑 → 帝国广场 → 贝伦塔。', '步行', '餐费 €15–22', 'warn'),
+            item('17:00 后', '贝伦塔 → 酒店', '偏满日建议直接 Bolt；时间充裕再坐 15E。', 'Bolt / 15E', '€8–12 / €1.85+', 'warn')
           ]},
-          {date: '09/25', title: '周五 · 里斯本老城区', meta: '电车、城堡、阿尔法玛和日落', items: [
-            ['09:30 — 17:30', '奥古斯塔街之门 → 圣若热城堡', '圣胡斯塔升降机、卡尔莫修道院、伯特兰书店、圣卢西亚观景台、主教堂', '步行 + 28 路电车', '门票 €12 + 电车 €1.85', 'normal'],
-            ['17:30 — 19:30', '28 路复古电车 → 圣若热城堡', '把日落留给城堡；热门时段建议提前购票', '电车 + 步行', '城堡 €12', 'warn'],
-            ['晚上', '阿尔法玛区晚餐', 'Fado 街头表演 walk-in；餐厅场次需要订座', '步行', '待定', 'normal']
+          {id: 'lisbon-0925', date: '09/25', title: '周五 · 里斯本老城区', meta: '电车、城堡、阿尔法玛和日落', summary: '老城区按步行串联，28 路电车只承担上坡与体验段。', transportNote: '老城点位密集，步行优先；圣若热城堡日落时段需预约。', points: [
+            point('Hotel Dom Sancho I', 38.7180, -9.1444, '出发点'),
+            point('奥古斯塔街之门', 38.7079, -9.1366, '凯旋门'),
+            point('圣胡斯塔升降机', 38.7121, -9.1395, '热门排队点'),
+            point('卡尔莫修道院', 38.7120, -9.1405, '地震遗迹'),
+            point('自由大道', 38.7185, -9.1446, 'Lisbon 主轴'),
+            point('Livraria Bertrand', 38.7104, -9.1426, '历史书店'),
+            point('圣卢西亚观景台', 38.7118, -9.1295, '上坡观景'),
+            point('里斯本主教堂', 38.7097, -9.1329, '回廊 / 宝藏室另确认'),
+            point('圣若热城堡', 38.7139, -9.1335, '日落主景点'),
+            point('阿尔法玛晚餐', 38.7114, -9.1298, '晚餐后按体力回酒店')
+          ], legs: [
+            leg('Hotel Dom Sancho I', '奥古斯塔街之门', '步行', '18–20 分钟', '€0', '规划', '沿自由大道下行。'),
+            leg('奥古斯塔街之门', '圣胡斯塔升降机', '步行', '5 分钟', '€0', '规划', '先看外观与排队情况。'),
+            leg('圣胡斯塔升降机', '卡尔莫修道院', '步行', '2 分钟', '€0', '规划', '卡尔莫周日闭馆，09/25 可安排。'),
+            leg('卡尔莫修道院', '自由大道', '步行', '12–15 分钟', '€0', '规划', '回到主轴后前往 Chiado。'),
+            leg('自由大道', 'Livraria Bertrand', '步行', '15 分钟', '€0', '规划', '书店 Walk-in。'),
+            leg('Livraria Bertrand', '圣卢西亚观景台', '步行上坡', '18–20 分钟', '€0', '规划', '石板路，上坡留出缓冲。'),
+            leg('圣卢西亚观景台', '里斯本主教堂', '步行', '5 分钟', '€0', '规划', '顺路下行。'),
+            leg('里斯本主教堂', '圣若热城堡', '28 路电车 + 步行', '15–20 分钟', '电车 €1.85', 'Excel', '电车排队不可控，步行上城约 12 分钟。', 'warn'),
+            leg('圣若热城堡', '阿尔法玛晚餐', '步行', '8–12 分钟', '€0', '规划', 'Fado 街头表演 Walk-in；餐厅场次订座。')
+          ], items: [
+            item('09:30 — 17:30', '奥古斯塔街之门 → 圣若热城堡', '圣胡斯塔升降机、卡尔莫修道院、自由大道、Bertrand、圣卢西亚观景台、主教堂。', '步行 + 28 路电车', '门票 €12；电车 €1.85'),
+            item('17:30 — 19:30', '圣若热城堡日落', '热门时段提前购票，按城堡闭馆时间倒推。', '步行', '城堡 €12', 'warn'),
+            item('晚上', '阿尔法玛区晚餐', 'Fado 街头表演 Walk-in；餐厅表演需要订座。', '步行', '餐费待定')
           ]}
         ]
       },
       porto: {
         name: '波尔图', dates: '09/26 — 09/28', center: [41.1496, -8.6109], zoom: 13,
-        route: [[41.2420, -8.6780], [41.1440, -8.6070], [41.1378, -8.6110], [41.1413, -8.6090]],
-        points: [
-          ['波尔图机场', 41.2420, -8.6780, '机场到市区打车 Excel 记录 €10–15'],
-          ['N Apartments - Chã', 41.1440, -8.6070, 'Sao Bento 地铁站约 200 米'],
-          ['莱罗书店', 41.1468, -8.6150, '建议提前购买指定时段'],
-          ['Jardim do Morro', 41.1380, -8.6090, '杜罗河日落机位']
-        ],
-        transportRoute: '波尔图城区 / 机场 → 住宿',
-        note: '波尔图景点集中，主线以步行为主；上坡、夜间或行李日再用地铁和 Bolt/Uber。',
-        transport: [
-          ['步行', '10–30 分钟', '€0', '市中心首选', '建议', true],
-          ['地铁 / 公交', '10–25 分钟', '待核实', '跨区或机场', '待核实', false],
-          ['Bolt / Uber', '10–20 分钟', '待核实', '夜间、上坡、行李', '待核实', false],
-          ['出租车', '20–25 分钟', '€10–15', '机场到住宿', 'Excel', false]
-        ],
+        hotel: 'N Apartments - Chã',
         days: [
-          {date: '09/26', title: '周六 · 里斯本 → 波尔图', meta: '高铁、瓷砖墙、波特酒', items: [
-            ['08:30 — 12:00', '里斯本 → 波尔图 Alfa Pendular 高铁', '约 3h15m，抵达后先办理入住', '高铁', '早促 €10–28', 'normal'],
-            ['13:00 — 18:00', '波尔图城区', '圣伊尔德丰索堂、灵魂教堂、波尔图市场、市政厅、卡尔莫教堂、莱罗书店', '步行', '教堂免费；莱罗 €5', 'normal'],
-            ['晚上', '加亚新城晚餐，尝波特酒', 'Francesinha 三明治；可顺路看河景', '步行', '€18–25', 'normal']
+          {id: 'porto-0926', date: '09/26', title: '周六 · 抵达波尔图 + 老城', meta: '抵达、瓷砖墙、书店、加亚河景', summary: '到达后把市中心点位排成一条步行线，行李段才使用地铁或 Bolt。', transportNote: '跨城车票已完成，不在此重复比价；这里仅保留抵达站 → 酒店和当天景点之间的点到点方式。', points: [
+            point('Campanhã 车站', 41.1486, -8.5842, '抵达波尔图后的城市入口'),
+            point('N Apartments - Chã', 41.1440, -8.6070, '101 Rua Chã；São Bento 地铁站约 200 米'),
+            point('圣伊尔德丰索堂', 41.1459, -8.6067, '瓷砖墙'),
+            point('灵魂教堂', 41.1497, -8.6066, '外墙打卡'),
+            point('波尔图市场 / Bolhão', 41.1497, -8.6041, '市场 Walk-in'),
+            point('波尔图市政厅', 41.1494, -8.6107, '外部拍照'),
+            point('卡尔莫教堂', 41.1465, -8.6162, '外墙与侧面瓷砖'),
+            point('莱罗书店', 41.1469, -8.6149, '指定时段购票'),
+            point('帝国麦当劳', 41.1470, -8.6121, '外观与内部装饰'),
+            point('Jardim do Morro', 41.1378, -8.6090, '杜罗河日落')
+          ], legs: [
+            leg('Campanhã 车站', 'N Apartments - Chã', '地铁 / Bolt', '15–20 分钟 / 10–15 分钟', '按现场', '规划', '带行李优先地铁或 Bolt；不要拖行李走上坡。'),
+            leg('N Apartments - Chã', '圣伊尔德丰索堂', '步行', '10–12 分钟', '€0', '规划', '入住后从酒店向北。'),
+            leg('圣伊尔德丰索堂', '灵魂教堂', '步行', '8–10 分钟', '€0', '规划', '沿 Rua de Santa Catarina。'),
+            leg('灵魂教堂', '波尔图市场 / Bolhão', '步行', '4–5 分钟', '€0', 'Excel', '市场 Walk-in。'),
+            leg('波尔图市场 / Bolhão', '波尔图市政厅', '步行', '10–12 分钟', '€0', '规划', '沿 Avenida dos Aliados。'),
+            leg('波尔图市政厅', '卡尔莫教堂', '步行', '10–12 分钟', '€0', '规划', '外部拍照。'),
+            leg('卡尔莫教堂', '莱罗书店', '步行', '3–4 分钟', '€5', 'Excel', '提前购买指定时段。'),
+            leg('莱罗书店', '帝国麦当劳', '步行', '6–8 分钟', '€0', '规划', 'Aliados 方向。'),
+            leg('帝国麦当劳', 'Jardim do Morro', '步行跨桥', '25–30 分钟', '€0', '规划', '体力不足可把日落点改为 Ribeira。')
+          ], items: [
+            item('上午', '里斯本 → 波尔图', '跨城车票已完成；抵达后先办理入住。', 'Alfa Pendular', '行程表已记录'),
+            item('13:00 — 18:00', '圣伊尔德丰索堂 → 灵魂教堂 → 波尔图市场 → 市政厅 → 卡尔莫教堂 → 莱罗书店 → 帝国麦当劳', '瓷砖墙、废墟残墙和最美麦当劳集中在步行线。', '步行', '莱罗 €5'),
+            item('晚上', 'Jardim do Morro / 加亚新城晚餐', 'Francesinha 三明治；顺路看河景和日落。', '步行', '餐费 €18–25')
           ]},
-          {date: '09/27', title: '周日 · 波尔图老城和杜罗河', meta: '游船、桥、河岸日落', items: [
-            ['上午', '杜罗河游船，老城小巷漫步', '可以睡懒觉，按松弛节奏开始', '游船 · 50 分钟', '€18–25', 'normal'],
-            ['13:00 — 18:00', '波尔图大教堂 → 证券交易所宫 → 圣本托车站', '经过路易一世大桥，傍晚到 Jardim do Morro 或 Serra do Pilar', '步行跨桥', '证券交易所 €10', 'normal'],
-            ['晚餐', '河畔晚餐', '走到对岸观景，波特酒窖只做简单参观', '步行', '€16–22', 'normal']
+          {id: 'porto-0927', date: '09/27', title: '周日 · 波尔图老城和杜罗河', meta: '游船、桥、三处日落机位', summary: '上午游船，下午从老城一路跨桥到 Jardim do Morro / Serra do Pilar。', transportNote: '波尔图这天以步行跨桥为主；上坡和回酒店时再考虑 Bolt。', points: [
+            point('N Apartments - Chã', 41.1440, -8.6070, '出发点'),
+            point('Ribeira 游船码头', 41.1405, -8.6130, '游船约 50 分钟'),
+            point('杜罗河游船', 41.1405, -8.6130, '六桥游船登船点与码头相同'),
+            point('波尔图大教堂', 41.1429, -8.6111, '老城高点'),
+            point('证券交易所宫', 41.1406, -8.6154, '固定导览场次'),
+            point('圣方济各堂', 41.1405, -8.6151, '现场购票'),
+            point('圣本托车站', 41.1455, -8.6108, '免费看车站内饰'),
+            point('路易一世大桥', 41.1404, -8.6090, '步行跨桥'),
+            point('Jardim do Morro', 41.1378, -8.6090, '大草坪日落'),
+            point('Serra do Pilar 观景台', 41.1367, -8.6080, '桥右侧高位机位'),
+            point('Ribeira 河岸晚餐', 41.1405, -8.6130, '回到河岸')
+          ], legs: [
+            leg('N Apartments - Chã', 'Ribeira 游船码头', '步行下坡', '18–22 分钟', '€0', '规划', '早点出发，游船班次需按预约时间倒推。'),
+            leg('Ribeira 游船码头', '杜罗河游船', '游船', '约 50 分钟', '€18–25', 'Excel', '提前选择船班。'),
+            leg('Ribeira 游船码头', '波尔图大教堂', '步行上坡', '12–15 分钟', '€0', '规划', '石板路和坡度明显。'),
+            leg('波尔图大教堂', '证券交易所宫', '步行', '8–10 分钟', '€10', 'Excel', '固定导览场次，按预约进入。'),
+            leg('证券交易所宫', '圣方济各堂', '步行', '2–3 分钟', '现场', '规划', '相邻点位。'),
+            leg('圣方济各堂', '圣本托车站', '步行上坡', '10–12 分钟', '€0', '规划', '午后回到老城主轴。'),
+            leg('圣本托车站', '路易一世大桥', '步行', '12–15 分钟', '€0', '规划', '沿河方向。'),
+            leg('路易一世大桥', 'Jardim do Morro', '步行跨桥', '12–15 分钟', '€0', 'Excel', '第一日落机位。'),
+            leg('Jardim do Morro', 'Serra do Pilar 观景台', '步行上坡', '8–10 分钟', '€0', 'Excel', '第二机位；体力不足可二选一。'),
+            leg('Serra do Pilar 观景台', 'Ribeira 河岸晚餐', '步行 / Bolt', '20–30 分钟 / 8–12 分钟', '€0 / 按现场', '规划', '晚间下坡或直接打车回河岸。')
+          ], items: [
+            item('上午', '杜罗河游船 + 老城小巷', '可以睡懒觉，但游船需按船班出发。', '步行 + 游船', '游船 €18–25'),
+            item('13:00 — 18:00', '大教堂 → 证券交易所宫 → 圣方济各堂 → 圣本托 → 路易一世大桥 → Jardim do Morro / Serra do Pilar', '三个日落机位按体力二选一也可以。', '步行跨桥', '证券交易所 €10'),
+            item('晚餐', '河畔晚餐', '波特酒窖只做简单参观。', '步行 / Bolt', '餐费 €16–22')
           ]}
         ]
       },
       madrid: {
         name: '马德里', dates: '09/28 — 10/01', center: [40.4168, -3.7038], zoom: 13,
-        route: [[40.4719, -3.5626], [40.4120, -3.6910], [40.4180, -3.7140], [40.4240, -3.7170]],
-        points: [
-          ['马德里机场', 40.4719, -3.5626, '抵达后地铁或打车进城'],
-          ['Hostal Bruña Paseo del Prado', 40.4120, -3.6910, '市中心，步行与地铁都方便'],
-          ['马德里王宫', 40.4180, -3.7140, '建议提前购买门票'],
-          ['德波神庙', 40.4240, -3.7170, '日落机位，开放规则需确认']
-        ],
-        transportRoute: '市中心景点圈 / 机场到住宿',
-        note: '太阳门、王宫、圣米格尔市场、德波神庙可用步行串联；跨区再使用地铁。',
-        transport: [
-          ['步行', '10–20 分钟', '€0', '中心景点串联', '建议', true],
-          ['地铁', '10–25 分钟', '€1.5–2', '跨区稳定', 'Excel', false],
-          ['机场地铁', '35–45 分钟', '待核实', '预算优先', '待核实', false],
-          ['出租车 / Bolt', '8–18 分钟', '待核实', '多人、赶时间', '待核实', false]
-        ],
         days: [
-          {date: '09/28', title: '周一 · 波尔图 → 马德里', meta: '抵达、王宫、德波神庙、Tapas', items: [
-            ['上午', '波尔图机场 → 马德里巴拉哈斯机场', '直飞约 1h25m，注意伏林 / 瑞安廉航行李额度', '飞机', '€40–80', 'warn'],
-            ['下午', '太阳门广场 → 马约尔广场 → 圣米格尔市场 → 马德里王宫', '每个景点间步行 10–20 分钟，王宫预留 1.5 小时', '地铁 + 步行', '地铁 €1.5–2', 'normal'],
-            ['傍晚 — 晚上', '德波神庙日落 → 拉丁区 Tapas', '马德里夜生活体验', '步行 / 地铁', '€18–25', 'normal']
+          {id: 'madrid-0928', date: '09/28', title: '周一 · 抵达马德里 + 王宫线', meta: '机场、酒店、太阳门、王宫、德波神庙', summary: '跨城航段已完成；落地后先到酒店放行李，再把市中心景点按步行线串起来。', transportNote: '机场进城按行李量决策：轻装且不赶时间用机场快线/地铁，带行李或晚到优先出租车；市中心景点步行优先。', points: [
+            point('马德里机场', 40.4719, -3.5626, '巴拉哈斯机场；具体航站楼按已购航班确认'),
+            point('Hostal Bruña Paseo del Prado', 40.4125, -3.6930, 'Moratín 50；先放行李、确认入住'),
+            point('太阳门广场', 40.4169, -3.7035, '市中心主轴，适合步行进入老城'),
+            point('马约尔广场', 40.4154, -3.7074, '从太阳门向西步行'),
+            point('圣米格尔市场', 40.4154, -3.7089, '先买少量小吃，不把正餐时间压在排队上'),
+            point('马德里王宫', 40.4180, -3.7143, '建议按预约时段入场；内部至少预留 90 分钟'),
+            point('德波神庙', 40.4240, -3.7178, '日落机位；开放与围栏状态出发前确认'),
+            point('拉丁区', 40.4114, -3.7105, '晚餐和 Tapas 选择集中')
+          ], legs: [
+            leg('马德里机场', 'Hostal Bruña Paseo del Prado', '机场快线 / 地铁', '35–50 分钟', '约 €5–6', '规划', '适合轻装；机场快线需按航站楼换乘。'),
+            leg('马德里机场', 'Hostal Bruña Paseo del Prado', '出租车 / 官方机场车', '25–35 分钟', '固定价约 €30', '规划', '多人或行李多优先；高峰期留出道路缓冲。', 'warn'),
+            leg('Hostal Bruña Paseo del Prado', '太阳门广场', '步行', '18–22 分钟', '€0', '规划', '沿 Calle de Alcalá 方向进老城；不必为短距离打车。'),
+            leg('太阳门广场', '马约尔广场', '步行', '6–8 分钟', '€0', '规划', '广场之间巷道密集，跟步行导航。'),
+            leg('马约尔广场', '圣米格尔市场', '步行', '3–5 分钟', '€0', '规划', '相邻点位，先看排队再决定购买。'),
+            leg('圣米格尔市场', '马德里王宫', '步行', '9–12 分钟', '€0', '规划', '从市场向西，经过 Almudena 周边。'),
+            leg('马德里王宫', '德波神庙', '步行上坡', '15–18 分钟', '€0', '规划', '日落前到达；炎热时可改短程出租车。'),
+            leg('德波神庙', '拉丁区', '步行 / 地铁', '20–25 分钟 / 12–15 分钟', '€0 / €1.5–2', '规划', '晚餐不赶时步行下坡，体力不足坐地铁。'),
+            leg('拉丁区', 'Hostal Bruña Paseo del Prado', '步行 / 出租车', '18–25 分钟 / 8–12 分钟', '€0 / €8–12', '规划', '晚间按体力回酒店。')
+          ], items: [
+            item('上午', '波尔图 → 马德里', '跨城航段已完成，不在本页重复比价；落地后按机场到酒店的两种方案执行。', '航班', '已完成'),
+            item('下午', '酒店 → 太阳门 → 马约尔广场 → 圣米格尔市场 → 王宫', '景点之间均为 3–12 分钟步行；王宫必须服从预约时段。', '步行', '王宫门票按已购 / 现场', 'warn'),
+            item('傍晚 — 晚上', '王宫 → 德波神庙 → 拉丁区', '把德波神庙当作日落点，不为多塞景点压缩王宫参观。', '步行 / 地铁', '交通约 €0–2')
           ]},
-          {date: '09/29', title: '周二 · 马德里艺术与公园', meta: '普拉多、丽池公园、伯纳乌', items: [
-            ['09:30 — 16:00', '普拉多博物馆 → 丽池公园 → 水晶宫', '普拉多建议提前购票；水晶宫先确认开放', '地铁 + 步行', '预约免费 / 待核实', 'warn'],
-            ['下午 — 傍晚', '阿尔卡拉门 → 西贝莱斯广场 → 伯纳乌球场', '伯纳乌参观待定，不强行加入', '地铁', '门票待定', 'neutral'],
-            ['晚餐', '博物馆周边 Tapas 小馆', '按体力决定是否继续逛', '步行', '€16–22', 'normal']
+          {id: 'madrid-0929', date: '09/29', title: '周二 · 艺术、公园与城市轴线', meta: '普拉多、丽池、水晶宫、阿尔卡拉门、伯纳乌、西贝莱斯、西班牙广场', summary: '上午集中在普拉多与丽池，下午用地铁完成伯纳乌和西班牙广场的跨区移动。', transportNote: '普拉多—丽池—水晶宫—阿尔卡拉门步行最省事；伯纳乌和西班牙广场才值得使用地铁，避免全程打车。', points: [
+            point('Hostal Bruña Paseo del Prado', 40.4125, -3.6930, '出发点；酒店就在普拉多南侧'),
+            point('普拉多博物馆', 40.4138, -3.6920, '预约时段入场，建议先锁定 2–2.5 小时'),
+            point('丽池公园入口', 40.4144, -3.6883, '从博物馆东侧进入'),
+            point('水晶宫', 40.4138, -3.6820, '免费项目但开放状态需当天确认'),
+            point('阿尔卡拉门', 40.4199, -3.6888, '从丽池公园西北方向出来'),
+            point('西贝莱斯广场', 40.4193, -3.6931, '连接普拉多、格兰大道和阿尔卡拉的节点'),
+            point('伯纳乌球场', 40.4531, -3.6883, '参观与否以已购票和当日赛程为准'),
+            point('西班牙广场', 40.4230, -3.7129, '晚间回城可顺路停留'),
+            point('Hostal Bruña Paseo del Prado', 40.4125, -3.6930, '回酒店休息 / 晚餐')
+          ], legs: [
+            leg('Hostal Bruña Paseo del Prado', '普拉多博物馆', '步行', '5–8 分钟', '€0', '规划', '酒店到博物馆很近，预约前留安检缓冲。'),
+            leg('普拉多博物馆', '丽池公园入口', '步行', '8–10 分钟', '€0', '规划', '沿博物馆东侧进入公园。'),
+            leg('丽池公园入口', '水晶宫', '步行', '12–15 分钟', '€0', '规划', '园内路况平缓，留出拍照时间。'),
+            leg('水晶宫', '阿尔卡拉门', '步行', '15–18 分钟', '€0', '规划', '从公园北侧出园。'),
+            leg('阿尔卡拉门', '西贝莱斯广场', '步行', '7–9 分钟', '€0', '规划', '沿 Calle de Alcalá 西行。'),
+            leg('西贝莱斯广场', '伯纳乌球场', '地铁', '18–25 分钟', '约 €1.5–2', '规划', '跨区最稳定；按当日线路选择换乘。', 'warn'),
+            leg('伯纳乌球场', '西班牙广场', '地铁', '20–30 分钟', '约 €1.5–2', '规划', '若伯纳乌参观超时，西班牙广场可压缩为外观拍照。', 'warn'),
+            leg('西班牙广场', 'Hostal Bruña Paseo del Prado', '步行 / 地铁', '20–25 分钟 / 12–18 分钟', '€0 / €1.5–2', '规划', '晚餐后按体力返回。')
+          ], items: [
+            item('09:30 — 15:00', '普拉多博物馆 → 丽池公园 → 水晶宫 → 阿尔卡拉门 → 西贝莱斯', '这段全部步行；水晶宫是否开放以当天信息为准。', '步行', '普拉多门票按预约', 'warn'),
+            item('下午 — 傍晚', '西贝莱斯 → 伯纳乌球场 → 西班牙广场', '伯纳乌内部参观是可选项；若有比赛或排队，保留外观即可。', '地铁', '约 €3–4 往返', 'neutral'),
+            item('晚上', '西班牙广场 → 酒店', '不再安排新的远距离景点，给托莱多留体力。', '步行 / 地铁', '€0–2')
           ]},
-          {date: '09/30', title: '周三 · 托莱多一日往返', meta: '中世纪古城、大教堂、全景', items: [
-            ['09:00 — 17:30', '托莱多老城区和大教堂漫游', '火车站 → 阿尔坎卡拉桥 → 阿尔卡萨 → 大教堂 → 山谷观景台', 'AVANT 高铁 + 步行', '交通 €12–19；门票约 €30', 'warn'],
-            ['傍晚', '返回马德里市区', '晚上早点休息，为第二天高铁做准备', '高铁 / 地铁', '已含上边', 'normal']
+          {id: 'madrid-0930', date: '09/30', title: '周三 · 托莱多一日往返', meta: '火车站、阿尔坎塔拉桥、阿尔卡萨、大教堂、山谷观景台', summary: '托莱多按“车站 → 桥 → 城堡 → 大教堂 → 山谷观景台”完成；山谷观景台是唯一需要额外打车决策的段。', transportNote: '往返车票已完成，不做跨城比价；托莱多城内优先步行，去山谷观景台建议出租车节省上坡和回程风险。', points: [
+            point('Hostal Bruña Paseo del Prado', 40.4125, -3.6930, '出发点；按已购车次倒推出发'),
+            point('马德里 Atocha 车站', 40.4066, -3.6890, '按已购 AVANT 班次提前到站'),
+            point('托莱多火车站', 39.8628, -4.0117, '抵达后先沿桥方向进入老城'),
+            point('阿尔坎塔拉桥', 39.8576, -4.0220, '从车站步行下坡约 10 分钟'),
+            point('托莱多阿尔卡萨', 39.8568, -4.0211, '由桥进入老城后上坡'),
+            point('托莱多大教堂', 39.8567, -4.0270, '预留内部参观时间'),
+            point('山谷观景台', 39.8529, -4.0344, '俯瞰老城全景；建议白天去'),
+            point('托莱多火车站', 39.8628, -4.0117, '回程前至少提前 25 分钟回到站内'),
+            point('Hostal Bruña Paseo del Prado', 40.4125, -3.6930, '回马德里后休息')
+          ], legs: [
+            leg('Hostal Bruña Paseo del Prado', '马德里 Atocha 车站', '步行 / 地铁', '12–18 分钟 / 8–12 分钟', '€0 / €1.5–2', '规划', '按已购车次倒推，至少提前 25 分钟到站。'),
+            leg('马德里 Atocha 车站', '托莱多火车站', 'AVANT 高铁', '约 33–36 分钟', '已购车票', 'Excel', '跨城移动已完成，不在此重复比较价格。', 'warn'),
+            leg('托莱多火车站', '阿尔坎塔拉桥', '步行下坡', '10–12 分钟', '€0', '规划', '先拍桥和城墙，再进入老城。'),
+            leg('阿尔坎塔拉桥', '托莱多阿尔卡萨', '步行上坡', '15–20 分钟', '€0', '规划', '石板路与坡度明显，穿防滑鞋。'),
+            leg('托莱多阿尔卡萨', '托莱多大教堂', '步行', '8–10 分钟', '€0', '规划', '老城巷道按导航绕行。'),
+            leg('托莱多大教堂', '山谷观景台', '出租车 / 步行', '10–15 分钟 / 35–45 分钟', '约 €8–12 / €0', '规划', '推荐去程打车，省下时间给观景和回站。', 'warn'),
+            leg('山谷观景台', '托莱多火车站', '出租车', '15–20 分钟', '约 €10–15', '规划', '提前叫车；不要把回程压在最后一班接驳上。', 'warn'),
+            leg('托莱多火车站', '马德里 Atocha 车站', 'AVANT 高铁', '约 33–36 分钟', '已购车票', 'Excel', '按车票班次返回。'),
+            leg('马德里 Atocha 车站', 'Hostal Bruña Paseo del Prado', '步行 / 地铁', '12–18 分钟 / 8–12 分钟', '€0 / €1.5–2', '规划', '晚间回酒店后不再安排景点。')
+          ], items: [
+            item('早上', '酒店 → Atocha → 托莱多火车站', '往返车票已完成；按车票时间提前到站。', '步行 / 地铁 + AVANT', '车票已购', 'warn'),
+            item('上午 — 下午', '托莱多火车站 → 阿尔坎塔拉桥 → 阿尔卡萨 → 大教堂', '城内前三段步行，石板路和上坡要预留体力。', '步行', '门票按预约 / 现场', 'warn'),
+            item('下午 — 傍晚', '大教堂 → 山谷观景台 → 火车站', '去程优先打车，观景后直接打车回车站，避免错过返程。', '出租车 / 步行', '约 €18–27 往返', 'warn'),
+            item('晚上', '返回马德里酒店', '第二天前往巴塞罗那，提前整理行李。', 'AVANT + 步行', '车票已购')
           ]}
         ]
       },
       barcelona: {
         name: '巴塞罗那', dates: '10/01 — 10/04', center: [41.3874, 2.1686], zoom: 13,
-        route: [[41.2974, 2.0833], [41.3720, 2.1490], [41.4036, 2.1744], [41.4145, 2.1527], [41.3635, 2.1580]],
-        points: [
-          ['BCN 机场', 41.2974, 2.0833, '10/04 22:50 西班牙当地起飞'],
-          ['Hotel Brick Barcelona', 41.3720, 2.1490, '扩展区 / 圣蒙特惠奇附近'],
-          ['圣家堂', 41.4036, 2.1744, '必须提前购买指定时段门票'],
-          ['古埃尔公园', 41.4145, 2.1527, '付费区域需指定时段'],
-          ['蒙锥克山', 41.3635, 2.1580, '离境日观景与西班牙广场']
-        ],
-        transportRoute: '市区 ↔ BCN 机场 / 高迪建筑区',
-        note: '机场 L9 地铁约 €5.5、35 分钟；出租车约 €25–32。市内优先 T-10 / 地铁和步行。',
-        transport: [
-          ['L9 地铁', '约 35 分钟', '€5.5', '预算优先', 'Excel', true],
-          ['机场大巴', '约 35 分钟', '待核实', '直达市区', '待核实', false],
-          ['出租车', '25–35 分钟', '€25–32', '行李多、夜间', 'Excel', false],
-          ['T-10 / 地铁', '15–35 分钟', '约 €2.4/次', '市内日常', 'Excel', true]
-        ],
         days: [
-          {date: '10/01', title: '周四 · 马德里 → 巴塞罗那', meta: 'AVE、哥特区、海边日落', items: [
-            ['08:57 — 12:06', '马德里 → 巴塞罗那 Sants', '约 3h09m，抵达后酒店放行李', 'AVE 高铁', '€18–110', 'normal'],
-            ['下午', '巴塞罗那主教堂 → 叹息桥 → 波盖利亚市场 → 皇家广场', '市场小吃，尝试西班牙火腿和吉事果', '地铁 + 步行', 'T-10 约 €2.4/次', 'normal'],
-            ['傍晚', '巴塞罗内塔海滩散步', '看日落，四个盒子机位', '地铁 + 步行', '已含交通', 'normal']
+          {id: 'barcelona-1001', date: '10/01', title: '周四 · 抵达巴塞罗那 + 哥特区海边', meta: 'Sants、酒店、主教堂、波盖利亚、皇家广场、巴塞罗内塔', summary: '跨城高铁已完成；放行李后用老城步行线连接哥特区、市场和海边。', transportNote: 'Sants → 酒店带行李可步行或短程出租车；老城景点之间不需要反复坐车，去巴塞罗内塔再用地铁或步行。', points: [
+            point('Barcelona Sants', 41.3790, 2.1400, 'AVE 抵达站；跨城车票已完成'),
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '304 Gran Via；先放行李'),
+            point('巴塞罗那主教堂', 41.3839, 2.1762, '哥特区主轴'),
+            point('叹息桥', 41.3840, 2.1768, '主教堂旁，短停拍照'),
+            point('波盖利亚市场', 41.3817, 2.1718, '注意营业时间和午后收摊'),
+            point('皇家广场', 41.3809, 2.1755, '市场向东南步行'),
+            point('巴塞罗内塔海滩', 41.3751, 2.1900, '傍晚海边散步'),
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '回酒店办理入住 / 休息')
+          ], legs: [
+            leg('Barcelona Sants', 'Hotel Brick Barcelona', '步行 / 出租车', '15–20 分钟 / 6–10 分钟', '€0 / €8–12', '规划', '轻装步行即可；行李多或到达晚优先出租车。'),
+            leg('Hotel Brick Barcelona', '巴塞罗那主教堂', '地铁 / 步行', '18–25 分钟 / 30–35 分钟', '约 €2–3 / €0', '规划', '带行李先乘地铁；放下行李后老城段全部步行。'),
+            leg('巴塞罗那主教堂', '叹息桥', '步行', '1 分钟', '€0', '规划', '同一街区，顺路拍照。'),
+            leg('叹息桥', '波盖利亚市场', '步行', '12–15 分钟', '€0', '规划', '沿 La Rambla 南下，注意人流和随身物品。'),
+            leg('波盖利亚市场', '皇家广场', '步行', '3–5 分钟', '€0', '规划', '市场南侧出口更顺路。'),
+            leg('皇家广场', '巴塞罗内塔海滩', '步行 / 地铁', '20–25 分钟 / 15–20 分钟', '€0 / 约 €2–3', '规划', '天气好直接走海边；体力不足乘地铁。'),
+            leg('巴塞罗内塔海滩', 'Hotel Brick Barcelona', '地铁 / 出租车', '25–35 分钟 / 12–18 分钟', '约 €2–3 / €12–18', '规划', '晚间带购物物品时优先出租车。')
+          ], items: [
+            item('上午 — 中午', '马德里 → Barcelona Sants', '跨城高铁已完成；页面只保留抵达站到酒店的城市内移动。', 'AVE + 步行 / 出租车', '已完成'),
+            item('下午', '酒店 → 主教堂 → 叹息桥 → 波盖利亚市场 → 皇家广场', '老城核心段按步行完成，市场按营业状态灵活停留。', '步行', '小吃按现场'),
+            item('傍晚', '皇家广场 → 巴塞罗内塔海滩 → 酒店', '看海边日落后回酒店，避免第一天再加远距离景点。', '步行 / 地铁', '约 €0–3')
           ]},
-          {date: '10/02', title: '周五 · 高迪建筑之旅 1', meta: '圣家堂、维森斯之家、古埃尔公园', items: [
-            ['09:00 — 12:00', '圣家堂', '务必提前预约；把时间留给内部参观', '地铁', '€26 起', 'warn'],
-            ['下午', '维森斯之家 → 古埃尔公园', '高迪路线较密，维森斯之家可作为可选项', '地铁 + 步行', '门票待核实', 'warn'],
-            ['傍晚', '焦糖山 / Turo de la Rovira', '俯瞰城市全景，按体力决定是否去', '步行上坡', '免费 / 待核实', 'neutral']
+          {id: 'barcelona-1002', date: '10/02', title: '周五 · 高迪建筑线 1', meta: '圣家堂、维森斯之家、古埃尔公园、焦糖山', summary: '上午先锁定圣家堂时段，下午向西北连续走维森斯之家、古埃尔公园和焦糖山。', transportNote: '高迪点位分散，地铁负责跨区、短途步行负责进出景点；焦糖山上坡段可用出租车换时间。', points: [
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '出发点'),
+            point('圣家堂', 41.4036, 2.1744, '必须提前购买指定时段门票'),
+            point('维森斯之家', 41.4036, 2.1505, '建议确认入场时段，临时删减也不影响主线'),
+            point('古埃尔公园', 41.4145, 2.1527, '付费区域需要指定时段'),
+            point('焦糖山 / Turo de la Rovira', 41.4184, 2.1611, '城市全景；日落前上山'),
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '回酒店休息')
+          ], legs: [
+            leg('Hotel Brick Barcelona', '圣家堂', '地铁', '20–30 分钟', '约 €2–3', '规划', '从 Espanya 方向换乘至 Sagrada Família，预约前留站内步行时间。', 'warn'),
+            leg('圣家堂', '维森斯之家', '地铁 / 出租车', '20–30 分钟 / 10–15 分钟', '约 €2–3 / €12–18', '规划', '时间紧或高温时打车；地铁更省预算。'),
+            leg('维森斯之家', '古埃尔公园', '步行 / 公交', '20–30 分钟上坡 / 12–18 分钟', '€0 / 约 €2–3', '规划', '不建议拖着时间硬走上坡，按天气选择公交。'),
+            leg('古埃尔公园', '焦糖山 / Turo de la Rovira', '步行上坡 / 出租车', '25–35 分钟 / 8–12 分钟', '€0 / €8–12', '规划', '景点内已走较多时，推荐短程打车换取观景时间。', 'warn'),
+            leg('焦糖山 / Turo de la Rovira', 'Hotel Brick Barcelona', '出租车 / 公交 + 地铁', '15–22 分钟 / 35–50 分钟', '€15–22 / 约 €2–3', '规划', '日落后优先出租车，避免山上换乘等待。', 'warn')
+          ], items: [
+            item('09:00 — 12:00', '圣家堂', '把完整预约时段留给内部和博物馆，不把进场排队算进交通时间。', '地铁 + 步行', '门票按已购 / 预约', 'warn'),
+            item('下午', '维森斯之家 → 古埃尔公园', '维森斯之家是可压缩项；古埃尔公园付费区必须服从时段。', '地铁 / 公交 + 步行', '门票按预约', 'warn'),
+            item('傍晚', '古埃尔公园 → 焦糖山', '只保留一个日落观景点，不再叠加其他山坡景点。', '步行上坡 / 出租车', '€0–12', 'neutral')
           ]},
-          {date: '10/03', title: '周六 · 高迪建筑之旅 2', meta: '米拉之家、巴特罗之家、蒂比达博', items: [
-            ['早上', '米拉之家 → 巴特罗之家', '巴特罗之家、米拉之家都建议提前购票', '地铁 + 步行', '巴特罗 €28；米拉 €26', 'warn'],
-            ['下午', '格拉西亚大道 → 蒂比达博山', '缆车 / 游乐场和教堂，先确认运营时间', '地铁 + 上山', '交通待核实', 'neutral'],
-            ['晚餐', '市区晚餐，地中海风味', '海鲜饭 Paella', '步行', '€18–24', 'normal']
+          {id: 'barcelona-1003', date: '10/03', title: '周六 · 高迪建筑线 2 + 蒂比达博', meta: '米拉之家、巴特罗之家、格拉西亚大道、蒂比达博', summary: '上午集中在格拉西亚大道两座建筑，下午把蒂比达博作为独立上山段，不和市中心景点来回折返。', transportNote: '米拉之家与巴特罗之家之间只走路；蒂比达博往返耗时较长，建议先确认缆车/公交运营，再决定是否进入游乐场。', points: [
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '出发点'),
+            point('米拉之家', 41.3952, 2.1619, '预约入场；屋顶参观预留时间'),
+            point('巴特罗之家', 41.3916, 2.1649, '建议提前购票'),
+            point('格拉西亚大道', 41.3940, 2.1640, '两座建筑之间的城市轴线'),
+            point('蒂比达博教堂', 41.4225, 2.1184, '山顶教堂和城市远景'),
+            point('蒂比达博游乐园', 41.4227, 2.1200, '是否进入按时间和预算决定'),
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '回酒店 / 市区晚餐')
+          ], legs: [
+            leg('Hotel Brick Barcelona', '米拉之家', '地铁 / 出租车', '20–30 分钟 / 10–15 分钟', '约 €2–3 / €12–18', '规划', '地铁更省预算；预约很早时用出租车降低迟到风险。'),
+            leg('米拉之家', '巴特罗之家', '步行', '5–7 分钟', '€0', '规划', '沿格拉西亚大道南下，两个点位不需要换车。'),
+            leg('巴特罗之家', '格拉西亚大道', '步行', '1–3 分钟', '€0', '规划', '把拍照和咖啡安排在同一街区。'),
+            leg('格拉西亚大道', '蒂比达博教堂', '地铁 + FGC / 巴士', '45–60 分钟', '约 €3–6', '规划', '上山前确认 T2 运营；完整路线比市区地铁耗时更长。', 'warn'),
+            leg('格拉西亚大道', '蒂比达博教堂', '出租车', '25–35 分钟', '约 €25–35', '规划', '多人或时间紧时更直接；需确认山路落客点。', 'warn'),
+            leg('蒂比达博教堂', '蒂比达博游乐园', '步行', '3–5 分钟', '按入园票', '规划', '同一山顶区域；只在运营和时间允许时进入。'),
+            leg('蒂比达博游乐园', 'Hotel Brick Barcelona', '巴士 + 地铁 / 出租车', '45–65 分钟 / 20–30 分钟', '约 €3–6 / €20–30', '规划', '下山晚时优先出租车，避免山上末班接驳风险。', 'warn')
+          ], items: [
+            item('上午', '米拉之家 → 巴特罗之家', '两座建筑步行 5–7 分钟；都要按预约时段进入。', '地铁 + 步行', '门票按预约', 'warn'),
+            item('下午', '格拉西亚大道 → 蒂比达博', '蒂比达博是独立的上山半日，先查当天公交和缆车运营。', '地铁 + FGC / 巴士', '交通约 €3–6', 'warn'),
+            item('晚上', '蒂比达博 → 酒店 / 市区晚餐', '下山不再安排海边或老城，保证离境日前体力。', '巴士 + 地铁 / 出租车', '约 €3–30')
           ]},
-          {date: '10/04', title: '周日 · 巴塞罗那 / 离境', meta: '购物、蒙锥克山、机场；10/05 中国时间抵达', items: [
-            ['上午', '睡到自然醒，购物采购纪念品', '行李寄存酒店，保留机动时间', '地铁 + 步行', '餐费 €18–24', 'normal'],
-            ['中午', '蒙锥克山 → 西班牙广场', '国家宫观景台与西班牙广场', '步行', '餐费 €20–28', 'normal'],
-            ['17:00 左右', '提前三小时到 BCN 机场', '10/04 22:50 西班牙当地起飞；按机场大巴、L9 或出租车倒推', 'L9 / 出租车', '地铁 €5.5；出租车 €25–32', 'warn'],
-            ['次日 21:50', '抵达中国', '10/05 中国时间抵达，结束本次行程', '飞机', '机票已记录', 'normal']
+          {id: 'barcelona-1004', date: '10/04', title: '周日 · 蒙锥克山 + 离境', meta: '寄存行李、西班牙广场、蒙锥克山、BCN 机场；10/05 中国时间抵达', summary: '上午轻量收尾，下午把蒙锥克山和西班牙广场放在机场方向，晚上按 22:50 当地起飞倒推进机场。', transportNote: '10/04 22:50 为西班牙当地起飞，建议 19:30–19:50 到 BCN；Aerobus、L9 和出租车按行李、预算、实时路况选择。', points: [
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '退房后寄存行李，确认取件时间'),
+            point('蒙锥克山', 41.3640, 2.1580, '城堡 / 缆车 / 国家宫区域按开放状态取舍'),
+            point('西班牙广场', 41.3751, 2.1490, '离境日前最后的城市主轴'),
+            point('Hotel Brick Barcelona', 41.3724, 2.1493, '取行李后前往机场'),
+            point('BCN 机场', 41.2974, 2.0833, '10/04 22:50 西班牙当地起飞；10/05 21:50 中国时间抵达')
+          ], legs: [
+            leg('Hotel Brick Barcelona', '蒙锥克山', '步行 / 公交', '20–30 分钟 / 12–18 分钟', '€0 / 约 €2–3', '规划', '轻装先上山；不建议离境日携行李登坡。'),
+            leg('蒙锥克山', '西班牙广场', '步行下坡', '15–20 分钟', '€0', '规划', '天气好直接走；按开放状态决定是否进入馆内。'),
+            leg('西班牙广场', 'Hotel Brick Barcelona', '步行 / 地铁', '5–10 分钟 / 8–12 分钟', '€0 / 约 €2–3', '规划', '回酒店取行李并确认护照、充电设备。'),
+            leg('Hotel Brick Barcelona', 'BCN 机场', 'Aerobus', '30–40 分钟', '约 €7–8', '规划', '直达机场、带行李友好；以当日站点和班次为准。'),
+            leg('Hotel Brick Barcelona', 'BCN 机场', 'L9 地铁', '40–50 分钟', '约 €5.5–6', 'Excel', '预算优先；需要确认 T1/T2 下车站和行李换乘。'),
+            leg('Hotel Brick Barcelona', 'BCN 机场', '出租车', '25–35 分钟', '约 €25–32 + 机场附加费', 'Excel', '多人、夜间或行李多优先；按实时路况提前出发。', 'warn')
+          ], items: [
+            item('上午', '退房寄存 → 蒙锥克山 → 西班牙广场', '离境日只安排一个山头主线，按开放状态删减内部项目，不影响机场时间。', '步行 / 公交', '交通约 €0–3'),
+            item('下午', '西班牙广场 → 回酒店取行李', '建议最晚 17:30 前回到酒店，预留晚餐和机场缓冲。', '步行 / 地铁', '约 €0–3', 'warn'),
+            item('18:30 — 19:50', '酒店 → BCN 机场', '目标 19:30–19:50 抵达机场；优先 Aerobus，其次 L9，行李多则出租车。', 'Aerobus / L9 / 出租车', '约 €5.5–32', 'warn'),
+            item('22:50（西班牙当地）', 'BCN 起飞 → 10/05 中国时间抵达', '以西班牙当地时间为准；国内次日 21:50 抵达。', '飞机', '机票已完成', 'warn')
           ]}
         ]
       }
@@ -541,32 +709,47 @@ permalink: /travel/iberia-2026/
     const cityTabs = [...page.querySelectorAll('[data-city-tab]')];
     const scheduleNav = page.querySelector('#iberia-schedule-nav');
     const scheduleBody = page.querySelector('#iberia-schedule-body');
-    const transportBody = page.querySelector('#iberia-transport-body');
-    const transportRoute = page.querySelector('#iberia-transport-route');
+    const dayTabs = page.querySelector('#iberia-day-tabs');
+    const routeSummary = page.querySelector('#iberia-route-summary');
+    const routeLegs = page.querySelector('#iberia-route-legs');
     const transportTitle = page.querySelector('#iberia-transport-title');
     const transportNote = page.querySelector('#iberia-transport-note');
+    const mapTitle = page.querySelector('#iberia-map-title');
+    const mapSubtitle = page.querySelector('#iberia-map-subtitle');
     let activeCity = 'lisbon';
+    let activeDayId = cityData.lisbon.days[0].id;
     let map;
     let cityLayer;
-    let mapIcon;
 
-    const renderTransport = (city) => {
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+    const getDay = (city, dayId) => cityData[city].days.find((day) => day.id === dayId) || cityData[city].days[0];
+
+    const renderDayTabs = (city, selectedDayId) => {
+      dayTabs.innerHTML = cityData[city].days.map((day) => '<button type="button" class="iberia-day-tab' + (day.id === selectedDayId ? ' is-active' : '') + '" data-day-id="' + day.id + '" aria-selected="' + (day.id === selectedDayId) + '">' + day.date + '</button>').join('');
+      [...dayTabs.querySelectorAll('[data-day-id]')].forEach((button) => button.addEventListener('click', () => selectDay(city, button.dataset.dayId)));
+    };
+
+    const renderRoute = (city, dayId) => {
       const data = cityData[city];
-      transportTitle.textContent = data.name + '出行';
-      transportRoute.textContent = data.transportRoute;
-      transportNote.textContent = data.note;
-      transportBody.innerHTML = '<table class="iberia-transport-table"><thead><tr><th>方式</th><th>时间</th><th>价格</th><th>建议</th></tr></thead><tbody>' + data.transport.map((item) => '<tr><td><strong>' + item[0] + '</strong><span class="iberia-source">' + item[4] + '</span></td><td>' + item[1] + '</td><td>' + item[2] + '</td><td><span class="iberia-recommend' + (item[5] ? ' is-warn' : '') + '">' + item[3] + '</span></td></tr>').join('') + '</tbody></table>';
+      const day = getDay(city, dayId);
+      activeDayId = day.id;
+      transportTitle.textContent = data.name + ' · ' + day.date;
+      mapTitle.textContent = data.name + ' · ' + day.date;
+      mapSubtitle.textContent = day.title + ' · ' + day.points.length + ' 个点位按顺序连接';
+      routeSummary.innerHTML = '<strong>' + escapeHtml(day.summary) + '</strong><br>' + escapeHtml(day.meta);
+      routeLegs.innerHTML = day.legs.map((routeLeg, index) => '<div class="iberia-leg' + (routeLeg.tone === 'warn' ? ' is-warn' : '') + '"><div class="iberia-leg-route"><strong>' + (index + 1) + '. ' + escapeHtml(routeLeg.from) + ' → ' + escapeHtml(routeLeg.to) + '</strong></div><div class="iberia-leg-mode"><strong>方式</strong>' + escapeHtml(routeLeg.mode) + '</div><div class="iberia-leg-time"><strong>耗时</strong>' + escapeHtml(routeLeg.time) + '</div><div class="iberia-leg-cost"><strong>价格 <span class="iberia-leg-basis">' + escapeHtml(routeLeg.basis) + '</span></strong>' + escapeHtml(routeLeg.cost) + '</div><div class="iberia-leg-note">决策：' + escapeHtml(routeLeg.note) + '</div></div>').join('');
+      transportNote.textContent = day.transportNote;
     };
 
     const renderSchedule = (city) => {
       const data = cityData[city];
-      scheduleNav.innerHTML = Object.keys(cityData).map((key) => '<button type="button" class="' + (key === city ? 'is-active' : '') + '" data-schedule-city="' + key + '"><strong>' + cityData[key].name + '</strong><span>' + cityData[key].dates + '</span></button>').join('');
-      scheduleBody.innerHTML = data.days.map((day, index) => '<details class="iberia-day"' + (index === 0 ? ' open' : '') + '><summary><span class="iberia-day-date">' + day.date + '</span><span><span class="iberia-day-title">' + day.title + '</span><span class="iberia-day-meta">' + day.meta + '</span></span><span class="iberia-day-chevron">⌄</span></summary><div class="iberia-day-body">' + day.items.map((item) => '<div class="iberia-itinerary-item"><div class="iberia-time">' + item[0] + '</div><div><div class="iberia-itinerary-title">' + item[1] + '</div><div class="iberia-itinerary-note">' + item[2] + '</div><span class="iberia-pill ' + (item[5] === 'warn' ? 'is-warn' : item[5] === 'neutral' ? 'is-neutral' : '') + '">' + item[3] + ' · ' + item[4] + '</span></div></div>').join('') + '</div></details>').join('');
+      scheduleNav.innerHTML = Object.keys(cityData).map((key) => '<button type="button" class="' + (key === city ? 'is-active' : '') + '" data-schedule-city="' + key + '"><strong>' + escapeHtml(cityData[key].name) + '</strong><span>' + escapeHtml(cityData[key].dates) + '</span></button>').join('');
+      scheduleBody.innerHTML = data.days.map((day) => '<details class="iberia-day"' + (day.id === activeDayId ? ' open' : '') + '><summary><span class="iberia-day-date">' + escapeHtml(day.date) + '</span><span><span class="iberia-day-title">' + escapeHtml(day.title) + '</span><span class="iberia-day-meta">' + escapeHtml(day.meta) + '</span></span><span class="iberia-day-chevron">⌄</span></summary><div class="iberia-day-body">' + day.items.map((scheduleItem) => '<div class="iberia-itinerary-item"><div class="iberia-time">' + escapeHtml(scheduleItem.time) + '</div><div><div class="iberia-itinerary-title">' + escapeHtml(scheduleItem.title) + '</div><div class="iberia-itinerary-note">' + escapeHtml(scheduleItem.note) + '</div><span class="iberia-pill ' + (scheduleItem.tone === 'warn' ? 'is-warn' : scheduleItem.tone === 'neutral' ? 'is-neutral' : '') + '">' + escapeHtml(scheduleItem.mode) + ' · ' + escapeHtml(scheduleItem.cost) + '</span></div></div>').join('') + '<button class="iberia-day-route-button" type="button" data-schedule-day="' + day.id + '">查看当天地图路线</button></div></details>').join('');
       [...scheduleNav.querySelectorAll('[data-schedule-city]')].forEach((button) => button.addEventListener('click', () => selectCity(button.dataset.scheduleCity)));
+      [...scheduleBody.querySelectorAll('[data-schedule-day]')].forEach((button) => button.addEventListener('click', () => selectDay(city, button.dataset.scheduleDay)));
     };
 
-    const selectCity = (city) => {
-      activeCity = city;
+    const syncCityControls = (city) => {
       cityButtons.forEach((button) => {
         const active = button.dataset.city === city;
         button.classList.toggle('is-active', active);
@@ -577,39 +760,58 @@ permalink: /travel/iberia-2026/
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-pressed', String(active));
       });
-      renderTransport(city);
-      renderSchedule(city);
-      updateMap(city);
     };
 
-    const updateMap = (city) => {
+    const selectCity = (city) => {
+      activeCity = city;
+      activeDayId = cityData[city].days[0].id;
+      syncCityControls(city);
+      renderDayTabs(city, activeDayId);
+      renderRoute(city, activeDayId);
+      renderSchedule(city);
+      updateMap(city, activeDayId);
+    };
+
+    const selectDay = (city, dayId) => {
+      activeCity = city;
+      activeDayId = getDay(city, dayId).id;
+      syncCityControls(city);
+      renderDayTabs(city, activeDayId);
+      renderRoute(city, activeDayId);
+      renderSchedule(city);
+      updateMap(city, activeDayId);
+    };
+
+    const updateMap = (city, dayId) => {
       if (!map || !window.L) return;
       const data = cityData[city];
+      const day = getDay(city, dayId);
+      const coordinates = day.points.map((mapPoint) => mapPoint.coords);
       cityLayer.clearLayers();
-      const line = L.polyline(data.route, { color: '#d86e4e', weight: 4, opacity: .85 }).addTo(cityLayer);
-      data.points.forEach((point) => L.marker([point[1], point[2]], { icon: mapIcon }).bindPopup('<strong>' + point[0] + '</strong><br>' + point[3]).addTo(cityLayer));
-      map.fitBounds(line.getBounds().pad(.35), { maxZoom: data.zoom });
+      const line = L.polyline(coordinates, { color: '#d86e4e', weight: 4, opacity: .85 }).addTo(cityLayer);
+      day.points.forEach((mapPoint, index) => {
+        const icon = L.divIcon({ className: '', html: '<span class="iberia-map-marker">' + (index + 1) + '</span>', iconSize: [27, 27], iconAnchor: [13, 13], popupAnchor: [0, -15] });
+        const popup = '<div class="iberia-map-popup"><strong>' + (index + 1) + '. ' + escapeHtml(mapPoint.name) + '</strong><span>' + escapeHtml(mapPoint.note) + '</span></div>';
+        L.marker(mapPoint.coords, { icon }).bindPopup(popup).addTo(cityLayer);
+      });
+      map.fitBounds(line.getBounds().pad(.25), { maxZoom: data.zoom });
+      window.setTimeout(() => map.invalidateSize(), 0);
     };
 
     cityButtons.forEach((button) => button.addEventListener('click', () => selectCity(button.dataset.city)));
     cityTabs.forEach((button) => button.addEventListener('click', () => selectCity(button.dataset.cityTab)));
-    renderTransport(activeCity);
+    syncCityControls(activeCity);
+    renderDayTabs(activeCity, activeDayId);
+    renderRoute(activeCity, activeDayId);
     renderSchedule(activeCity);
 
     if (window.L) {
-      mapIcon = L.icon({
-        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-        iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
-      });
       map = L.map('iberia-map', { scrollWheelZoom: false, zoomControl: true }).setView(cityData.lisbon.center, cityData.lisbon.zoom);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
-      L.polyline(Object.keys(cityData).map((key) => cityData[key].center), { color: '#2a8077', weight: 2, dashArray: '6 8', opacity: .8 }).addTo(map);
       cityLayer = L.layerGroup().addTo(map);
-      updateMap(activeCity);
+      updateMap(activeCity, activeDayId);
     } else {
-      page.querySelector('#iberia-map').innerHTML = '<div style="padding:20px;color:#73786f">地图资源暂时不可用，路线和交通比较仍可正常查看。</div>';
+      page.querySelector('#iberia-map').innerHTML = '<div style="padding:20px;color:#73786f">地图资源暂时不可用，文字路线和交通明细仍可查看。</div>';
     }
   })();
 </script>
