@@ -8,3 +8,5 @@
 - 工作区已有用户未提交 CSS 修改：`source/css/coze-style.css`、`source/css/custom-enhancements.css`，不得覆盖或提交。
 - 实现校验：删除马德里、巴塞罗那旧城市级路线/交通比较字段；逐日 `points / legs / items` 是唯一数据源。
 - 实现校验：为若干路线补齐地图终点（09/24 回酒店、09/25 晚餐、09/27 游船、09/30 马德里酒店），并移除交通备注重复渲染。
+- 发布校验：主分支提交 `88bf033`，GitHub Pages `gh-pages` 发布提交 `27096e4`；公网缓存参数访问已确认新地图、酒店、贝伦路线和 15 段交通明细。
+- 验证记录：全站构建仍有仓库既有 Butterfly/Stylus 与 `hexo-wordcount` 日志，但旅行页成功生成；未修改两份用户 CSS。
